@@ -1,0 +1,5333 @@
+{
+  "generatedAt": "Tue, May 12, 1:04 PM",
+  "targetDates": [
+    "2026-05-12",
+    "2026-05-13",
+    "2026-05-14",
+    "2026-05-15",
+    "2026-05-16",
+    "2026-05-17",
+    "2026-05-18"
+  ],
+  "results": [
+    {
+      "clubName": "Laurel Springs Golf Club",
+      "date": "2026-05-12",
+      "slots": [
+        {
+          "display": "08:30 AM",
+          "hour": 8,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "08:40 AM",
+          "hour": 8,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:50 AM",
+          "hour": 8,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:00 AM",
+          "hour": 9,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:10 AM",
+          "hour": 9,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:20 AM",
+          "hour": 9,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:30 AM",
+          "hour": 9,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "10:10 AM",
+          "hour": 10,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:20 AM",
+          "hour": 10,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:30 AM",
+          "hour": 10,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:40 AM",
+          "hour": 10,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:50 AM",
+          "hour": 10,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:10 AM",
+          "hour": 11,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:20 AM",
+          "hour": 11,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:30 AM",
+          "hour": 11,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:40 AM",
+          "hour": 11,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:00 PM",
+          "hour": 12,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:10 PM",
+          "hour": 12,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:50 PM",
+          "hour": 12,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:20 PM",
+          "hour": 15,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:30 PM",
+          "hour": 15,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:40 PM",
+          "hour": 15,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:10 PM",
+          "hour": 16,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:30 PM",
+          "hour": 16,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:40 PM",
+          "hour": 16,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:50 PM",
+          "hour": 16,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:00 PM",
+          "hour": 17,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:20 PM",
+          "hour": 17,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:30 PM",
+          "hour": 17,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:40 PM",
+          "hour": 17,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Laurel Springs Golf Club",
+      "date": "2026-05-13",
+      "slots": [
+        {
+          "display": "08:50 AM",
+          "hour": 8,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:30 AM",
+          "hour": 9,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:40 AM",
+          "hour": 9,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:50 AM",
+          "hour": 9,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:00 AM",
+          "hour": 10,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:10 AM",
+          "hour": 10,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:20 AM",
+          "hour": 10,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:30 AM",
+          "hour": 10,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:40 AM",
+          "hour": 10,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:50 AM",
+          "hour": 10,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:10 AM",
+          "hour": 11,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:20 AM",
+          "hour": 11,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:30 AM",
+          "hour": 11,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:40 AM",
+          "hour": 11,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:00 PM",
+          "hour": 12,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:10 PM",
+          "hour": 12,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:50 PM",
+          "hour": 12,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:20 PM",
+          "hour": 15,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:30 PM",
+          "hour": 15,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:40 PM",
+          "hour": 15,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:00 PM",
+          "hour": 16,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:10 PM",
+          "hour": 16,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:30 PM",
+          "hour": 16,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:40 PM",
+          "hour": 16,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:50 PM",
+          "hour": 16,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:00 PM",
+          "hour": 17,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:20 PM",
+          "hour": 17,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:30 PM",
+          "hour": 17,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:40 PM",
+          "hour": 17,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Laurel Springs Golf Club",
+      "date": "2026-05-14",
+      "slots": [
+        {
+          "display": "08:30 AM",
+          "hour": 8,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "08:40 AM",
+          "hour": 8,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "08:50 AM",
+          "hour": 8,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:00 AM",
+          "hour": 9,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:10 AM",
+          "hour": 9,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:20 AM",
+          "hour": 9,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:30 AM",
+          "hour": 9,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:40 AM",
+          "hour": 9,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:50 AM",
+          "hour": 9,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:00 AM",
+          "hour": 10,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:10 AM",
+          "hour": 10,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:20 AM",
+          "hour": 10,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:30 AM",
+          "hour": 10,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:40 AM",
+          "hour": 10,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:50 AM",
+          "hour": 10,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:10 AM",
+          "hour": 11,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:20 AM",
+          "hour": 11,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:30 AM",
+          "hour": 11,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:40 AM",
+          "hour": 11,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:00 PM",
+          "hour": 12,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:10 PM",
+          "hour": 12,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:50 PM",
+          "hour": 12,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:20 PM",
+          "hour": 15,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:30 PM",
+          "hour": 15,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:40 PM",
+          "hour": 15,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:00 PM",
+          "hour": 16,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:10 PM",
+          "hour": 16,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:30 PM",
+          "hour": 16,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:40 PM",
+          "hour": 16,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:50 PM",
+          "hour": 16,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:00 PM",
+          "hour": 17,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:20 PM",
+          "hour": 17,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:30 PM",
+          "hour": 17,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:40 PM",
+          "hour": 17,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Laurel Springs Golf Club",
+      "date": "2026-05-15",
+      "slots": [
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:20 PM",
+          "hour": 15,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:30 PM",
+          "hour": 15,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:40 PM",
+          "hour": 15,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:00 PM",
+          "hour": 16,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:10 PM",
+          "hour": 16,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:30 PM",
+          "hour": 16,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:40 PM",
+          "hour": 16,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:50 PM",
+          "hour": 16,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:00 PM",
+          "hour": 17,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:20 PM",
+          "hour": 17,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:30 PM",
+          "hour": 17,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:40 PM",
+          "hour": 17,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Laurel Springs Golf Club",
+      "date": "2026-05-16",
+      "slots": [
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:10 AM",
+          "hour": 11,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:20 AM",
+          "hour": 11,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:30 AM",
+          "hour": 11,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:40 AM",
+          "hour": 11,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:00 PM",
+          "hour": 12,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:10 PM",
+          "hour": 12,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:50 PM",
+          "hour": 12,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:20 PM",
+          "hour": 15,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:30 PM",
+          "hour": 15,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:40 PM",
+          "hour": 15,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:00 PM",
+          "hour": 16,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:10 PM",
+          "hour": 16,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:30 PM",
+          "hour": 16,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:40 PM",
+          "hour": 16,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:50 PM",
+          "hour": 16,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:00 PM",
+          "hour": 17,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:20 PM",
+          "hour": 17,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:30 PM",
+          "hour": 17,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:40 PM",
+          "hour": 17,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Laurel Springs Golf Club",
+      "date": "2026-05-17",
+      "slots": [
+        {
+          "display": "08:10 AM",
+          "hour": 8,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "08:20 AM",
+          "hour": 8,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "08:30 AM",
+          "hour": 8,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "08:40 AM",
+          "hour": 8,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "08:50 AM",
+          "hour": 8,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:00 AM",
+          "hour": 9,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:10 AM",
+          "hour": 9,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:20 AM",
+          "hour": 9,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:40 AM",
+          "hour": 9,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:50 AM",
+          "hour": 9,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:00 AM",
+          "hour": 10,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:10 AM",
+          "hour": 10,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:20 AM",
+          "hour": 10,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:30 AM",
+          "hour": 10,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:40 AM",
+          "hour": 10,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:50 AM",
+          "hour": 10,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:10 AM",
+          "hour": 11,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:20 AM",
+          "hour": 11,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:30 AM",
+          "hour": 11,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:40 AM",
+          "hour": 11,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:00 PM",
+          "hour": 12,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:10 PM",
+          "hour": 12,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:50 PM",
+          "hour": 12,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:20 PM",
+          "hour": 15,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:30 PM",
+          "hour": 15,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:40 PM",
+          "hour": 15,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:00 PM",
+          "hour": 16,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:10 PM",
+          "hour": 16,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:30 PM",
+          "hour": 16,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:40 PM",
+          "hour": 16,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:50 PM",
+          "hour": 16,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:00 PM",
+          "hour": 17,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:20 PM",
+          "hour": 17,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:30 PM",
+          "hour": 17,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:40 PM",
+          "hour": 17,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Laurel Springs Golf Club",
+      "date": "2026-05-18",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Brookfield Country Club",
+      "date": "2026-05-12",
+      "slots": [
+        {
+          "display": "08:00 AM",
+          "hour": 8,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "08:10 AM",
+          "hour": 8,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:00 AM",
+          "hour": 10,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "10:30 AM",
+          "hour": 10,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "10:50 AM",
+          "hour": 10,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:40 AM",
+          "hour": 11,
+          "minutes": 40,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:00 PM",
+          "hour": 12,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:10 PM",
+          "hour": 12,
+          "minutes": 10,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:50 PM",
+          "hour": 12,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Brookfield Country Club",
+      "date": "2026-05-13",
+      "slots": [
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:30 PM",
+          "hour": 15,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "03:40 PM",
+          "hour": 15,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "04:00 PM",
+          "hour": 16,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "04:50 PM",
+          "hour": 16,
+          "minutes": 50,
+          "slotsAvailable": 2
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Brookfield Country Club",
+      "date": "2026-05-14",
+      "slots": [
+        {
+          "display": "09:40 AM",
+          "hour": 9,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:50 AM",
+          "hour": 9,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:10 AM",
+          "hour": 10,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:20 AM",
+          "hour": 10,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:30 AM",
+          "hour": 10,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:40 AM",
+          "hour": 10,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:20 AM",
+          "hour": 11,
+          "minutes": 20,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:30 AM",
+          "hour": 11,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:40 AM",
+          "hour": 11,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Brookfield Country Club",
+      "date": "2026-05-15",
+      "slots": [
+        {
+          "display": "10:20 AM",
+          "hour": 10,
+          "minutes": 20,
+          "slotsAvailable": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Brookfield Country Club",
+      "date": "2026-05-16",
+      "slots": [],
+      "unavailable": true
+    },
+    {
+      "clubName": "Brookfield Country Club",
+      "date": "2026-05-17",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Brookfield Country Club",
+      "date": "2026-05-18",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "The Clubs of Peachtree City",
+      "date": "2026-05-12",
+      "slots": [
+        {
+          "display": "08:06 AM",
+          "hour": 8,
+          "minutes": 6,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "08:14 AM",
+          "hour": 8,
+          "minutes": 14,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "08:22 AM",
+          "hour": 8,
+          "minutes": 22,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:30 AM",
+          "hour": 8,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:46 AM",
+          "hour": 8,
+          "minutes": 46,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:54 AM",
+          "hour": 8,
+          "minutes": 54,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:02 AM",
+          "hour": 9,
+          "minutes": 2,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "09:26 AM",
+          "hour": 9,
+          "minutes": 26,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "09:34 AM",
+          "hour": 9,
+          "minutes": 34,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:58 AM",
+          "hour": 9,
+          "minutes": 58,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:06 AM",
+          "hour": 10,
+          "minutes": 6,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "10:14 AM",
+          "hour": 10,
+          "minutes": 14,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:22 AM",
+          "hour": 10,
+          "minutes": 22,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "10:38 AM",
+          "hour": 10,
+          "minutes": 38,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "10:46 AM",
+          "hour": 10,
+          "minutes": 46,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:54 AM",
+          "hour": 10,
+          "minutes": 54,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:10 AM",
+          "hour": 11,
+          "minutes": 10,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "11:18 AM",
+          "hour": 11,
+          "minutes": 18,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:34 AM",
+          "hour": 11,
+          "minutes": 34,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "11:58 AM",
+          "hour": 11,
+          "minutes": 58,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:06 PM",
+          "hour": 12,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:22 PM",
+          "hour": 12,
+          "minutes": 22,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:38 PM",
+          "hour": 12,
+          "minutes": 38,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:46 PM",
+          "hour": 12,
+          "minutes": 46,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "12:54 PM",
+          "hour": 12,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:02 PM",
+          "hour": 13,
+          "minutes": 2,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:18 PM",
+          "hour": 13,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:26 PM",
+          "hour": 13,
+          "minutes": 26,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:34 PM",
+          "hour": 13,
+          "minutes": 34,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:42 PM",
+          "hour": 13,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:58 PM",
+          "hour": 13,
+          "minutes": 58,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:06 PM",
+          "hour": 14,
+          "minutes": 6,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:14 PM",
+          "hour": 14,
+          "minutes": 14,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "02:22 PM",
+          "hour": 14,
+          "minutes": 22,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:38 PM",
+          "hour": 14,
+          "minutes": 38,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "02:46 PM",
+          "hour": 14,
+          "minutes": 46,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:54 PM",
+          "hour": 14,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:02 PM",
+          "hour": 15,
+          "minutes": 2,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:18 PM",
+          "hour": 15,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:26 PM",
+          "hour": 15,
+          "minutes": 26,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:34 PM",
+          "hour": 15,
+          "minutes": 34,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:42 PM",
+          "hour": 15,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:58 PM",
+          "hour": 15,
+          "minutes": 58,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:06 PM",
+          "hour": 16,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:14 PM",
+          "hour": 16,
+          "minutes": 14,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:22 PM",
+          "hour": 16,
+          "minutes": 22,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:46 PM",
+          "hour": 16,
+          "minutes": 46,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:54 PM",
+          "hour": 16,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:02 PM",
+          "hour": 17,
+          "minutes": 2,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:18 PM",
+          "hour": 17,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:26 PM",
+          "hour": 17,
+          "minutes": 26,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:34 PM",
+          "hour": 17,
+          "minutes": 34,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:42 PM",
+          "hour": 17,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:58 PM",
+          "hour": 17,
+          "minutes": 58,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:06 PM",
+          "hour": 18,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:14 PM",
+          "hour": 18,
+          "minutes": 14,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:22 PM",
+          "hour": 18,
+          "minutes": 22,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:30 PM",
+          "hour": 18,
+          "minutes": 30,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "The Clubs of Peachtree City",
+      "date": "2026-05-13",
+      "slots": [
+        {
+          "display": "10:38 AM",
+          "hour": 10,
+          "minutes": 38,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:46 AM",
+          "hour": 10,
+          "minutes": 46,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:54 AM",
+          "hour": 10,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:02 AM",
+          "hour": 11,
+          "minutes": 2,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:10 AM",
+          "hour": 11,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:18 AM",
+          "hour": 11,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:26 AM",
+          "hour": 11,
+          "minutes": 26,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "11:34 AM",
+          "hour": 11,
+          "minutes": 34,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:42 AM",
+          "hour": 11,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:58 AM",
+          "hour": 11,
+          "minutes": 58,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:06 PM",
+          "hour": 12,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:14 PM",
+          "hour": 12,
+          "minutes": 14,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:22 PM",
+          "hour": 12,
+          "minutes": 22,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:38 PM",
+          "hour": 12,
+          "minutes": 38,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:46 PM",
+          "hour": 12,
+          "minutes": 46,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:54 PM",
+          "hour": 12,
+          "minutes": 54,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:02 PM",
+          "hour": 13,
+          "minutes": 2,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:18 PM",
+          "hour": 13,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:26 PM",
+          "hour": 13,
+          "minutes": 26,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:34 PM",
+          "hour": 13,
+          "minutes": 34,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:42 PM",
+          "hour": 13,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:58 PM",
+          "hour": 13,
+          "minutes": 58,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:06 PM",
+          "hour": 14,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:14 PM",
+          "hour": 14,
+          "minutes": 14,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:22 PM",
+          "hour": 14,
+          "minutes": 22,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:38 PM",
+          "hour": 14,
+          "minutes": 38,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:46 PM",
+          "hour": 14,
+          "minutes": 46,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:54 PM",
+          "hour": 14,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:02 PM",
+          "hour": 15,
+          "minutes": 2,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:18 PM",
+          "hour": 15,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:26 PM",
+          "hour": 15,
+          "minutes": 26,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:34 PM",
+          "hour": 15,
+          "minutes": 34,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:42 PM",
+          "hour": 15,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "The Clubs of Peachtree City",
+      "date": "2026-05-14",
+      "slots": [
+        {
+          "display": "08:06 AM",
+          "hour": 8,
+          "minutes": 6,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:22 AM",
+          "hour": 8,
+          "minutes": 22,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "08:38 AM",
+          "hour": 8,
+          "minutes": 38,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "08:46 AM",
+          "hour": 8,
+          "minutes": 46,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "09:26 AM",
+          "hour": 9,
+          "minutes": 26,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "09:34 AM",
+          "hour": 9,
+          "minutes": 34,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:42 AM",
+          "hour": 9,
+          "minutes": 42,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:50 AM",
+          "hour": 9,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:06 AM",
+          "hour": 10,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:30 AM",
+          "hour": 10,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:10 AM",
+          "hour": 11,
+          "minutes": 10,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:26 AM",
+          "hour": 11,
+          "minutes": 26,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:34 AM",
+          "hour": 11,
+          "minutes": 34,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:42 AM",
+          "hour": 11,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:14 PM",
+          "hour": 12,
+          "minutes": 14,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:22 PM",
+          "hour": 12,
+          "minutes": 22,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:38 PM",
+          "hour": 12,
+          "minutes": 38,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:46 PM",
+          "hour": 12,
+          "minutes": 46,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:54 PM",
+          "hour": 12,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:02 PM",
+          "hour": 13,
+          "minutes": 2,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:26 PM",
+          "hour": 13,
+          "minutes": 26,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:34 PM",
+          "hour": 13,
+          "minutes": 34,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:42 PM",
+          "hour": 13,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:58 PM",
+          "hour": 13,
+          "minutes": 58,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:06 PM",
+          "hour": 14,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:14 PM",
+          "hour": 14,
+          "minutes": 14,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:22 PM",
+          "hour": 14,
+          "minutes": 22,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "02:38 PM",
+          "hour": 14,
+          "minutes": 38,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:46 PM",
+          "hour": 14,
+          "minutes": 46,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:54 PM",
+          "hour": 14,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:02 PM",
+          "hour": 15,
+          "minutes": 2,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:18 PM",
+          "hour": 15,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:26 PM",
+          "hour": 15,
+          "minutes": 26,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:34 PM",
+          "hour": 15,
+          "minutes": 34,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:42 PM",
+          "hour": 15,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:06 PM",
+          "hour": 16,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:14 PM",
+          "hour": 16,
+          "minutes": 14,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:46 PM",
+          "hour": 16,
+          "minutes": 46,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "04:54 PM",
+          "hour": 16,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:02 PM",
+          "hour": 17,
+          "minutes": 2,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:42 PM",
+          "hour": 17,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:58 PM",
+          "hour": 17,
+          "minutes": 58,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:06 PM",
+          "hour": 18,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:14 PM",
+          "hour": 18,
+          "minutes": 14,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:22 PM",
+          "hour": 18,
+          "minutes": 22,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:30 PM",
+          "hour": 18,
+          "minutes": 30,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "The Clubs of Peachtree City",
+      "date": "2026-05-15",
+      "slots": [
+        {
+          "display": "10:06 AM",
+          "hour": 10,
+          "minutes": 6,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "The Clubs of Peachtree City",
+      "date": "2026-05-16",
+      "slots": [],
+      "unavailable": true
+    },
+    {
+      "clubName": "The Clubs of Peachtree City",
+      "date": "2026-05-17",
+      "slots": [
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "The Clubs of Peachtree City",
+      "date": "2026-05-18",
+      "slots": [
+        {
+          "display": "10:06 AM",
+          "hour": 10,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:02 PM",
+          "hour": 13,
+          "minutes": 2,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Windermere Golf Club",
+      "date": "2026-05-12",
+      "slots": [
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:20 PM",
+          "hour": 15,
+          "minutes": 20,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:00 PM",
+          "hour": 16,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:10 PM",
+          "hour": 16,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:40 PM",
+          "hour": 16,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:50 PM",
+          "hour": 16,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:00 PM",
+          "hour": 17,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "05:20 PM",
+          "hour": 17,
+          "minutes": 20,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "05:30 PM",
+          "hour": 17,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "06:00 PM",
+          "hour": 18,
+          "minutes": 0,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "06:10 PM",
+          "hour": 18,
+          "minutes": 10,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "06:20 PM",
+          "hour": 18,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:30 PM",
+          "hour": 18,
+          "minutes": 30,
+          "slotsAvailable": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Windermere Golf Club",
+      "date": "2026-05-13",
+      "slots": [
+        {
+          "display": "08:10 AM",
+          "hour": 8,
+          "minutes": 10,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:20 AM",
+          "hour": 8,
+          "minutes": 20,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:20 AM",
+          "hour": 9,
+          "minutes": 20,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "10:00 AM",
+          "hour": 10,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "10:10 AM",
+          "hour": 10,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:10 PM",
+          "hour": 12,
+          "minutes": 10,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:00 PM",
+          "hour": 18,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:10 PM",
+          "hour": 18,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:20 PM",
+          "hour": 18,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:30 PM",
+          "hour": 18,
+          "minutes": 30,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Windermere Golf Club",
+      "date": "2026-05-14",
+      "slots": [
+        {
+          "display": "08:00 AM",
+          "hour": 8,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "08:30 AM",
+          "hour": 8,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "09:10 AM",
+          "hour": 9,
+          "minutes": 10,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "09:20 AM",
+          "hour": 9,
+          "minutes": 20,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:30 AM",
+          "hour": 9,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "09:50 AM",
+          "hour": 9,
+          "minutes": 50,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "10:50 AM",
+          "hour": 10,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:10 AM",
+          "hour": 11,
+          "minutes": 10,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:40 AM",
+          "hour": 11,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:50 PM",
+          "hour": 12,
+          "minutes": 50,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "06:00 PM",
+          "hour": 18,
+          "minutes": 0,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "06:10 PM",
+          "hour": 18,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:20 PM",
+          "hour": 18,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:30 PM",
+          "hour": 18,
+          "minutes": 30,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Windermere Golf Club",
+      "date": "2026-05-15",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Windermere Golf Club",
+      "date": "2026-05-16",
+      "slots": [],
+      "unavailable": true
+    },
+    {
+      "clubName": "Windermere Golf Club",
+      "date": "2026-05-17",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Windermere Golf Club",
+      "date": "2026-05-18",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Eagle Watch Golf Club",
+      "date": "2026-05-12",
+      "slots": [
+        {
+          "display": "08:42 AM",
+          "hour": 8,
+          "minutes": 42,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "08:51 AM",
+          "hour": 8,
+          "minutes": 51,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:18 PM",
+          "hour": 12,
+          "minutes": 18,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:27 PM",
+          "hour": 12,
+          "minutes": 27,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:36 PM",
+          "hour": 12,
+          "minutes": 36,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:54 PM",
+          "hour": 12,
+          "minutes": 54,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:21 PM",
+          "hour": 13,
+          "minutes": 21,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:48 PM",
+          "hour": 13,
+          "minutes": 48,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:15 PM",
+          "hour": 14,
+          "minutes": 15,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "02:24 PM",
+          "hour": 14,
+          "minutes": 24,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:42 PM",
+          "hour": 14,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:51 PM",
+          "hour": 14,
+          "minutes": 51,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "03:09 PM",
+          "hour": 15,
+          "minutes": 9,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "03:18 PM",
+          "hour": 15,
+          "minutes": 18,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "03:36 PM",
+          "hour": 15,
+          "minutes": 36,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:45 PM",
+          "hour": 15,
+          "minutes": 45,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:54 PM",
+          "hour": 15,
+          "minutes": 54,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "04:03 PM",
+          "hour": 16,
+          "minutes": 3,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "04:12 PM",
+          "hour": 16,
+          "minutes": 12,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "04:21 PM",
+          "hour": 16,
+          "minutes": 21,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "04:30 PM",
+          "hour": 16,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:39 PM",
+          "hour": 16,
+          "minutes": 39,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:48 PM",
+          "hour": 16,
+          "minutes": 48,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "04:57 PM",
+          "hour": 16,
+          "minutes": 57,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:06 PM",
+          "hour": 17,
+          "minutes": 6,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:51 PM",
+          "hour": 17,
+          "minutes": 51,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "06:00 PM",
+          "hour": 18,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:09 PM",
+          "hour": 18,
+          "minutes": 9,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "06:18 PM",
+          "hour": 18,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:27 PM",
+          "hour": 18,
+          "minutes": 27,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Eagle Watch Golf Club",
+      "date": "2026-05-13",
+      "slots": [
+        {
+          "display": "08:15 AM",
+          "hour": 8,
+          "minutes": 15,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:24 AM",
+          "hour": 8,
+          "minutes": 24,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:27 PM",
+          "hour": 12,
+          "minutes": 27,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "12:45 PM",
+          "hour": 12,
+          "minutes": 45,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:03 PM",
+          "hour": 13,
+          "minutes": 3,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:12 PM",
+          "hour": 13,
+          "minutes": 12,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:21 PM",
+          "hour": 13,
+          "minutes": 21,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:39 PM",
+          "hour": 13,
+          "minutes": 39,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:57 PM",
+          "hour": 13,
+          "minutes": 57,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:15 PM",
+          "hour": 14,
+          "minutes": 15,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:24 PM",
+          "hour": 14,
+          "minutes": 24,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:33 PM",
+          "hour": 14,
+          "minutes": 33,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "02:42 PM",
+          "hour": 14,
+          "minutes": 42,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:51 PM",
+          "hour": 14,
+          "minutes": 51,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:09 PM",
+          "hour": 15,
+          "minutes": 9,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:18 PM",
+          "hour": 15,
+          "minutes": 18,
+          "slotsAvailable": 3
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Eagle Watch Golf Club",
+      "date": "2026-05-14",
+      "slots": [
+        {
+          "display": "06:45 PM",
+          "hour": 18,
+          "minutes": 45,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:54 PM",
+          "hour": 18,
+          "minutes": 54,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Eagle Watch Golf Club",
+      "date": "2026-05-15",
+      "slots": [
+        {
+          "display": "10:03 AM",
+          "hour": 10,
+          "minutes": 3,
+          "slotsAvailable": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Eagle Watch Golf Club",
+      "date": "2026-05-16",
+      "slots": [],
+      "unavailable": true
+    },
+    {
+      "clubName": "Eagle Watch Golf Club",
+      "date": "2026-05-17",
+      "slots": [
+        {
+          "display": "06:09 PM",
+          "hour": 18,
+          "minutes": 9,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Eagle Watch Golf Club",
+      "date": "2026-05-18",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Polo Golf & Country Club",
+      "date": "2026-05-12",
+      "slots": [
+        {
+          "display": "12:00 PM",
+          "hour": 12,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Polo Golf & Country Club",
+      "date": "2026-05-13",
+      "slots": [
+        {
+          "display": "10:20 AM",
+          "hour": 10,
+          "minutes": 20,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "10:50 AM",
+          "hour": 10,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:20 AM",
+          "hour": 11,
+          "minutes": 20,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:30 AM",
+          "hour": 11,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:20 PM",
+          "hour": 15,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:30 PM",
+          "hour": 15,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:40 PM",
+          "hour": 15,
+          "minutes": 40,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "04:00 PM",
+          "hour": 16,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "04:10 PM",
+          "hour": 16,
+          "minutes": 10,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:40 PM",
+          "hour": 16,
+          "minutes": 40,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "06:00 PM",
+          "hour": 18,
+          "minutes": 0,
+          "slotsAvailable": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Polo Golf & Country Club",
+      "date": "2026-05-14",
+      "slots": [
+        {
+          "display": "10:50 AM",
+          "hour": 10,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "11:20 AM",
+          "hour": 11,
+          "minutes": 20,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:30 AM",
+          "hour": 11,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:40 AM",
+          "hour": 11,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:10 PM",
+          "hour": 12,
+          "minutes": 10,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "12:40 PM",
+          "hour": 12,
+          "minutes": 40,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "05:20 PM",
+          "hour": 17,
+          "minutes": 20,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "05:30 PM",
+          "hour": 17,
+          "minutes": 30,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Polo Golf & Country Club",
+      "date": "2026-05-15",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Polo Golf & Country Club",
+      "date": "2026-05-16",
+      "slots": [],
+      "unavailable": true
+    },
+    {
+      "clubName": "Polo Golf & Country Club",
+      "date": "2026-05-17",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Polo Golf & Country Club",
+      "date": "2026-05-18",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Atlanta National Golf Club",
+      "date": "2026-05-12",
+      "slots": [
+        {
+          "display": "08:40 AM",
+          "hour": 8,
+          "minutes": 40,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:50 AM",
+          "hour": 8,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:20 AM",
+          "hour": 9,
+          "minutes": 20,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:30 AM",
+          "hour": 9,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "09:40 AM",
+          "hour": 9,
+          "minutes": 40,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "09:50 AM",
+          "hour": 9,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:00 AM",
+          "hour": 10,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:50 AM",
+          "hour": 10,
+          "minutes": 50,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:20 AM",
+          "hour": 11,
+          "minutes": 20,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:50 AM",
+          "hour": 11,
+          "minutes": 50,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:00 PM",
+          "hour": 12,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:10 PM",
+          "hour": 12,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:20 PM",
+          "hour": 12,
+          "minutes": 20,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "12:50 PM",
+          "hour": 12,
+          "minutes": 50,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:10 PM",
+          "hour": 13,
+          "minutes": 10,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:20 PM",
+          "hour": 13,
+          "minutes": 20,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:30 PM",
+          "hour": 13,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:40 PM",
+          "hour": 13,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:50 PM",
+          "hour": 13,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "02:10 PM",
+          "hour": 14,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:20 PM",
+          "hour": 14,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:30 PM",
+          "hour": 14,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:40 PM",
+          "hour": 14,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:50 PM",
+          "hour": 14,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:00 PM",
+          "hour": 15,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:10 PM",
+          "hour": 15,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:20 PM",
+          "hour": 15,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:30 PM",
+          "hour": 15,
+          "minutes": 30,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "03:40 PM",
+          "hour": 15,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "03:50 PM",
+          "hour": 15,
+          "minutes": 50,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "04:00 PM",
+          "hour": 16,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:10 PM",
+          "hour": 16,
+          "minutes": 10,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "04:20 PM",
+          "hour": 16,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:30 PM",
+          "hour": 16,
+          "minutes": 30,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "04:40 PM",
+          "hour": 16,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "04:50 PM",
+          "hour": 16,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:00 PM",
+          "hour": 17,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:10 PM",
+          "hour": 17,
+          "minutes": 10,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:20 PM",
+          "hour": 17,
+          "minutes": 20,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:30 PM",
+          "hour": 17,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "05:40 PM",
+          "hour": 17,
+          "minutes": 40,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:50 PM",
+          "hour": 17,
+          "minutes": 50,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:00 PM",
+          "hour": 18,
+          "minutes": 0,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Atlanta National Golf Club",
+      "date": "2026-05-13",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Atlanta National Golf Club",
+      "date": "2026-05-14",
+      "slots": [
+        {
+          "display": "11:00 AM",
+          "hour": 11,
+          "minutes": 0,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:30 AM",
+          "hour": 11,
+          "minutes": 30,
+          "slotsAvailable": 1
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Atlanta National Golf Club",
+      "date": "2026-05-15",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Atlanta National Golf Club",
+      "date": "2026-05-16",
+      "slots": [],
+      "unavailable": true
+    },
+    {
+      "clubName": "Atlanta National Golf Club",
+      "date": "2026-05-17",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Atlanta National Golf Club",
+      "date": "2026-05-18",
+      "slots": [
+        {
+          "display": "01:00 PM",
+          "hour": 13,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Brookstone Golf & Country Club",
+      "date": "2026-05-12",
+      "slots": [
+        {
+          "display": "08:09 AM",
+          "hour": 8,
+          "minutes": 9,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "08:27 AM",
+          "hour": 8,
+          "minutes": 27,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "08:36 AM",
+          "hour": 8,
+          "minutes": 36,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:45 AM",
+          "hour": 8,
+          "minutes": 45,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:03 AM",
+          "hour": 9,
+          "minutes": 3,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:12 AM",
+          "hour": 9,
+          "minutes": 12,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "09:21 AM",
+          "hour": 9,
+          "minutes": 21,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:54 AM",
+          "hour": 11,
+          "minutes": 54,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:03 PM",
+          "hour": 12,
+          "minutes": 3,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:12 PM",
+          "hour": 12,
+          "minutes": 12,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:21 PM",
+          "hour": 12,
+          "minutes": 21,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:39 PM",
+          "hour": 12,
+          "minutes": 39,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:48 PM",
+          "hour": 12,
+          "minutes": 48,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:57 PM",
+          "hour": 12,
+          "minutes": 57,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:15 PM",
+          "hour": 13,
+          "minutes": 15,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:24 PM",
+          "hour": 13,
+          "minutes": 24,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:33 PM",
+          "hour": 13,
+          "minutes": 33,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:42 PM",
+          "hour": 13,
+          "minutes": 42,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:51 PM",
+          "hour": 13,
+          "minutes": 51,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:09 PM",
+          "hour": 14,
+          "minutes": 9,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:18 PM",
+          "hour": 14,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:27 PM",
+          "hour": 14,
+          "minutes": 27,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:36 PM",
+          "hour": 14,
+          "minutes": 36,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:45 PM",
+          "hour": 14,
+          "minutes": 45,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:54 PM",
+          "hour": 14,
+          "minutes": 54,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:03 PM",
+          "hour": 15,
+          "minutes": 3,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "03:12 PM",
+          "hour": 15,
+          "minutes": 12,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "05:45 PM",
+          "hour": 17,
+          "minutes": 45,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "06:03 PM",
+          "hour": 18,
+          "minutes": 3,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:12 PM",
+          "hour": 18,
+          "minutes": 12,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "06:21 PM",
+          "hour": 18,
+          "minutes": 21,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "06:30 PM",
+          "hour": 18,
+          "minutes": 30,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Brookstone Golf & Country Club",
+      "date": "2026-05-13",
+      "slots": [
+        {
+          "display": "08:09 AM",
+          "hour": 8,
+          "minutes": 9,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "08:18 AM",
+          "hour": 8,
+          "minutes": 18,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "08:27 AM",
+          "hour": 8,
+          "minutes": 27,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "08:36 AM",
+          "hour": 8,
+          "minutes": 36,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "08:45 AM",
+          "hour": 8,
+          "minutes": 45,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "09:57 AM",
+          "hour": 9,
+          "minutes": 57,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:15 AM",
+          "hour": 10,
+          "minutes": 15,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "10:24 AM",
+          "hour": 10,
+          "minutes": 24,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "10:33 AM",
+          "hour": 10,
+          "minutes": 33,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "10:42 AM",
+          "hour": 10,
+          "minutes": 42,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "10:51 AM",
+          "hour": 10,
+          "minutes": 51,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:18 AM",
+          "hour": 11,
+          "minutes": 18,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:27 AM",
+          "hour": 11,
+          "minutes": 27,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "11:45 AM",
+          "hour": 11,
+          "minutes": 45,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:03 PM",
+          "hour": 12,
+          "minutes": 3,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "12:12 PM",
+          "hour": 12,
+          "minutes": 12,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "12:21 PM",
+          "hour": 12,
+          "minutes": 21,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:39 PM",
+          "hour": 12,
+          "minutes": 39,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:48 PM",
+          "hour": 12,
+          "minutes": 48,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "12:57 PM",
+          "hour": 12,
+          "minutes": 57,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:15 PM",
+          "hour": 13,
+          "minutes": 15,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "01:24 PM",
+          "hour": 13,
+          "minutes": 24,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:33 PM",
+          "hour": 13,
+          "minutes": 33,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "01:42 PM",
+          "hour": 13,
+          "minutes": 42,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:09 PM",
+          "hour": 14,
+          "minutes": 9,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:18 PM",
+          "hour": 14,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:27 PM",
+          "hour": 14,
+          "minutes": 27,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:36 PM",
+          "hour": 14,
+          "minutes": 36,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "02:45 PM",
+          "hour": 14,
+          "minutes": 45,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:54 PM",
+          "hour": 14,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "05:45 PM",
+          "hour": 17,
+          "minutes": 45,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "05:54 PM",
+          "hour": 17,
+          "minutes": 54,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:03 PM",
+          "hour": 18,
+          "minutes": 3,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:12 PM",
+          "hour": 18,
+          "minutes": 12,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:21 PM",
+          "hour": 18,
+          "minutes": 21,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:30 PM",
+          "hour": 18,
+          "minutes": 30,
+          "slotsAvailable": 4
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Brookstone Golf & Country Club",
+      "date": "2026-05-14",
+      "slots": [
+        {
+          "display": "08:27 AM",
+          "hour": 8,
+          "minutes": 27,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "08:36 AM",
+          "hour": 8,
+          "minutes": 36,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "08:45 AM",
+          "hour": 8,
+          "minutes": 45,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "08:54 AM",
+          "hour": 8,
+          "minutes": 54,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "09:03 AM",
+          "hour": 9,
+          "minutes": 3,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:12 AM",
+          "hour": 9,
+          "minutes": 12,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "09:30 AM",
+          "hour": 9,
+          "minutes": 30,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "11:27 AM",
+          "hour": 11,
+          "minutes": 27,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "11:36 AM",
+          "hour": 11,
+          "minutes": 36,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "11:45 AM",
+          "hour": 11,
+          "minutes": 45,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "12:30 PM",
+          "hour": 12,
+          "minutes": 30,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "12:57 PM",
+          "hour": 12,
+          "minutes": 57,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "01:42 PM",
+          "hour": 13,
+          "minutes": 42,
+          "slotsAvailable": 3
+        },
+        {
+          "display": "01:51 PM",
+          "hour": 13,
+          "minutes": 51,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:00 PM",
+          "hour": 14,
+          "minutes": 0,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:09 PM",
+          "hour": 14,
+          "minutes": 9,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:18 PM",
+          "hour": 14,
+          "minutes": 18,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:27 PM",
+          "hour": 14,
+          "minutes": 27,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "02:36 PM",
+          "hour": 14,
+          "minutes": 36,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "02:45 PM",
+          "hour": 14,
+          "minutes": 45,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "03:03 PM",
+          "hour": 15,
+          "minutes": 3,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "05:45 PM",
+          "hour": 17,
+          "minutes": 45,
+          "slotsAvailable": 1
+        },
+        {
+          "display": "06:03 PM",
+          "hour": 18,
+          "minutes": 3,
+          "slotsAvailable": 2
+        },
+        {
+          "display": "06:12 PM",
+          "hour": 18,
+          "minutes": 12,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:21 PM",
+          "hour": 18,
+          "minutes": 21,
+          "slotsAvailable": 4
+        },
+        {
+          "display": "06:30 PM",
+          "hour": 18,
+          "minutes": 30,
+          "slotsAvailable": 2
+        }
+      ],
+      "error": null
+    },
+    {
+      "clubName": "Brookstone Golf & Country Club",
+      "date": "2026-05-15",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Brookstone Golf & Country Club",
+      "date": "2026-05-16",
+      "slots": [],
+      "unavailable": true
+    },
+    {
+      "clubName": "Brookstone Golf & Country Club",
+      "date": "2026-05-17",
+      "slots": [],
+      "error": null
+    },
+    {
+      "clubName": "Brookstone Golf & Country Club",
+      "date": "2026-05-18",
+      "slots": [],
+      "error": null
+    }
+  ]
+}

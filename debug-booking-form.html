@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/U5VsmTDhJM1iOJUyw4DEUTYv/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-RlZBF+DceOCqWmazqOb46XLCUaBCQCOelQ6x5Vp23p2IQF2OluFH9XDriL4JIqbh"></script>
+            <title>ClubCorp Web Tee Time Reservations</title>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-1.7.1.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-ui-1.8.16.custom.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.pack.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.simplemodal-1.4.1.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.ba-postmessage.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.css?reload=1778428458391">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/themes/default_v1.8.16/css/custom-theme/jquery-ui-1.8.16.custom.css?reload=1778428458391">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/CCTTWEB/css/ccttweb_common.css?reload=1778428458391">
+            <script type="text/javascript" src="/portal/page/portal/CCXXWEB/js/fix_chrome_css.js"></script>
+            
+            
+            <!--New event to create JS and CSS from controller-->
+            <script type="text/javascript" src="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=JS"></script>
+            <link rel="stylesheet" type="text/css" href="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=CSS">
+            
+            <script type="text/javascript">
+              // need to set domain to avoid iFrame cross-domain access error
+              //document.domain = "clubcorp.com";
+              var openmsg = true, leadcount;
+              $(document).ready( function () {
+              
+                
+                // define modal window processing 
+                $("#cc_web_margin1").modal( {
+                  closeHTML: "",
+                  containerId: "modalFormContainer",
+                  minHeight: 600,
+                  minWidth: 800,
+                  zIndex: 800,
+                  // async: false,
+                  onClose: function () {
+                    $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=MODAL_CLOSE",
+                    function(responseText, textStatus, XMLHttpRequest){
+                      $.modal.close();
+                      $.postMessage(
+                        "",
+                        "https://members.clubcorp.com/club/scripts/mylocker/mylocker.asp",
+                        parent
+                      );
+                    });
+                  }
+                });
+                // load window 
+                $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=VIEW"
+                  , function(){
+                  $("#cc_pros_message").click();
+                  });
+              });
+            </script>
+          </head>
+          <body leftmargin="0" rightmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+            <span id="simplemodal-placeholder" style="display: none;"></span>
+          
+        
+<div id="simplemodal-overlay" class="simplemodal-overlay" style="opacity: 0.5; height: 772px; width: 1470px; position: fixed; left: 0px; top: 0px; z-index: 801;"></div><div id="modalFormContainer" class="simplemodal-container" style="position: fixed; z-index: 802; height: 772px; width: 800px; left: 335px; top: 0px;"><div tabindex="-1" class="simplemodal-wrap" style="height: 100%; outline: 0px; width: 100%; overflow: visible;"><div id="cc_web_margin1" class="simplemodal-data" style="">
+              <div id="cc_web_margin2">
+                <div id="cc_web_error"></div>
+                <div id="cc_web_content"><style>
+                                         .cc-col-int-chkbx{
+                                           width: 3%;
+                                         }
+                                         .cc-col-int-pslot{
+                                           width: 8%;
+                                         }
+                                         .cc-col-int-ptype{
+                                           width: 8%;
+                                         }
+                                         .cc-col-int-pname{
+                                           width: 28%;
+                                         }
+                                         .cc-col-int-prent{
+                                           width: 15%;
+                                         }
+                                         .cc-col-int-pcaddie{
+                                           width: 15%;
+                                         }
+                                         .cc-col-int-email{
+                                           width: 23%;
+                                         }
+                                         
+                                         /*******************NTWK****************************/
+                                         .cc-col-ntwk-chkbx{
+                                           width: 3%;
+                                         }
+                                         .cc-col-ntwk-pslot{
+                                           width: 7%;
+                                         }
+                                         .cc-col-ntwk-ptype{
+                                           width:11%;
+                                         }
+                                         .cc-col-ntwk-pname{
+                                           width: 17%;
+                                         }
+                                         .cc-col-ntwk-prent{
+                                           width: 15%;
+                                         }
+                                         .cc-col-ntwk-pcaddie{
+                                           width: 15%;
+                                         }
+                                         .cc-col-ntwk-email{
+                                           width: 20%;
+                                         }
+                                         .cc-col-ntwk-benefit{
+                                           width: 12%;
+                                         }
+                                         /*******************NTWK****************************/
+                                         
+                                         .cc-player-row select,input,textarea {
+                                           width: 90%;
+                                         }
+                                         .cc-player-row input {
+                                           width: 87%;
+                                         }
+                                         .cc-buttons{
+                                           display: flex;
+                                           justify-content:  space-between;
+                                         }
+                                         .cc-buttons > span{
+                                           margin: auto;
+                                         }
+                                         /**************************MyTeeTimes**************************/
+                                         .cc-grid-myteetimes {
+                                           display : grid; 
+                                           grid-template-columns : 80px 180px 150px 95px 110px 165px; 
+                                           align-items : center; 
+                                           grid-template-rows: minmax(35px,auto) auto;
+                                         }
+                                         .cc-grid-myteetimes > div:first-child {
+                                           width: auto;
+                                         }
+                                         
+                                         .cc-grid-myteetimes > div:nth-child(7) {
+                                           font-size: smaller;
+                                           color: red;
+                                           grid-column: 1/7;
+                                         }
+                                         
+                                         .ui-autocomplete-loading { 
+                                           background: white url("/portal/page/portal/CCTTWEB/images/Tee_Times_Wait.gif") right center no-repeat;
+                                           background-size: 15px;
+                                         }
+
+                                         .grecaptcha-badge {
+                                           visibility: hidden !important;
+                                         }
+                                      </style>
+<div id="cc_web_modal"><div id="cc_web_header"><div id="cc_homerenovation_hdr" class="cc-float-left cc-not-selectable">
+                                <span class="cc-close-hdr" onclick="">HOME</span></div><div id="cc_close_hdr" class="cc-right" style="margin-right: 2px;height: 15px;"></div><div id="cc_navigation"><div id="Tab-MyTeeTimes" class="cc-tab-my-tee-times cc-not-selectable" onclick="" data-id="1">&nbsp;</div>
+<div id="cc_tab_prev" class="cc-float-left" onclick="" title="Show Previous Date" style="visibility: hidden;">&nbsp;</div>
+<div id="cc_tab_list" class="cc-float-left">
+<div id="cc_tab_slider">
+<div id="Tab-20260510" class="cc-tab cc-not-selectable" onclick="" data-id="2"><span class="cc-day">Sun</span><br><span class="cc-date">May       10</span></div><div id="Tab-20260511" class="cc-tab cc-not-selectable" onclick="" data-id="3"><span class="cc-day">Mon</span><br><span class="cc-date">May       11</span></div><div id="Tab-20260512" class="cc-tab cc-not-selectable" onclick="" data-id="4"><span class="cc-day">Tue</span><br><span class="cc-date">May       12</span></div><div id="Tab-20260513" class="cc-tab cc-not-selectable" onclick="" data-id="5"><span class="cc-day">Wed</span><br><span class="cc-date">May       13</span></div><div id="Tab-20260514" class="cc-tab cc-not-selectable" onclick="" data-id="6"><span class="cc-day">Thu</span><br><span class="cc-date">May       14</span></div><div id="Tab-20260515" class="cc-tab cc-not-selectable" onclick="" data-id="7"><span class="cc-day">Fri</span><br><span class="cc-date">May       15</span></div><div id="Tab-20260516" class="cc-tab cc-tab-selected cc-not-selectable" onclick="" data-id="8"><span class="cc-day">Sat</span><br><span class="cc-date">May       16</span></div>
+&nbsp;&nbsp;</div></div><div id="cc_tab_next" onclick="" title="Show Next Date" style="visibility: visible;">&nbsp;</div></div></div><div id="cc_web_messages">
+<span id="cc_pros_message" class="cc-msg-command cc-msg-popup-header-closed" onclick="">Messages</span><span id="cc_waitlist" class="cc-msg-command cc-msg-popup-header-closed" onclick="" style="visibility: visible;">Wait List</span><span id="cc_view_sheet" class="cc-msg-command cc-msg-popup-header-closed" onclick="" style="visibility: visible;">View Full Sheet</span>
+<div id="cc_players_popup" class="cc-msg-popup" style="display: none;">&nbsp;</div></div>
+<div id="TeeTimes-Div" style="display: block;"> <div id="Div-MyTeeTimes" class="cc-tab-div" data-id="MyTeeTimes" style="display: none;"><div id="Sheet-MyTeeTimes" class="cc-scrolling-sheet"><table id="SheetHeader-MyTeeTimes" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="" colspan="6">
+
+<table style="padding-bottom:10px;" align="center" border="0"><tbody><tr><td width="30px" align="right">
+</td>
+                                            <td width="180px">
+                                            <span class="cc-date"><strong>05/10/2026 - 06/08/2026</strong></span>
+                                            </td>
+                                            <td width="30px" align="left">
+                                            <img id="next_mytee" src="/portal/page/portal/CCTT/images/go-rt-on.gif" style="cursor:pointer;vertical-align:bottom;" title="Click To Go To Next">
+                                            </td></tr></tbody></table>
+</td></tr><tr><td style="width:80px;" class="cc-center" onclick="">View/Edit</td><td style="width:180px;">Club Name</td><td style="width:150px;">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-MyTeeTimes" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td style="height: 47px;" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row" style="background-size: contain;"><td colspan="6">No Tee Times were found</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260510" class="cc-tab-div" data-id="20260510" style="display: none;"></div><div id="Div-20260511" class="cc-tab-div" data-id="20260511" style="display: none;"></div><div id="Div-20260512" class="cc-tab-div" data-id="20260512" style="display: none;"></div><div id="Div-20260513" class="cc-tab-div" data-id="20260513" style="display: none;"></div><div id="Div-20260514" class="cc-tab-div" data-id="20260514" style="display: none;"></div><div id="Div-20260515" class="cc-tab-div" data-id="20260515" style="display: none;"></div><div id="Div-20260516" class="cc-tab-div" data-id="20260516" style="display: block;"><div id="Sheet-20260516" class="cc-scrolling-sheet"><table id="SheetHeader-20260516" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260516" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row  cc-selected cc-exp-hilight" style="background-size: contain;" data-id="_e96CCDDBE0147D9E3FB30CAECF062A308E6E0D7F0C773E353e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3FB30CAECF062A308E6E0D7F0C773E353e_-4" class="cc-reserve-button cc-not-selectable cc-disabled" onclick="" data-id="_e96CCDDBE0147D9E3FB30CAECF062A308E6E0D7F0C773E353e_-4"><span style="display: block;float: left;padding-left: 21px;">11:00 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width: 110px; visibility: hidden;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3FB30CAECF062A308E6E0D7F0C773E353e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">11:00 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr><tr id="TeeTimeRes" class="cc-tee-time-detail" data-id="_e96CCDDBE0147D9E3FB30CAECF062A308E6E0D7F0C773E353e_" data-web-id=""><td colspan="7"><form id="cc-rsvp-web-form"><table class="cc-table-exp"><tbody><tr class="cc-header"><td colspan="7"></td></tr><tr class="cc-header"><td class="cc-col-int-chkbx"><input id="p_sel_all" onclick="" type="checkbox" title="Remove All Players" style=""></td><td class="cc-col-int-pslot">Player</td><td class="cc-col-int-ptype">Player Type</td><td class="cc-col-int-pname">Player Name</td><td class="cc-col-int-email">Player Email</td>
+</tr>
+<tr data-id="1" class="cc-player-row"><td><span id="p_sel1">&nbsp;</span></td><td><span id="p_slot1">1</span></td><td><select id="p_pt1" class="cc-ptype" name="p_pt1"><option value="LOV_PT_MEMBER" selected="selected">Member</option></select></td><td><select id="p_name1" name="p_name1" data-id="_e594FA8C41949ECB14ABFA9D1A01A2D9Be_">
+<option value="_e594FA8C41949ECB14ABFA9D1A01A2D9Be_" selected="">Rohit Devulapalli</option>
+
+                                    
+<option value="_e1E6830962C4F3EF249D8755FCEE413C6e_">Kajal Patel</option>
+
+                                    
+</select></td><td><select id="p_email1" name="p_email1">
+         <option value="">Don't Send Me Email</option>
+      
+          <option value="rdevulapalli97@gmail.com" selected="selected">rdevulapalli97@gmail.com</option>
+        </select></td></tr>
+<tr data-id="2" class="cc-player-row"><td><span id="p_sel2">&nbsp;</span></td><td><span id="p_slot2">2</span></td><td><select id="p_pt2" class="cc-ptype" name="p_pt2">
+         <option value=""></option>
+      
+          <option value="LOV_PT_MEMBER">Member</option>
+        
+          <option value="LOV_PT_WEB_GUEST">Guest</option>
+        
+          <option value="LOV_PT_TBD">TBD</option>
+        </select></td><td><span id="p_name2">&nbsp;</span></td><td><span id="p_email2">&nbsp;</span></td></tr>
+<tr data-id="3" class="cc-player-row"><td><span id="p_sel3">&nbsp;</span></td><td><span id="p_slot3">3</span></td><td><select id="p_pt3" class="cc-ptype" name="p_pt3">
+         <option value=""></option>
+      
+          <option value="LOV_PT_MEMBER">Member</option>
+        
+          <option value="LOV_PT_WEB_GUEST">Guest</option>
+        
+          <option value="LOV_PT_TBD">TBD</option>
+        </select></td><td><span id="p_name3">&nbsp;</span></td><td><span id="p_email3">&nbsp;</span></td></tr>
+<tr data-id="4" class="cc-player-row"><td><span id="p_sel4">&nbsp;</span></td><td><span id="p_slot4">4</span></td><td><select id="p_pt4" class="cc-ptype" name="p_pt4">
+         <option value=""></option>
+      
+          <option value="LOV_PT_MEMBER">Member</option>
+        
+          <option value="LOV_PT_WEB_GUEST">Guest</option>
+        
+          <option value="LOV_PT_TBD">TBD</option>
+        </select></td><td><span id="p_name4">&nbsp;</span></td><td><span id="p_email4">&nbsp;</span></td></tr>
+<tr><td colspan="7"></td></tr><tr><td colspan="3">Comments</td><td colspan="2"><textarea id="p_comments" name="p_comments" rows="3" cols="63" value="" style=""></textarea></td></tr><tr><td colspan="7"></td></tr>
+<tr><td></td><td></td><td colspan="3" class="cc-left"><span id="cc-message" class="cc-error">&nbsp;</span></td></tr>
+<tr><td></td><td></td><td><span id="cc-countdown-maint" class="hasCountdown" style="border: 0px; font-size: 1em; background-color: white;"><span class="countdown_row countdown_amount">04:59</span></span></td><td colspan="2" class="cc-left"><span>This reservation will close automatically when the allotted time expires.<br>All unsaved changes will be lost.</span></td></tr><tr><td colspan="7">&nbsp;</td></tr>
+<tr><td colspan="7"><div class="cc-buttons"><span id="cancel_button" onclick="">Cancel</span><span id="save_button" onclick="">Save</span></div></td></tr><tr><td colspan="7">&nbsp;</td></tr>
+</tbody></table></form></td></tr>
+
+
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3BAF8045557288D74285B77895A2E787De_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3BAF8045557288D74285B77895A2E787De_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3BAF8045557288D74285B77895A2E787De_-4"><span style="display: block;float: left;padding-left: 21px;">11:10 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3BAF8045557288D74285B77895A2E787De_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">11:10 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E32B9212C3201D72E225D49513E2533108e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E32B9212C3201D72E225D49513E2533108e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E32B9212C3201D72E225D49513E2533108e_-4"><span style="display: block;float: left;padding-left: 21px;">11:20 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E32B9212C3201D72E225D49513E2533108e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">11:20 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E313B34B6E1BA73D9771C6C1F4D151915Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E313B34B6E1BA73D9771C6C1F4D151915Ce_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E313B34B6E1BA73D9771C6C1F4D151915Ce_-4"><span style="display: block;float: left;padding-left: 21px;">11:30 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E313B34B6E1BA73D9771C6C1F4D151915Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">11:30 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3303F1794F18CB231EB797C218C0C7658e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3303F1794F18CB231EB797C218C0C7658e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3303F1794F18CB231EB797C218C0C7658e_-4"><span style="display: block;float: left;padding-left: 21px;">11:40 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3303F1794F18CB231EB797C218C0C7658e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">11:40 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E36224503FDA58CF24ABA1788AE7575BFEe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E36224503FDA58CF24ABA1788AE7575BFEe_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E36224503FDA58CF24ABA1788AE7575BFEe_-4"><span style="display: block;float: left;padding-left: 21px;">11:50 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E36224503FDA58CF24ABA1788AE7575BFEe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">11:50 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3B0BE209F51908252894E5D07C117228Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3B0BE209F51908252894E5D07C117228Ee_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3B0BE209F51908252894E5D07C117228Ee_-4"><span style="display: block;float: left;padding-left: 21px;">12:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3B0BE209F51908252894E5D07C117228Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E375871AEE74FDDFA86D3BA729E7549022e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E375871AEE74FDDFA86D3BA729E7549022e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E375871AEE74FDDFA86D3BA729E7549022e_-4"><span style="display: block;float: left;padding-left: 21px;">12:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E375871AEE74FDDFA86D3BA729E7549022e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3B4049DAC2456450D54751E8081C4BD82e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3B4049DAC2456450D54751E8081C4BD82e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3B4049DAC2456450D54751E8081C4BD82e_-4"><span style="display: block;float: left;padding-left: 21px;">12:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3B4049DAC2456450D54751E8081C4BD82e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3A6A4AD18FD52C7C8A2D0D29C6DFCD70Ae_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3A6A4AD18FD52C7C8A2D0D29C6DFCD70Ae_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3A6A4AD18FD52C7C8A2D0D29C6DFCD70Ae_-4"><span style="display: block;float: left;padding-left: 21px;">12:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3A6A4AD18FD52C7C8A2D0D29C6DFCD70Ae_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E37C708CCACB69911C2AE4F94C4D8A2E39e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E37C708CCACB69911C2AE4F94C4D8A2E39e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E37C708CCACB69911C2AE4F94C4D8A2E39e_-4"><span style="display: block;float: left;padding-left: 21px;">12:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E37C708CCACB69911C2AE4F94C4D8A2E39e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E39CF4A344B79B75D1CED218B006033234e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E39CF4A344B79B75D1CED218B006033234e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E39CF4A344B79B75D1CED218B006033234e_-4"><span style="display: block;float: left;padding-left: 21px;">12:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E39CF4A344B79B75D1CED218B006033234e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3B175B9C83A765360A793E62F163C8FF0e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3B175B9C83A765360A793E62F163C8FF0e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3B175B9C83A765360A793E62F163C8FF0e_-4"><span style="display: block;float: left;padding-left: 21px;">01:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3B175B9C83A765360A793E62F163C8FF0e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E382CC03B60B411D1FB11DC7A034646CAFe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E382CC03B60B411D1FB11DC7A034646CAFe_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E382CC03B60B411D1FB11DC7A034646CAFe_-4"><span style="display: block;float: left;padding-left: 21px;">01:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E382CC03B60B411D1FB11DC7A034646CAFe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E324F355A15ABCE603BBD208E8FA40E349e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E324F355A15ABCE603BBD208E8FA40E349e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E324F355A15ABCE603BBD208E8FA40E349e_-4"><span style="display: block;float: left;padding-left: 21px;">01:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E324F355A15ABCE603BBD208E8FA40E349e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E39B712F81B4B0B6FCF78A6CD1B264146Ae_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E39B712F81B4B0B6FCF78A6CD1B264146Ae_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E39B712F81B4B0B6FCF78A6CD1B264146Ae_-4"><span style="display: block;float: left;padding-left: 21px;">01:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E39B712F81B4B0B6FCF78A6CD1B264146Ae_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3BE66C4616474C49DB3C43F0934454261e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3BE66C4616474C49DB3C43F0934454261e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3BE66C4616474C49DB3C43F0934454261e_-4"><span style="display: block;float: left;padding-left: 21px;">01:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3BE66C4616474C49DB3C43F0934454261e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3D75E661E8EFAFA3C0F404D4FF28963DAe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3D75E661E8EFAFA3C0F404D4FF28963DAe_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3D75E661E8EFAFA3C0F404D4FF28963DAe_-4"><span style="display: block;float: left;padding-left: 21px;">01:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3D75E661E8EFAFA3C0F404D4FF28963DAe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E309F2DB4E50C9FF82FD91FCE41EFCD2F9e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E309F2DB4E50C9FF82FD91FCE41EFCD2F9e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E309F2DB4E50C9FF82FD91FCE41EFCD2F9e_-4"><span style="display: block;float: left;padding-left: 21px;">02:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E309F2DB4E50C9FF82FD91FCE41EFCD2F9e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3EBB635BC7F46C9AB56CB70F408589E5Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3EBB635BC7F46C9AB56CB70F408589E5Ee_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3EBB635BC7F46C9AB56CB70F408589E5Ee_-4"><span style="display: block;float: left;padding-left: 21px;">02:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3EBB635BC7F46C9AB56CB70F408589E5Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3FDBAC73912DF561CC8AF4559EDF17AC4e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3FDBAC73912DF561CC8AF4559EDF17AC4e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3FDBAC73912DF561CC8AF4559EDF17AC4e_-4"><span style="display: block;float: left;padding-left: 21px;">02:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3FDBAC73912DF561CC8AF4559EDF17AC4e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3C246DA485786DEFBEFF3672B4EACCD5Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3C246DA485786DEFBEFF3672B4EACCD5Ee_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3C246DA485786DEFBEFF3672B4EACCD5Ee_-4"><span style="display: block;float: left;padding-left: 21px;">02:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3C246DA485786DEFBEFF3672B4EACCD5Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3ABE49D7F06C0C1E49117BA00F9AD3CF4e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3ABE49D7F06C0C1E49117BA00F9AD3CF4e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3ABE49D7F06C0C1E49117BA00F9AD3CF4e_-4"><span style="display: block;float: left;padding-left: 21px;">02:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3ABE49D7F06C0C1E49117BA00F9AD3CF4e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3AA1A34EBA05DC879745F1CDD3219356Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3AA1A34EBA05DC879745F1CDD3219356Ce_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3AA1A34EBA05DC879745F1CDD3219356Ce_-4"><span style="display: block;float: left;padding-left: 21px;">02:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3AA1A34EBA05DC879745F1CDD3219356Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E30FF637F5BEFEA1D3B8507002FE2E1518e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E30FF637F5BEFEA1D3B8507002FE2E1518e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E30FF637F5BEFEA1D3B8507002FE2E1518e_-4"><span style="display: block;float: left;padding-left: 21px;">03:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E30FF637F5BEFEA1D3B8507002FE2E1518e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3893320A94D5CE29F34FCAFA05ECC752Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3893320A94D5CE29F34FCAFA05ECC752Ee_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3893320A94D5CE29F34FCAFA05ECC752Ee_-4"><span style="display: block;float: left;padding-left: 21px;">03:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3893320A94D5CE29F34FCAFA05ECC752Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3F902BD1BC5E98BD8397A48714B8E982Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3F902BD1BC5E98BD8397A48714B8E982Ee_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3F902BD1BC5E98BD8397A48714B8E982Ee_-4"><span style="display: block;float: left;padding-left: 21px;">03:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3F902BD1BC5E98BD8397A48714B8E982Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3841FBC9D4F8B75E24D7E34BAF01E0F11e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3841FBC9D4F8B75E24D7E34BAF01E0F11e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3841FBC9D4F8B75E24D7E34BAF01E0F11e_-4"><span style="display: block;float: left;padding-left: 21px;">03:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3841FBC9D4F8B75E24D7E34BAF01E0F11e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E310A99F36174937BC2AF887D0FF09DFF1e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E310A99F36174937BC2AF887D0FF09DFF1e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E310A99F36174937BC2AF887D0FF09DFF1e_-4"><span style="display: block;float: left;padding-left: 21px;">03:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E310A99F36174937BC2AF887D0FF09DFF1e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3BFBCB0C6B07F24755B0B49E0A5FE3600e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3BFBCB0C6B07F24755B0B49E0A5FE3600e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3BFBCB0C6B07F24755B0B49E0A5FE3600e_-4"><span style="display: block;float: left;padding-left: 21px;">03:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3BFBCB0C6B07F24755B0B49E0A5FE3600e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E331E405639EF304632C070144196BC981e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E331E405639EF304632C070144196BC981e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E331E405639EF304632C070144196BC981e_-4"><span style="display: block;float: left;padding-left: 21px;">04:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E331E405639EF304632C070144196BC981e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3A1060E8FDFB55147EFF466DFC64390EAe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3A1060E8FDFB55147EFF466DFC64390EAe_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3A1060E8FDFB55147EFF466DFC64390EAe_-4"><span style="display: block;float: left;padding-left: 21px;">04:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3A1060E8FDFB55147EFF466DFC64390EAe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3656792F7C641AD76A2697EBE08C8810Fe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3656792F7C641AD76A2697EBE08C8810Fe_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3656792F7C641AD76A2697EBE08C8810Fe_-4"><span style="display: block;float: left;padding-left: 21px;">04:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3656792F7C641AD76A2697EBE08C8810Fe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3A421589685631D501F95D91928B8D262e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3A421589685631D501F95D91928B8D262e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3A421589685631D501F95D91928B8D262e_-4"><span style="display: block;float: left;padding-left: 21px;">04:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3A421589685631D501F95D91928B8D262e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3F3CDEE79B239C0ABABFBE0DDE32E3D0De_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3F3CDEE79B239C0ABABFBE0DDE32E3D0De_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3F3CDEE79B239C0ABABFBE0DDE32E3D0De_-4"><span style="display: block;float: left;padding-left: 21px;">04:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3F3CDEE79B239C0ABABFBE0DDE32E3D0De_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E337EEC58726D84AC7D09FC208889FAAE6e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E337EEC58726D84AC7D09FC208889FAAE6e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E337EEC58726D84AC7D09FC208889FAAE6e_-4"><span style="display: block;float: left;padding-left: 21px;">04:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E337EEC58726D84AC7D09FC208889FAAE6e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E331FBD090A79B20DDA516CC0A3B982115e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E331FBD090A79B20DDA516CC0A3B982115e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E331FBD090A79B20DDA516CC0A3B982115e_-4"><span style="display: block;float: left;padding-left: 21px;">05:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E331FBD090A79B20DDA516CC0A3B982115e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3DACD3206D677BBC39BE07DC9F7B4E416e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3DACD3206D677BBC39BE07DC9F7B4E416e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3DACD3206D677BBC39BE07DC9F7B4E416e_-4"><span style="display: block;float: left;padding-left: 21px;">05:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3DACD3206D677BBC39BE07DC9F7B4E416e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3F84B5030BAF8D3F57B1FAE5A232B2A44e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3F84B5030BAF8D3F57B1FAE5A232B2A44e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3F84B5030BAF8D3F57B1FAE5A232B2A44e_-4"><span style="display: block;float: left;padding-left: 21px;">05:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3F84B5030BAF8D3F57B1FAE5A232B2A44e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3D683947E80185CE0F40898869F7129A5e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3D683947E80185CE0F40898869F7129A5e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3D683947E80185CE0F40898869F7129A5e_-4"><span style="display: block;float: left;padding-left: 21px;">05:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3D683947E80185CE0F40898869F7129A5e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E36802F84B2258BCCEEE59B9DEF4D86E3Ae_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E36802F84B2258BCCEEE59B9DEF4D86E3Ae_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E36802F84B2258BCCEEE59B9DEF4D86E3Ae_-4"><span style="display: block;float: left;padding-left: 21px;">05:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E36802F84B2258BCCEEE59B9DEF4D86E3Ae_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e96CCDDBE0147D9E3BB65086815846541A7AEE8DCA54C8AC3e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e96CCDDBE0147D9E3BB65086815846541A7AEE8DCA54C8AC3e_-4" class="cc-reserve-button cc-not-selectable" onclick="" data-id="_e96CCDDBE0147D9E3BB65086815846541A7AEE8DCA54C8AC3e_-4"><span style="display: block;float: left;padding-left: 21px;">05:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-not-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">LAUREL SPRINGS</td><td class="cc-col-play-date">Sat 05/16</td><td data-id="_e96CCDDBE0147D9E3BB65086815846541A7AEE8DCA54C8AC3e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+</tbody></table></div>
+</div>
+</div>
+<div id="Events-Div" style="display: none;"> <div id="Div-MyEvents" class="cc-tab-div" data-id="MyEvents" style="display: none;"></div></div>
+<div id="cc_close_ftr" class="cc-right"></div></div>
+
+
+</div>
+                <div id="cc_waiting" style="display: none;">
+                  <div id="cc_waiting_img"><img src="/portal/page/portal/CCTTWEB/images/Tee_Times_Wait.gif" style="margin-top: 356px;"></div>
+                </div>
+              </div>
+              <div id="cc_content_area"></div>
+            </div></div></div><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-54k3wul6vsos" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/enterprise/anchor?ar=1&amp;k=6LdkWCUsAAAAAD3GpH6MnrHDDTieVv2wtUGE5R6Y&amp;co=aHR0cHM6Ly9hcHBzLmludml0ZWRjbHVicy5jb206NDQz&amp;hl=en&amp;v=U5VsmTDhJM1iOJUyw4DEUTYv&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=yn28wurfg3o0"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/U5VsmTDhJM1iOJUyw4DEUTYv/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-RlZBF+DceOCqWmazqOb46XLCUaBCQCOelQ6x5Vp23p2IQF2OluFH9XDriL4JIqbh"></script>
+            <title>ClubCorp Web Tee Time Reservations</title>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-1.7.1.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-ui-1.8.16.custom.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.pack.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.simplemodal-1.4.1.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.ba-postmessage.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.css?reload=1778421956372">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/themes/default_v1.8.16/css/custom-theme/jquery-ui-1.8.16.custom.css?reload=1778421956372">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/CCTTWEB/css/ccttweb_common.css?reload=1778421956372">
+            <script type="text/javascript" src="/portal/page/portal/CCXXWEB/js/fix_chrome_css.js"></script>
+            
+            
+            <!--New event to create JS and CSS from controller-->
+            <script type="text/javascript" src="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=JS"></script>
+            <link rel="stylesheet" type="text/css" href="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=CSS">
+            
+            <script type="text/javascript">
+              // need to set domain to avoid iFrame cross-domain access error
+              //document.domain = "clubcorp.com";
+              var openmsg = true, leadcount;
+              $(document).ready( function () {
+              
+                
+                // define modal window processing 
+                $("#cc_web_margin1").modal( {
+                  closeHTML: "",
+                  containerId: "modalFormContainer",
+                  minHeight: 600,
+                  minWidth: 800,
+                  zIndex: 800,
+                  // async: false,
+                  onClose: function () {
+                    $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=MODAL_CLOSE",
+                    function(responseText, textStatus, XMLHttpRequest){
+                      $.modal.close();
+                      $.postMessage(
+                        "",
+                        "https://members.clubcorp.com/club/scripts/mylocker/mylocker.asp",
+                        parent
+                      );
+                    });
+                  }
+                });
+                // load window 
+                $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=VIEW"
+                  , function(){
+                  $("#cc_pros_message").click();
+                  });
+              });
+            </script>
+          </head>
+          <body leftmargin="0" rightmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+            <span id="simplemodal-placeholder" style="display: none;"></span>
+          
+        
+<div id="simplemodal-overlay" class="simplemodal-overlay" style="opacity: 0.5; height: 900px; width: 1280px; position: fixed; left: 0px; top: 0px; z-index: 801;"></div><div id="modalFormContainer" class="simplemodal-container" style="position: fixed; z-index: 802; height: 900px; width: 800px; left: 240px; top: 0px;"><div tabindex="-1" class="simplemodal-wrap" style="height: 100%; outline: 0px; width: 100%; overflow: visible;"><div id="cc_web_margin1" class="simplemodal-data" style="">
+              <div id="cc_web_margin2">
+                <div id="cc_web_error"></div>
+                <div id="cc_web_content"><style>
+                                         .cc-col-int-chkbx{
+                                           width: 3%;
+                                         }
+                                         .cc-col-int-pslot{
+                                           width: 8%;
+                                         }
+                                         .cc-col-int-ptype{
+                                           width: 8%;
+                                         }
+                                         .cc-col-int-pname{
+                                           width: 28%;
+                                         }
+                                         .cc-col-int-prent{
+                                           width: 15%;
+                                         }
+                                         .cc-col-int-pcaddie{
+                                           width: 15%;
+                                         }
+                                         .cc-col-int-email{
+                                           width: 23%;
+                                         }
+                                         
+                                         /*******************NTWK****************************/
+                                         .cc-col-ntwk-chkbx{
+                                           width: 3%;
+                                         }
+                                         .cc-col-ntwk-pslot{
+                                           width: 7%;
+                                         }
+                                         .cc-col-ntwk-ptype{
+                                           width:11%;
+                                         }
+                                         .cc-col-ntwk-pname{
+                                           width: 17%;
+                                         }
+                                         .cc-col-ntwk-prent{
+                                           width: 15%;
+                                         }
+                                         .cc-col-ntwk-pcaddie{
+                                           width: 15%;
+                                         }
+                                         .cc-col-ntwk-email{
+                                           width: 20%;
+                                         }
+                                         .cc-col-ntwk-benefit{
+                                           width: 12%;
+                                         }
+                                         /*******************NTWK****************************/
+                                         
+                                         .cc-player-row select,input,textarea {
+                                           width: 90%;
+                                         }
+                                         .cc-player-row input {
+                                           width: 87%;
+                                         }
+                                         .cc-buttons{
+                                           display: flex;
+                                           justify-content:  space-between;
+                                         }
+                                         .cc-buttons > span{
+                                           margin: auto;
+                                         }
+                                         /**************************MyTeeTimes**************************/
+                                         .cc-grid-myteetimes {
+                                           display : grid; 
+                                           grid-template-columns : 80px 180px 150px 95px 110px 165px; 
+                                           align-items : center; 
+                                           grid-template-rows: minmax(35px,auto) auto;
+                                         }
+                                         .cc-grid-myteetimes > div:first-child {
+                                           width: auto;
+                                         }
+                                         
+                                         .cc-grid-myteetimes > div:nth-child(7) {
+                                           font-size: smaller;
+                                           color: red;
+                                           grid-column: 1/7;
+                                         }
+                                         
+                                         .ui-autocomplete-loading { 
+                                           background: white url("/portal/page/portal/CCTTWEB/images/Tee_Times_Wait.gif") right center no-repeat;
+                                           background-size: 15px;
+                                         }
+
+                                         .grecaptcha-badge {
+                                           visibility: hidden !important;
+                                         }
+                                      </style>
+<div id="cc_web_modal"><div id="cc_web_header"><div id="cc_homerenovation_hdr" class="cc-float-left cc-selectable">
+                                <span class="cc-close-hdr" onclick="">HOME</span></div><div id="cc_close_hdr" class="cc-right" style="margin-right: 2px;height: 15px;"></div><div id="cc_navigation"><div id="Tab-MyTeeTimes" class="cc-tab-my-tee-times cc-selectable" onclick="" data-id="1">&nbsp;</div>
+<div id="cc_tab_prev" class="cc-float-left" onclick="" title="Show Previous Date" style="visibility: hidden;">&nbsp;</div>
+<div id="cc_tab_list" class="cc-float-left">
+<div id="cc_tab_slider">
+<div id="Tab-20260510" class="cc-tab cc-selectable" onclick="" data-id="2"><span class="cc-day">Sun</span><br><span class="cc-date">May       10</span></div><div id="Tab-20260511" class="cc-tab cc-selectable" onclick="" data-id="3"><span class="cc-day">Mon</span><br><span class="cc-date">May       11</span></div><div id="Tab-20260512" class="cc-tab cc-selectable" onclick="" data-id="4"><span class="cc-day">Tue</span><br><span class="cc-date">May       12</span></div><div id="Tab-20260513" class="cc-tab cc-selectable" onclick="" data-id="5"><span class="cc-day">Wed</span><br><span class="cc-date">May       13</span></div><div id="Tab-20260514" class="cc-tab cc-selectable" onclick="" data-id="6"><span class="cc-day">Thu</span><br><span class="cc-date">May       14</span></div><div id="Tab-20260515" class="cc-tab cc-tab-selected cc-selectable" onclick="" data-id="7"><span class="cc-day">Fri</span><br><span class="cc-date">May       15</span></div><div id="Tab-20260517" class="cc-tab cc-selectable" onclick="" data-id="8"><span class="cc-day">Sun</span><br><span class="cc-date">May       17</span></div><div id="Tab-20260518" class="cc-tab cc-selectable" onclick="" data-id="9"><span class="cc-day">Mon</span><br><span class="cc-date">May       18</span></div><div id="Tab-20260519" class="cc-tab cc-selectable" onclick="" data-id="10"><span class="cc-day">Tue</span><br><span class="cc-date">May       19</span></div><div id="Tab-20260520" class="cc-tab cc-selectable" onclick="" data-id="11"><span class="cc-day">Wed</span><br><span class="cc-date">May       20</span></div>
+&nbsp;&nbsp;</div></div><div id="cc_tab_next" onclick="" title="Show Next Date" style="visibility: visible;">&nbsp;</div></div></div><div id="cc_web_messages">
+<span id="cc_pros_message" class="cc-msg-command cc-msg-popup-header-closed" onclick="">Messages</span><span id="cc_waitlist" class="cc-msg-command cc-msg-popup-header-closed" onclick="" style="visibility: visible;">Wait List</span><span id="cc_view_sheet" class="cc-msg-command cc-msg-popup-header-closed" onclick="" style="visibility: hidden;">View Full Sheet</span>
+<span id="cc_course_selector" style="display:block;float:right;padding-right: 20px;"><select id="cc-course-selection" class="cc-course-selection" style="display: inline-block;">
+<option data-id="LOV_WEB_AVAIL" value="_eD459DE98EC4B1FD90D9048F680EA84D5e_" selected="selected">Windermere Golf Club</option>
+<option data-id="LOV_WEB_AVAIL" value="_e774C6E3A1A13ED5DF03DB24722EBE34Be_">Olde Atlanta Golf Club</option>
+</select></span><span id="cc_course_message" class="cc-course-message" style="display: block;">Select Course for Play:</span>
+<div id="cc_players_popup" class="cc-msg-popup" style="display: none;">&nbsp;</div></div>
+<div id="TeeTimes-Div" style="display: block;"> <div id="Div-MyTeeTimes" class="cc-tab-div" data-id="MyTeeTimes" style="display: none;"><div id="Sheet-MyTeeTimes" class="cc-scrolling-sheet"><table id="SheetHeader-MyTeeTimes" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="" colspan="6">
+
+<table style="padding-bottom:10px;" align="center" border="0"><tbody><tr><td width="30px" align="right">
+</td>
+                                            <td width="180px">
+                                            <span class="cc-date"><strong>05/10/2026 - 06/08/2026</strong></span>
+                                            </td>
+                                            <td width="30px" align="left">
+                                            <img id="next_mytee" src="/portal/page/portal/CCTT/images/go-rt-on.gif" style="cursor:pointer;vertical-align:bottom;" title="Click To Go To Next">
+                                            </td></tr></tbody></table>
+</td></tr><tr><td style="width:80px;" class="cc-center" onclick="">View/Edit</td><td style="width:180px;">Club Name</td><td style="width:150px;">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-MyTeeTimes" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td style="height: 47px;" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row" style="background-size: contain;"><td colspan="6">No Tee Times were found</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260510" class="cc-tab-div" data-id="20260510" style="display: none;"></div><div id="Div-20260511" class="cc-tab-div" data-id="20260511" style="display: none;"><div id="Sheet-20260511" class="cc-scrolling-sheet"><table id="SheetHeader-20260511" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260511" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row" style="background-size: contain;"><td colspan="6">No Tee Times were found</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260512" class="cc-tab-div" data-id="20260512" style="display: none;"><div id="Sheet-20260512" class="cc-scrolling-sheet"><table id="SheetHeader-20260512" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260512" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552427B7127BFE3B259000DED412D06D42584e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552427B7127BFE3B259000DED412D06D42584e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e39E44A05290552427B7127BFE3B259000DED412D06D42584e_-0"><span style="display: block;float: left;padding-left: 21px;">12:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552427B7127BFE3B259000DED412D06D42584e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242A46A0E6505CD5BB87183379FEE4224FEe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242A46A0E6505CD5BB87183379FEE4224FEe_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242A46A0E6505CD5BB87183379FEE4224FEe_-2"><span style="display: block;float: left;padding-left: 21px;">12:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242A46A0E6505CD5BB87183379FEE4224FEe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524276EADA30DFAA4DA8024733B8336AAB7Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524276EADA30DFAA4DA8024733B8336AAB7Ee_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e39E44A052905524276EADA30DFAA4DA8024733B8336AAB7Ee_-0"><span style="display: block;float: left;padding-left: 21px;">12:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524276EADA30DFAA4DA8024733B8336AAB7Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552426C106F62350104E7BE0A9E1CD4F9A7F1e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552426C106F62350104E7BE0A9E1CD4F9A7F1e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e39E44A05290552426C106F62350104E7BE0A9E1CD4F9A7F1e_-0"><span style="display: block;float: left;padding-left: 21px;">12:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552426C106F62350104E7BE0A9E1CD4F9A7F1e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242A34916AC83B9F8E6A8416841EA18E648e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242A34916AC83B9F8E6A8416841EA18E648e_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242A34916AC83B9F8E6A8416841EA18E648e_-1"><span style="display: block;float: left;padding-left: 21px;">01:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242A34916AC83B9F8E6A8416841EA18E648e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552421CBFA44E79C3B8AEBBC88B162F85DB99e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552421CBFA44E79C3B8AEBBC88B162F85DB99e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552421CBFA44E79C3B8AEBBC88B162F85DB99e_-2"><span style="display: block;float: left;padding-left: 21px;">01:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552421CBFA44E79C3B8AEBBC88B162F85DB99e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524224056AD4335C65B0E0324EF9017D3608e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524224056AD4335C65B0E0324EF9017D3608e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e39E44A052905524224056AD4335C65B0E0324EF9017D3608e_-0"><span style="display: block;float: left;padding-left: 21px;">01:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524224056AD4335C65B0E0324EF9017D3608e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552426F23FFAE4F1E92B23793912E956AE9A4e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552426F23FFAE4F1E92B23793912E956AE9A4e_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552426F23FFAE4F1E92B23793912E956AE9A4e_-1"><span style="display: block;float: left;padding-left: 21px;">01:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552426F23FFAE4F1E92B23793912E956AE9A4e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524221D89C0E9259D7C57D3EA0510C098251e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524221D89C0E9259D7C57D3EA0510C098251e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e39E44A052905524221D89C0E9259D7C57D3EA0510C098251e_-0"><span style="display: block;float: left;padding-left: 21px;">01:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524221D89C0E9259D7C57D3EA0510C098251e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242013D1E7EAFD003F6B70D48BC4A366A13e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242013D1E7EAFD003F6B70D48BC4A366A13e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e39E44A0529055242013D1E7EAFD003F6B70D48BC4A366A13e_-0"><span style="display: block;float: left;padding-left: 21px;">01:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242013D1E7EAFD003F6B70D48BC4A366A13e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242CD254481685C34ABB479CCF7481DD200e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242CD254481685C34ABB479CCF7481DD200e_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242CD254481685C34ABB479CCF7481DD200e_-1"><span style="display: block;float: left;padding-left: 21px;">02:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242CD254481685C34ABB479CCF7481DD200e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242F4293197634E26B256BC21443A66F262e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242F4293197634E26B256BC21443A66F262e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242F4293197634E26B256BC21443A66F262e_-4"><span style="display: block;float: left;padding-left: 21px;">02:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242F4293197634E26B256BC21443A66F262e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552423E33C676F592B67367EF704BEEAF7226e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552423E33C676F592B67367EF704BEEAF7226e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552423E33C676F592B67367EF704BEEAF7226e_-4"><span style="display: block;float: left;padding-left: 21px;">02:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552423E33C676F592B67367EF704BEEAF7226e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552429D30746F9C79C6C9A827E095EFC0BD89e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552429D30746F9C79C6C9A827E095EFC0BD89e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552429D30746F9C79C6C9A827E095EFC0BD89e_-4"><span style="display: block;float: left;padding-left: 21px;">02:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552429D30746F9C79C6C9A827E095EFC0BD89e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524269E5F997BCB578C034F7FCA54BC43C86e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524269E5F997BCB578C034F7FCA54BC43C86e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A052905524269E5F997BCB578C034F7FCA54BC43C86e_-4"><span style="display: block;float: left;padding-left: 21px;">02:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524269E5F997BCB578C034F7FCA54BC43C86e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524234A15947ADCA905567DE5E77D3737752e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524234A15947ADCA905567DE5E77D3737752e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A052905524234A15947ADCA905567DE5E77D3737752e_-4"><span style="display: block;float: left;padding-left: 21px;">03:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524234A15947ADCA905567DE5E77D3737752e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552424ECBA45BC75FD82AA149A38C834CA946e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552424ECBA45BC75FD82AA149A38C834CA946e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552424ECBA45BC75FD82AA149A38C834CA946e_-4"><span style="display: block;float: left;padding-left: 21px;">03:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552424ECBA45BC75FD82AA149A38C834CA946e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242D3ABDAC6C189675638DF8DE183A71E50e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242D3ABDAC6C189675638DF8DE183A71E50e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242D3ABDAC6C189675638DF8DE183A71E50e_-4"><span style="display: block;float: left;padding-left: 21px;">03:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242D3ABDAC6C189675638DF8DE183A71E50e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552428479B8915DF03A8D61948E08F86A1449e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552428479B8915DF03A8D61948E08F86A1449e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552428479B8915DF03A8D61948E08F86A1449e_-4"><span style="display: block;float: left;padding-left: 21px;">03:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552428479B8915DF03A8D61948E08F86A1449e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242926113FC1FAA520DCC0D85C41FD5CCCAe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242926113FC1FAA520DCC0D85C41FD5CCCAe_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242926113FC1FAA520DCC0D85C41FD5CCCAe_-4"><span style="display: block;float: left;padding-left: 21px;">03:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242926113FC1FAA520DCC0D85C41FD5CCCAe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552420A4824B284E875DE9A2677B90C30440Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552420A4824B284E875DE9A2677B90C30440Ce_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552420A4824B284E875DE9A2677B90C30440Ce_-4"><span style="display: block;float: left;padding-left: 21px;">03:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552420A4824B284E875DE9A2677B90C30440Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242263A7673BA268A70D6C06765526BDE7Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242263A7673BA268A70D6C06765526BDE7Be_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242263A7673BA268A70D6C06765526BDE7Be_-4"><span style="display: block;float: left;padding-left: 21px;">04:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242263A7673BA268A70D6C06765526BDE7Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242601ADAFBD49A13CCDB6B6E0343291127e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242601ADAFBD49A13CCDB6B6E0343291127e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242601ADAFBD49A13CCDB6B6E0343291127e_-4"><span style="display: block;float: left;padding-left: 21px;">04:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242601ADAFBD49A13CCDB6B6E0343291127e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524200226DE64BB7FD22C9D694F51D30E212e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524200226DE64BB7FD22C9D694F51D30E212e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A052905524200226DE64BB7FD22C9D694F51D30E212e_-4"><span style="display: block;float: left;padding-left: 21px;">04:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524200226DE64BB7FD22C9D694F51D30E212e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524230D00DBA3BECC85C40B2B48A59DED6E7e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524230D00DBA3BECC85C40B2B48A59DED6E7e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A052905524230D00DBA3BECC85C40B2B48A59DED6E7e_-4"><span style="display: block;float: left;padding-left: 21px;">04:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524230D00DBA3BECC85C40B2B48A59DED6E7e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552429F3555CC50A976E06CD613A55BE43FA8e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552429F3555CC50A976E06CD613A55BE43FA8e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552429F3555CC50A976E06CD613A55BE43FA8e_-4"><span style="display: block;float: left;padding-left: 21px;">04:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552429F3555CC50A976E06CD613A55BE43FA8e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242ED4F95C533126FBC4340E0CFAB7D045Ae_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242ED4F95C533126FBC4340E0CFAB7D045Ae_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242ED4F95C533126FBC4340E0CFAB7D045Ae_-4"><span style="display: block;float: left;padding-left: 21px;">04:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242ED4F95C533126FBC4340E0CFAB7D045Ae_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524234F6FE381DF919FAFC65769063C8F0E9e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524234F6FE381DF919FAFC65769063C8F0E9e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A052905524234F6FE381DF919FAFC65769063C8F0E9e_-4"><span style="display: block;float: left;padding-left: 21px;">05:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524234F6FE381DF919FAFC65769063C8F0E9e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552421CCD7CA74DD03336568AB6E6FC43FE48e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552421CCD7CA74DD03336568AB6E6FC43FE48e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552421CCD7CA74DD03336568AB6E6FC43FE48e_-4"><span style="display: block;float: left;padding-left: 21px;">05:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552421CCD7CA74DD03336568AB6E6FC43FE48e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524294A256865B5AFCA5C490E2E47EF7801De_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524294A256865B5AFCA5C490E2E47EF7801De_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A052905524294A256865B5AFCA5C490E2E47EF7801De_-4"><span style="display: block;float: left;padding-left: 21px;">05:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524294A256865B5AFCA5C490E2E47EF7801De_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552421D8FCA9482000D2096665C588BA0C65Ae_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552421D8FCA9482000D2096665C588BA0C65Ae_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552421D8FCA9482000D2096665C588BA0C65Ae_-2"><span style="display: block;float: left;padding-left: 21px;">05:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552421D8FCA9482000D2096665C588BA0C65Ae_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A052905524248F5E6D5AC8A4CA023C7BDD428A5CC0Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A052905524248F5E6D5AC8A4CA023C7BDD428A5CC0Be_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e39E44A052905524248F5E6D5AC8A4CA023C7BDD428A5CC0Be_-0"><span style="display: block;float: left;padding-left: 21px;">05:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A052905524248F5E6D5AC8A4CA023C7BDD428A5CC0Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242F076686B565779689EDA6C8C08290639e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242F076686B565779689EDA6C8C08290639e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242F076686B565779689EDA6C8C08290639e_-2"><span style="display: block;float: left;padding-left: 21px;">05:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242F076686B565779689EDA6C8C08290639e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242F7D2CFF107FCD599C90135084C98DF9Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242F7D2CFF107FCD599C90135084C98DF9Ee_-3" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242F7D2CFF107FCD599C90135084C98DF9Ee_-3"><span style="display: block;float: left;padding-left: 21px;">06:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242F7D2CFF107FCD599C90135084C98DF9Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">06:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">3</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552420FD46513F0C67F78E75737A7C0AC773Fe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552420FD46513F0C67F78E75737A7C0AC773Fe_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552420FD46513F0C67F78E75737A7C0AC773Fe_-4"><span style="display: block;float: left;padding-left: 21px;">06:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552420FD46513F0C67F78E75737A7C0AC773Fe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">06:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A05290552425CF6158FEEDE6F8723537FD735BC5018e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A05290552425CF6158FEEDE6F8723537FD735BC5018e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A05290552425CF6158FEEDE6F8723537FD735BC5018e_-4"><span style="display: block;float: left;padding-left: 21px;">06:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A05290552425CF6158FEEDE6F8723537FD735BC5018e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">06:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e39E44A0529055242103442607CD3498C34D89F18BE00C08Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e39E44A0529055242103442607CD3498C34D89F18BE00C08Ce_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e39E44A0529055242103442607CD3498C34D89F18BE00C08Ce_-4"><span style="display: block;float: left;padding-left: 21px;">06:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e39E44A0529055242103442607CD3498C34D89F18BE00C08Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">06:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260513" class="cc-tab-div" data-id="20260513" style="display: none;"><div id="Sheet-20260513" class="cc-scrolling-sheet"><table id="SheetHeader-20260513" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260513" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eEB13C8DF7B78A656C789543516228F11CCD259AC05EC04CBe_"><td class="cc-col-reserve">
+<span id="reserve_button-_eEB13C8DF7B78A656C789543516228F11CCD259AC05EC04CBe_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_eEB13C8DF7B78A656C789543516228F11CCD259AC05EC04CBe_-0"><span style="display: block;float: left;padding-left: 21px;">10:50 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Wed 05/13</td><td data-id="_eEB13C8DF7B78A656C789543516228F11CCD259AC05EC04CBe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">10:50 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eEB13C8DF7B78A65679AC4EDA2E94D599392CC5BDAEDF0E9Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_eEB13C8DF7B78A65679AC4EDA2E94D599392CC5BDAEDF0E9Ce_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_eEB13C8DF7B78A65679AC4EDA2E94D599392CC5BDAEDF0E9Ce_-1"><span style="display: block;float: left;padding-left: 21px;">11:40 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Wed 05/13</td><td data-id="_eEB13C8DF7B78A65679AC4EDA2E94D599392CC5BDAEDF0E9Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">11:40 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eEB13C8DF7B78A656A2FEC30DEF3947B0635F8DB983102C9Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_eEB13C8DF7B78A656A2FEC30DEF3947B0635F8DB983102C9Ee_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_eEB13C8DF7B78A656A2FEC30DEF3947B0635F8DB983102C9Ee_-0"><span style="display: block;float: left;padding-left: 21px;">01:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Wed 05/13</td><td data-id="_eEB13C8DF7B78A656A2FEC30DEF3947B0635F8DB983102C9Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eEB13C8DF7B78A65675FA141F303F70FD3A794D7C395A5BE0e_"><td class="cc-col-reserve">
+<span id="reserve_button-_eEB13C8DF7B78A65675FA141F303F70FD3A794D7C395A5BE0e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_eEB13C8DF7B78A65675FA141F303F70FD3A794D7C395A5BE0e_-2"><span style="display: block;float: left;padding-left: 21px;">02:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Wed 05/13</td><td data-id="_eEB13C8DF7B78A65675FA141F303F70FD3A794D7C395A5BE0e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260514" class="cc-tab-div" data-id="20260514" style="display: none;"><div id="Sheet-20260514" class="cc-scrolling-sheet"><table id="SheetHeader-20260514" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260514" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eEAAB61030D48BF9E107A73457AED331460AAA51DC9DCBFCFe_"><td class="cc-col-reserve">
+<span id="reserve_button-_eEAAB61030D48BF9E107A73457AED331460AAA51DC9DCBFCFe_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_eEAAB61030D48BF9E107A73457AED331460AAA51DC9DCBFCFe_-4"><span style="display: block;float: left;padding-left: 21px;">08:50 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Thu 05/14</td><td data-id="_eEAAB61030D48BF9E107A73457AED331460AAA51DC9DCBFCFe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">08:50 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eEAAB61030D48BF9E1416C8431A517B82B6F89AA483B63B38e_"><td class="cc-col-reserve">
+<span id="reserve_button-_eEAAB61030D48BF9E1416C8431A517B82B6F89AA483B63B38e_-3" class="cc-reserve-button cc-selectable" onclick="" data-id="_eEAAB61030D48BF9E1416C8431A517B82B6F89AA483B63B38e_-3"><span style="display: block;float: left;padding-left: 21px;">01:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Thu 05/14</td><td data-id="_eEAAB61030D48BF9E1416C8431A517B82B6F89AA483B63B38e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">3</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eEAAB61030D48BF9E26F6ECFB8C3200537B567BF63B1858C0e_"><td class="cc-col-reserve">
+<span id="reserve_button-_eEAAB61030D48BF9E26F6ECFB8C3200537B567BF63B1858C0e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_eEAAB61030D48BF9E26F6ECFB8C3200537B567BF63B1858C0e_-0"><span style="display: block;float: left;padding-left: 21px;">02:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Windermere Golf Club</td><td class="cc-col-play-date">Thu 05/14</td><td data-id="_eEAAB61030D48BF9E26F6ECFB8C3200537B567BF63B1858C0e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260515" class="cc-tab-div" data-id="20260515" style="display: block;"><div id="Sheet-20260515" class="cc-scrolling-sheet"><table id="SheetHeader-20260515" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260515" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row" style="background-size: contain;"><td colspan="6">No Tee Times were found</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260517" class="cc-tab-div" data-id="20260517" style="display: none;"></div><div id="Div-20260518" class="cc-tab-div" data-id="20260518" style="display: none;"></div><div id="Div-20260519" class="cc-tab-div" data-id="20260519" style="display: none;"></div><div id="Div-20260520" class="cc-tab-div" data-id="20260520" style="display: none;"></div>
+</div>
+<div id="Events-Div" style="display: none;"> <div id="Div-MyEvents" class="cc-tab-div" data-id="MyEvents" style="display: none;"></div></div>
+<div id="cc_close_ftr" class="cc-right"></div></div>
+
+
+</div>
+                <div id="cc_waiting" style="display: none;">
+                  <div id="cc_waiting_img"><img src="/portal/page/portal/CCTTWEB/images/Tee_Times_Wait.gif" style="margin-top: 420px;"></div>
+                </div>
+              </div>
+              <div id="cc_content_area"></div>
+            </div></div></div><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-138cxa47rwc5" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/enterprise/anchor?ar=1&amp;k=6LdkWCUsAAAAAD3GpH6MnrHDDTieVv2wtUGE5R6Y&amp;co=aHR0cHM6Ly9hcHBzLmludml0ZWRjbHVicy5jb206NDQz&amp;hl=en&amp;v=U5VsmTDhJM1iOJUyw4DEUTYv&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=l6bdb959rcyf"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-popup_message" style="display: block; z-index: 1002; outline: 0px; height: auto; width: 600px; top: 297px; left: 337px;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-popup_message">Messages</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="popup_message" class="ui-dialog-content ui-widget-content" scrolltop="0" scrollleft="0" style="width: auto; min-height: 0px; height: 213.4px;"><span class="cc-msg-date">Posted: Sat, May 9</span><p>Please be advised that the greens at Olde Atlanta have been aerated on 06/08/26-06/11/26 and that the course may not be in optimal condition until 06/25/26.</p><p></p>
+</div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-focus" role="button" aria-disabled="false"><span class="ui-button-text">Dismiss</span></button></div></div></div><div class="ui-widget-overlay" style="width: 1280px; height: 900px; z-index: 1001;"></div></body></html>

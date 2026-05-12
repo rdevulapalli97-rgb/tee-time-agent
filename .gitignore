@@ -1,0 +1,24 @@
+# Secrets — NEVER commit these
+.env
+*.env
+config.local.json
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Playwright
+test-results/
+playwright-report/
+
+# Logs
+*.log
+booking-log.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

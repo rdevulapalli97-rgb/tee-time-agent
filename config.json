@@ -1,0 +1,124 @@
+{
+  "_comment": "Tee Time Agent Configuration — edit this file to update your preferences",
+
+  "portal": {
+    "loginUrl": "https://members.invitedclubs.com/club/scripts/login/login.asp",
+    "teeTimes": "https://apps.invitedclubs.com/portal/pls/portal/!CCTTWEB.controller"
+  },
+
+  "booking": {
+    "homeClub": {
+      "name": "Laurel Springs Golf Club",
+      "daysInAdvance": 6,
+      "targetDay": "Saturday",
+      "preferredTimeRange": {
+        "earliestHour": 6,
+        "latestHour": 11,
+        "comment": "Book Saturday tee times between 6:00am and 11:00am"
+      }
+    },
+    "accessAdvantage": {
+      "enabled": true,
+      "targetDay": "Sunday",
+      "preferredTimeRange": {
+        "earliestHour": 6,
+        "latestHour": 9,
+        "comment": "Book Sunday tee times at reciprocal Access Advantage clubs"
+      },
+      "preferredClubs": [],
+      "comment": "Leave preferredClubs empty to check all available clubs, or list specific club names"
+    },
+    "numberOfPlayers": 2,
+    "fallbackToEarliestAvailable": true,
+    "_fallbackComment": "If no slots exist in the preferred time window, book the earliest available slot instead of skipping",
+    "clubTiers": [
+      "Laurel Springs Golf Club",
+      "Atlanta National Golf Club",
+      "Eagle Watch Golf Club",
+      "Polo Golf & Country Club",
+      "Brookstone Golf & Country Club",
+      "Brookfield Country Club",
+      "The Clubs of Peachtree City",
+      "Windermere Golf Club"
+    ],
+    "_clubTiersComment": "Clubs listed first are preferred — used to break ties when multiple clubs have available slots"
+  },
+
+  "players": [
+    {
+      "role": "primary",
+      "firstName": "Rohit",
+      "lastName": "Devulapalli",
+      "phone": ""
+    },
+    {
+      "role": "guest",
+      "index": 1,
+      "_comment": "Default guest — used automatically when booking 2 players",
+      "firstName": "GUEST1_FIRST_NAME",
+      "lastName": "GUEST1_LAST_NAME",
+      "phone": "GUEST1_PHONE_NUMBER"
+    },
+    {
+      "role": "guest",
+      "index": 2,
+      "_comment": "Second guest — use with: node book-tee-time.js --guest 2",
+      "firstName": "GUEST2_FIRST_NAME",
+      "lastName": "GUEST2_LAST_NAME",
+      "phone": "GUEST2_PHONE_NUMBER"
+    },
+    {
+      "role": "guest",
+      "index": 3,
+      "_comment": "Third guest — use with: node book-tee-time.js --guest 3",
+      "firstName": "GUEST3_FIRST_NAME",
+      "lastName": "GUEST3_LAST_NAME",
+      "phone": "GUEST3_PHONE_NUMBER"
+    }
+  ],
+  "defaultGuestIndex": 1,
+
+  "fallbackClubs": [
+    "Atlanta National Golf Club",
+    "Eagle Watch Golf Club",
+    "Polo Golf & Country Club",
+    "Brookstone Golf & Country Club"
+  ],
+
+  "notifications": {
+    "sms": true,
+    "logToFile": true,
+    "logFile": "./booking-log.txt",
+    "preBookingAlertMinutes": 5,
+    "alertOnNewSlots": true
+  },
+
+  "twilio": {
+    "_comment": "Sign up at twilio.com — free trial gives ~$15 credit, more than enough",
+    "accountSid": "YOUR_ACCOUNT_SID",
+    "authToken":  "YOUR_AUTH_TOKEN",
+    "fromNumber": "+1XXXXXXXXXX",
+    "toNumber":   "+1XXXXXXXXXX"
+  },
+
+  "intelligence": {
+    "surgeIntervalMinutes": 3,
+    "normalIntervalMinutes": 15,
+    "bookingDayIntervalMinutes": 5,
+    "minClubReliabilityScore": 0.2,
+    "_comment": "Clubs scoring below minClubReliabilityScore for a given day are skipped unless it's booking day"
+  },
+
+  "schedule": {
+    "homeClubSaturdayCron":        "0 7 * * 0",
+    "accessAdvantageSundayCron":   "0 7 * * 1",
+    "comment": "Sunday 7am → book home club Saturday; Monday 7am → book Access Advantage Sunday."
+  },
+
+  "powerbi": {
+    "_comment": "Power BI Streaming Dataset — setup steps: app.powerbi.com → New → Streaming Dataset → API → create with schema below → paste the Push URL here",
+    "_schema": "Define these fields when creating the dataset: ClubName(Text), Date(Text), DayOfWeek(Text), Time(Text), Hour(Number), SlotsAvailable(Number), InPreferredWindow(True/False), ScrapedAt(DateTime)",
+    "enabled": false,
+    "pushUrl": "YOUR_PUSH_URL"
+  }
+}

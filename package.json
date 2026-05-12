@@ -1,0 +1,32 @@
+{
+  "name": "club-concierge-agent",
+  "version": "2.0.0",
+  "description": "Club Concierge — multi-tenant tee time booking agent for Invited Clubs members",
+  "main": "multi-user-scheduler.js",
+  "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "start": "node multi-user-scheduler.js",
+    "dev": "NODE_ENV=development node multi-user-scheduler.js",
+    "check": "node check-availability.js",
+    "book": "node book-tee-time.js",
+    "setup": "node setup-login.js",
+    "dry-run": "node book-tee-time.js --dry-run",
+    "encrypt-test": "node -e \"require('./lib/encrypt').selfTest()\"",
+    "onboard": "node scripts/onboard-user.js",
+    "postinstall": "npx playwright install chromium --with-deps"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.105.4",
+    "dotenv": "^16.4.5",
+    "node-cron": "^3.0.3",
+    "playwright": "^1.44.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "author": "Rohit Devulapalli <rdevulapalli97@gmail.com>",
+  "license": "UNLICENSED"
+}

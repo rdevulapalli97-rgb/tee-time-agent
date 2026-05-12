@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Club Concierge — Member Setup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1f3b2d; --forest-deep: #14271d; --gold: #c89b3c;
+    --cream:  #f4efe6; --ink: #1a1a1a;         --muted: #6b6357;
+    --border: rgba(31,59,45,0.12); --card: #faf7f2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--forest-deep); padding: 20px 32px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  header .logo { font-family: 'Fraunces', serif; color: var(--gold); font-size: 1.3rem; }
+  header p     { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  /* ── PROGRESS BAR ── */
+  .progress-bar { background: var(--forest); padding: 0 32px; }
+  .steps { display: flex; max-width: 720px; margin: 0 auto; }
+  .step {
+    flex: 1; padding: 14px 0; text-align: center; position: relative;
+    font-size: 12px; color: rgba(255,255,255,0.4); cursor: default;
+    border-bottom: 3px solid transparent; transition: all 0.3s;
+  }
+  .step.active  { color: var(--gold); border-bottom-color: var(--gold); }
+  .step.done    { color: rgba(255,255,255,0.7); }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.1);
+    font-size: 11px; margin-right: 6px; font-weight: 600;
+  }
+  .step.active .step-num  { background: var(--gold); color: #fff; }
+  .step.done   .step-num  { background: #2d7a4f; color: #fff; }
+
+  /* ── FORM CONTAINER ── */
+  .container { max-width: 720px; margin: 40px auto; padding: 0 16px; }
+
+  .card {
+    background: #fff; border-radius: 12px; border: 1px solid var(--border);
+    padding: 36px 40px; margin-bottom: 20px;
+  }
+  .card h2 { font-family: 'Fraunces', serif; font-size: 1.4rem; color: var(--forest); margin-bottom: 6px; }
+  .card .subtitle { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+
+  /* ── FORM ELEMENTS ── */
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 12px; font-weight: 600; color: var(--forest); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .field label .optional { font-weight: 400; color: var(--muted); text-transform: none; letter-spacing: 0; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 11px 14px; border: 1.5px solid var(--border);
+    border-radius: 8px; font-size: 14px; font-family: 'Inter', sans-serif;
+    background: #fff; color: var(--ink); transition: border-color 0.2s; outline: none;
+  }
+  .field input:focus, .field select:focus { border-color: var(--forest); }
+  .field .hint { font-size: 12px; color: var(--muted); margin-top: 5px; }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field-row.thirds { grid-template-columns: 1fr 1fr 1fr; }
+
+  /* ── TIME RANGE PICKER ── */
+  .time-range { display: flex; align-items: center; gap: 12px; }
+  .time-range span { color: var(--muted); font-size: 13px; }
+
+  /* ── CLUB TIERS ── */
+  .tier-list { display: flex; flex-direction: column; gap: 8px; }
+  .tier-item {
+    display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    font-size: 13px; cursor: grab;
+  }
+  .tier-item .drag-handle { color: var(--muted); cursor: grab; }
+  .tier-num { font-weight: 700; color: var(--gold); width: 20px; }
+
+  /* ── SECURITY BOX ── */
+  .security-box {
+    background: #f0f7f0; border: 1px solid #c3dfc3; border-radius: 8px;
+    padding: 14px 16px; margin-bottom: 20px; display: flex; gap: 10px;
+    font-size: 13px; color: #2d6a4f;
+  }
+  .security-box .icon { font-size: 18px; flex-shrink: 0; }
+
+  /* ── PLAN CARDS ── */
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 4px; }
+  .plan-card {
+    border: 2px solid var(--border); border-radius: 10px; padding: 18px;
+    cursor: pointer; transition: all 0.2s; text-align: center;
+  }
+  .plan-card:hover   { border-color: var(--forest); }
+  .plan-card.selected { border-color: var(--gold); background: #fff8ec; }
+  .plan-name  { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .plan-price { font-size: 22px; font-weight: 700; color: var(--forest); }
+  .plan-price span { font-size: 13px; font-weight: 400; color: var(--muted); }
+  .plan-feature { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+
+  /* ── BUTTONS ── */
+  .btn-row { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; }
+  .btn {
+    padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    cursor: pointer; border: none; transition: all 0.2s;
+  }
+  .btn-primary { background: var(--forest); color: #fff; }
+  .btn-primary:hover { background: var(--forest-deep); }
+  .btn-gold    { background: var(--gold); color: #fff; }
+  .btn-gold:hover { opacity: 0.9; }
+  .btn-ghost   { background: transparent; border: 1.5px solid var(--border); color: var(--ink); }
+
+  /* ── SUCCESS ── */
+  .success-screen { text-align: center; padding: 60px 40px; }
+  .success-icon   { font-size: 64px; margin-bottom: 20px; }
+  .success-screen h2 { font-family: 'Fraunces', serif; font-size: 1.8rem; color: var(--forest); margin-bottom: 12px; }
+  .success-screen p  { color: var(--muted); max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
+
+  /* ── STEPS VISIBILITY ── */
+  .form-step { display: none; }
+  .form-step.active { display: block; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo">⛳ Club Concierge</div>
+    <p>Member Setup — takes about 5 minutes</p>
+  </div>
+</header>
+
+<div class="progress-bar">
+  <div class="steps">
+    <div class="step active" id="step-indicator-1"><span class="step-num">1</span> Your Info</div>
+    <div class="step"        id="step-indicator-2"><span class="step-num">2</span> Club Setup</div>
+    <div class="step"        id="step-indicator-3"><span class="step-num">3</span> Players</div>
+    <div class="step"        id="step-indicator-4"><span class="step-num">4</span> Portal Login</div>
+    <div class="step"        id="step-indicator-5"><span class="step-num">5</span> Review</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ── STEP 1: YOUR INFO ── -->
+  <div class="form-step active" id="form-step-1">
+    <div class="card">
+      <h2>Welcome to Club Concierge</h2>
+      <p class="subtitle">Let's get your agent set up. We'll start with the basics.</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label>First Name</label>
+          <input id="first-name" type="text" placeholder="Rohit" />
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input id="last-name" type="text" placeholder="Devulapalli" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input id="email" type="email" placeholder="you@example.com" />
+        <div class="hint">This is where booking confirmations and status updates will be sent.</div>
+      </div>
+      <div class="field">
+        <label>Mobile Phone <span class="optional">(for SMS alerts)</span></label>
+        <input id="phone" type="tel" placeholder="+1 (555) 000-0000" />
+        <div class="hint">Highly recommended — you'll get an SMS the moment your tee time is booked.</div>
+      </div>
+
+      <div class="field">
+        <label>Plan</label>
+        <div class="plan-grid">
+          <div class="plan-card" onclick="selectPlan('starter', this)">
+            <div class="plan-name">Starter</div>
+            <div class="plan-price">$49<span>/mo</span></div>
+            <div class="plan-feature">1 club · 2 players<br>Saturday automation</div>
+          </div>
+          <div class="plan-card selected" onclick="selectPlan('member', this)">
+            <div class="plan-name">Member</div>
+            <div class="plan-price">$99<span>/mo</span></div>
+            <div class="plan-feature">Home + Access Advantage<br>Up to 4 players</div>
+          </div>
+          <div class="plan-card" onclick="selectPlan('concierge', this)">
+            <div class="plan-name">Concierge</div>
+            <div class="plan-price">$199<span>/mo</span></div>
+            <div class="plan-feature">Multi-member · Travel clubs<br>Direct phone support</div>
+          </div>
+        </div>
+        <input type="hidden" id="plan" value="member" />
+      </div>
+
+      <div class="btn-row">
+        <div></div>
+        <button class="btn btn-primary" onclick="nextStep(1)">Continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 2: CLUB SETUP ── -->
+  <div class="form-step" id="form-step-2">
+    <div class="card">
+      <h2>Your Club Preferences</h2>
+      <p class="subtitle">Tell us which club to book for and when you want to play.</p>
+
+      <div class="field">
+        <label>Home Club Name</label>
+        <input id="home-club" type="text" placeholder="Laurel Springs Golf Club" />
+        <div class="hint">Enter the exact club name as it appears in the Invited Clubs portal.</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Target Day</label>
+          <select id="home-target-day">
+            <option value="Saturday" selected>Saturday</option>
+            <option value="Sunday">Sunday</option>
+            <option value="Friday">Friday</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Days in Advance</label>
+          <select id="days-advance">
+            <option value="6" selected>6 days (standard)</option>
+            <option value="7">7 days</option>
+            <option value="5">5 days</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Preferred Tee Time Window</label>
+        <div class="time-range">
+          <select id="home-earliest">
+            <option value="6" selected>6:00 AM</option>
+            <option value="7">7:00 AM</option>
+            <option value="8">8:00 AM</option>
+            <option value="9">9:00 AM</option>
+          </select>
+          <span>to</span>
+          <select id="home-latest">
+            <option value="9">9:00 AM</option>
+            <option value="10">10:00 AM</option>
+            <option value="11" selected>11:00 AM</option>
+            <option value="12">12:00 PM</option>
+          </select>
+        </div>
+        <div class="hint">If no slots are in this window, we'll book the earliest available time instead.</div>
+      </div>
+
+      <div class="field" id="aa-section">
+        <label>Access Advantage Clubs (Sunday)</label>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <input type="checkbox" id="aa-enabled" style="width:auto;" onchange="toggleAA(this.checked)" />
+          <span style="font-size:13px;">Also book Access Advantage clubs on Sundays</span>
+        </div>
+        <div id="aa-fields" style="display:none;">
+          <div class="time-range" style="margin-bottom:8px;">
+            <select id="aa-earliest">
+              <option value="6" selected>6:00 AM</option>
+              <option value="7">7:00 AM</option>
+              <option value="8">8:00 AM</option>
+            </select>
+            <span>to</span>
+            <select id="aa-latest">
+              <option value="8">8:00 AM</option>
+              <option value="9" selected>9:00 AM</option>
+              <option value="10">10:00 AM</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Number of Players</label>
+        <select id="num-players">
+          <option value="1">1 player</option>
+          <option value="2" selected>2 players</option>
+          <option value="3">3 players</option>
+          <option value="4">4 players</option>
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="prevStep(2)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(2)">Continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 3: PLAYERS ── -->
+  <div class="form-step" id="form-step-3">
+    <div class="card">
+      <h2>Guest Players</h2>
+      <p class="subtitle">Add the guest(s) you usually play with. These will be filled in automatically when booking.</p>
+
+      <div id="guest-fields">
+        <div class="field-row thirds">
+          <div class="field">
+            <label>Guest 1 First Name</label>
+            <input id="g1-first" type="text" placeholder="First" />
+          </div>
+          <div class="field">
+            <label>Guest 1 Last Name</label>
+            <input id="g1-last" type="text" placeholder="Last" />
+          </div>
+          <div class="field">
+            <label>Phone <span class="optional">optional</span></label>
+            <input id="g1-phone" type="tel" placeholder="+1 (555) 000-0000" />
+          </div>
+        </div>
+      </div>
+
+      <div id="extra-guests" style="display:none;">
+        <div class="field-row thirds">
+          <div class="field">
+            <label>Guest 2 First Name</label>
+            <input id="g2-first" type="text" placeholder="First" />
+          </div>
+          <div class="field">
+            <label>Guest 2 Last Name</label>
+            <input id="g2-last" type="text" placeholder="Last" />
+          </div>
+          <div class="field">
+            <label>Phone <span class="optional">optional</span></label>
+            <input id="g2-phone" type="tel" placeholder="+1 (555) 000-0000" />
+          </div>
+        </div>
+        <div class="field-row thirds">
+          <div class="field">
+            <label>Guest 3 First Name</label>
+            <input id="g3-first" type="text" placeholder="First" />
+          </div>
+          <div class="field">
+            <label>Guest 3 Last Name</label>
+            <input id="g3-last" type="text" placeholder="Last" />
+          </div>
+          <div class="field">
+            <label>Phone <span class="optional">optional</span></label>
+            <input id="g3-phone" type="tel" placeholder="+1 (555) 000-0000" />
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="prevStep(3)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 4: PORTAL LOGIN ── -->
+  <div class="form-step" id="form-step-4">
+    <div class="card">
+      <h2>Invited Clubs Login</h2>
+      <p class="subtitle">Your agent needs your portal credentials to check and book tee times on your behalf.</p>
+
+      <div class="security-box">
+        <span class="icon">🔒</span>
+        <div>
+          <strong>Your credentials are encrypted with AES-256-GCM</strong> before being stored.
+          They are never logged, never stored in plaintext, and never shared.
+          They are used only to authenticate with the Invited Clubs portal.
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Invited Clubs Username</label>
+        <input id="portal-username" type="text" autocomplete="username" placeholder="Your portal login username" />
+        <div class="hint">This is the username you use at members.invitedclubs.com</div>
+      </div>
+      <div class="field">
+        <label>Invited Clubs Password</label>
+        <input id="portal-password" type="password" autocomplete="current-password" placeholder="Your portal password" />
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="prevStep(4)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(4)">Review Setup →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 5: REVIEW ── -->
+  <div class="form-step" id="form-step-5">
+    <div class="card">
+      <h2>Review Your Setup</h2>
+      <p class="subtitle">Everything look right? Hit confirm and your agent will be active within the hour.</p>
+
+      <div id="review-content" style="font-size:13px;line-height:2;"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-ghost" onclick="prevStep(5)">← Back</button>
+        <button class="btn btn-gold" onclick="submitSignup()">✅ Confirm & Activate Agent</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SUCCESS ── -->
+  <div class="form-step" id="form-step-success">
+    <div class="card success-screen">
+      <div class="success-icon">⛳</div>
+      <h2>You're all set!</h2>
+      <p>Your Club Concierge agent is now active. We'll check for availability every 15 minutes and send you an SMS and email the moment your tee time is booked.</p>
+      <p style="font-size:12px;color:var(--muted);">Didn't get a confirmation email? Check your spam folder or email <a href="mailto:support@clubconcierge.com" style="color:var(--forest);">support@clubconcierge.com</a></p>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+let currentStep = 1;
+const totalSteps = 5;
+
+function selectPlan(plan, el) {
+  document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('plan').value = plan;
+  // Show/hide extra guests based on plan
+  updateGuestVisibility();
+}
+
+function updateGuestVisibility() {
+  const plan = document.getElementById('plan').value;
+  const players = parseInt(document.getElementById('num-players')?.value || 2);
+  document.getElementById('extra-guests').style.display = players > 2 ? '' : 'none';
+}
+
+function toggleAA(enabled) {
+  document.getElementById('aa-fields').style.display = enabled ? '' : 'none';
+}
+
+function nextStep(from) {
+  if (!validateStep(from)) return;
+  if (from === 4) buildReview();
+  goToStep(from + 1);
+}
+
+function prevStep(from) {
+  goToStep(from - 1);
+}
+
+function goToStep(n) {
+  document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+  document.getElementById(`form-step-${n}`).classList.add('active');
+  for (let i = 1; i <= totalSteps; i++) {
+    const ind = document.getElementById(`step-indicator-${i}`);
+    ind.className = 'step' + (i === n ? ' active' : i < n ? ' done' : '');
+  }
+  currentStep = n;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function validateStep(step) {
+  const checks = {
+    1: [['first-name','First name'], ['last-name','Last name'], ['email','Email']],
+    2: [['home-club','Home club name']],
+    4: [['portal-username','Portal username'], ['portal-password','Portal password']]
+  };
+  for (const [id, label] of (checks[step] || [])) {
+    if (!document.getElementById(id)?.value.trim()) {
+      alert(`${label} is required.`);
+      document.getElementById(id)?.focus();
+      return false;
+    }
+  }
+  return true;
+}
+
+function buildReview() {
+  const aaEnabled = document.getElementById('aa-enabled').checked;
+  const html = `
+    <table style="width:100%;border-collapse:collapse;">
+      <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;width:40%;">Name</td><td style="padding:8px 12px;">${document.getElementById('first-name').value} ${document.getElementById('last-name').value}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:600;">Email</td><td style="padding:8px 12px;">${document.getElementById('email').value}</td></tr>
+      <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Phone</td><td style="padding:8px 12px;">${document.getElementById('phone').value || '—'}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:600;">Plan</td><td style="padding:8px 12px;">${document.getElementById('plan').value}</td></tr>
+      <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Home Club</td><td style="padding:8px 12px;">${document.getElementById('home-club').value}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:600;">Target Day</td><td style="padding:8px 12px;">${document.getElementById('home-target-day').value}</td></tr>
+      <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Preferred Window</td><td style="padding:8px 12px;">${document.getElementById('home-earliest').options[document.getElementById('home-earliest').selectedIndex].text} – ${document.getElementById('home-latest').options[document.getElementById('home-latest').selectedIndex].text}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:600;">Players</td><td style="padding:8px 12px;">${document.getElementById('num-players').value}</td></tr>
+      <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Access Advantage</td><td style="padding:8px 12px;">${aaEnabled ? '✅ Enabled for Sundays' : 'Disabled'}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:600;">Guest 1</td><td style="padding:8px 12px;">${document.getElementById('g1-first').value} ${document.getElementById('g1-last').value || '—'}</td></tr>
+      <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Portal Login</td><td style="padding:8px 12px;">${document.getElementById('portal-username').value} · <span style="color:#2d7a4f;">🔒 Password encrypted</span></td></tr>
+    </table>`;
+  document.getElementById('review-content').innerHTML = html;
+}
+
+async function submitSignup() {
+  const btn = document.querySelector('#form-step-5 .btn-gold');
+  btn.textContent = 'Saving...';
+  btn.disabled = true;
+
+  const payload = {
+    email:     document.getElementById('email').value.trim(),
+    name:      `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`.trim(),
+    phone:     document.getElementById('phone').value.trim(),
+    plan:      document.getElementById('plan').value,
+    username:  document.getElementById('portal-username').value.trim(),
+    password:  document.getElementById('portal-password').value,
+    config: {
+      home_club_name:            document.getElementById('home-club').value.trim(),
+      home_club_target_day:      document.getElementById('home-target-day').value,
+      home_club_days_in_advance: parseInt(document.getElementById('days-advance').value),
+      home_earliest_hour:        parseInt(document.getElementById('home-earliest').value),
+      home_latest_hour:          parseInt(document.getElementById('home-latest').value),
+      aa_enabled:                document.getElementById('aa-enabled').checked,
+      aa_earliest_hour:          parseInt(document.getElementById('aa-earliest').value),
+      aa_latest_hour:            parseInt(document.getElementById('aa-latest').value),
+      number_of_players:         parseInt(document.getElementById('num-players').value),
+      fallback_to_earliest:      true,
+    },
+    players: [
+      { slot_index: 1, first_name: document.getElementById('g1-first').value, last_name: document.getElementById('g1-last').value, phone: document.getElementById('g1-phone').value },
+    ].filter(p => p.first_name)
+  };
+
+  try {
+    // POST to your Node server's /api/signup endpoint
+    const res = await fetch('/api/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('form-step-success').classList.add('active');
+      document.querySelector('.progress-bar').style.display = 'none';
+    } else {
+      const err = await res.json().catch(() => ({}));
+      alert('Signup failed: ' + (err.message || res.statusText));
+      btn.textContent = '✅ Confirm & Activate Agent';
+      btn.disabled = false;
+    }
+  } catch (e) {
+    alert('Network error: ' + e.message);
+    btn.textContent = '✅ Confirm & Activate Agent';
+    btn.disabled = false;
+  }
+}
+
+// Update guest visibility when player count changes
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('num-players')?.addEventListener('change', updateGuestVisibility);
+});
+</script>
+</body>
+</html>

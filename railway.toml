@@ -1,0 +1,23 @@
+# ============================================================
+#  Railway.app deployment config
+#  Docs: docs.railway.app
+#
+#  Deploy steps:
+#  1. Push this repo to GitHub (private)
+#  2. Go to railway.app → New Project → Deploy from GitHub repo
+#  3. Railway auto-detects Node.js and uses this config
+#  4. Go to Variables tab → add all values from .env.example
+#  5. Click Deploy — takes about 90 seconds
+# ============================================================
+
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "node multi-user-scheduler.js"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5
+
+[healthcheck]
+path = "/health"
+# Railway pings /health every 30s — our scheduler serves it on PORT

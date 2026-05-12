@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/U5VsmTDhJM1iOJUyw4DEUTYv/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-RlZBF+DceOCqWmazqOb46XLCUaBCQCOelQ6x5Vp23p2IQF2OluFH9XDriL4JIqbh"></script>
+            <title>ClubCorp Web Tee Time Reservations</title>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-1.7.1.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-ui-1.8.16.custom.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.pack.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.simplemodal-1.4.1.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.ba-postmessage.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.css?reload=1778422015132">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/themes/default_v1.8.16/css/custom-theme/jquery-ui-1.8.16.custom.css?reload=1778422015132">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/CCTTWEB/css/ccttweb_common.css?reload=1778422015132">
+            <script type="text/javascript" src="/portal/page/portal/CCXXWEB/js/fix_chrome_css.js"></script>
+            
+            
+            <!--New event to create JS and CSS from controller-->
+            <script type="text/javascript" src="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=JS"></script>
+            <link rel="stylesheet" type="text/css" href="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=CSS">
+            
+            <script type="text/javascript">
+              // need to set domain to avoid iFrame cross-domain access error
+              //document.domain = "clubcorp.com";
+              var openmsg = true, leadcount;
+              $(document).ready( function () {
+              
+                
+                // define modal window processing 
+                $("#cc_web_margin1").modal( {
+                  closeHTML: "",
+                  containerId: "modalFormContainer",
+                  minHeight: 600,
+                  minWidth: 800,
+                  zIndex: 800,
+                  // async: false,
+                  onClose: function () {
+                    $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=MODAL_CLOSE",
+                    function(responseText, textStatus, XMLHttpRequest){
+                      $.modal.close();
+                      $.postMessage(
+                        "",
+                        "https://members.clubcorp.com/club/scripts/mylocker/mylocker.asp",
+                        parent
+                      );
+                    });
+                  }
+                });
+                // load window 
+                $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=VIEW"
+                  , function(){
+                  $("#cc_pros_message").click();
+                  });
+              });
+            </script>
+          </head>
+          <body leftmargin="0" rightmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+            <span id="simplemodal-placeholder" style="display: none;"></span>
+          
+        
+<div id="simplemodal-overlay" class="simplemodal-overlay" style="opacity: 0.5; height: 900px; width: 1280px; position: fixed; left: 0px; top: 0px; z-index: 801;"></div><div id="modalFormContainer" class="simplemodal-container" style="position: fixed; z-index: 802; height: 900px; width: 800px; left: 240px; top: 0px;"><div tabindex="-1" class="simplemodal-wrap" style="height: 100%; outline: 0px; width: 100%; overflow: visible;"><div id="cc_web_margin1" class="simplemodal-data" style="">
+              <div id="cc_web_margin2">
+                <div id="cc_web_error"></div>
+                <div id="cc_web_content"><style>
+                                         .cc-col-int-chkbx{
+                                           width: 3%;
+                                         }
+                                         .cc-col-int-pslot{
+                                           width: 8%;
+                                         }
+                                         .cc-col-int-ptype{
+                                           width: 8%;
+                                         }
+                                         .cc-col-int-pname{
+                                           width: 28%;
+                                         }
+                                         .cc-col-int-prent{
+                                           width: 15%;
+                                         }
+                                         .cc-col-int-pcaddie{
+                                           width: 15%;
+                                         }
+                                         .cc-col-int-email{
+                                           width: 23%;
+                                         }
+                                         
+                                         /*******************NTWK****************************/
+                                         .cc-col-ntwk-chkbx{
+                                           width: 3%;
+                                         }
+                                         .cc-col-ntwk-pslot{
+                                           width: 7%;
+                                         }
+                                         .cc-col-ntwk-ptype{
+                                           width:11%;
+                                         }
+                                         .cc-col-ntwk-pname{
+                                           width: 17%;
+                                         }
+                                         .cc-col-ntwk-prent{
+                                           width: 15%;
+                                         }
+                                         .cc-col-ntwk-pcaddie{
+                                           width: 15%;
+                                         }
+                                         .cc-col-ntwk-email{
+                                           width: 20%;
+                                         }
+                                         .cc-col-ntwk-benefit{
+                                           width: 12%;
+                                         }
+                                         /*******************NTWK****************************/
+                                         
+                                         .cc-player-row select,input,textarea {
+                                           width: 90%;
+                                         }
+                                         .cc-player-row input {
+                                           width: 87%;
+                                         }
+                                         .cc-buttons{
+                                           display: flex;
+                                           justify-content:  space-between;
+                                         }
+                                         .cc-buttons > span{
+                                           margin: auto;
+                                         }
+                                         /**************************MyTeeTimes**************************/
+                                         .cc-grid-myteetimes {
+                                           display : grid; 
+                                           grid-template-columns : 80px 180px 150px 95px 110px 165px; 
+                                           align-items : center; 
+                                           grid-template-rows: minmax(35px,auto) auto;
+                                         }
+                                         .cc-grid-myteetimes > div:first-child {
+                                           width: auto;
+                                         }
+                                         
+                                         .cc-grid-myteetimes > div:nth-child(7) {
+                                           font-size: smaller;
+                                           color: red;
+                                           grid-column: 1/7;
+                                         }
+                                         
+                                         .ui-autocomplete-loading { 
+                                           background: white url("/portal/page/portal/CCTTWEB/images/Tee_Times_Wait.gif") right center no-repeat;
+                                           background-size: 15px;
+                                         }
+
+                                         .grecaptcha-badge {
+                                           visibility: hidden !important;
+                                         }
+                                      </style>
+<div id="cc_web_modal"><div id="cc_web_header"><div id="cc_homerenovation_hdr" class="cc-float-left cc-selectable">
+                                <span class="cc-close-hdr" onclick="">HOME</span></div><div id="cc_close_hdr" class="cc-right" style="margin-right: 2px;height: 15px;"></div><div id="cc_navigation"><div id="Tab-MyTeeTimes" class="cc-tab-my-tee-times cc-selectable" onclick="" data-id="1">&nbsp;</div>
+<div id="cc_tab_prev" class="cc-float-left" onclick="" title="Show Previous Date" style="visibility: hidden;">&nbsp;</div>
+<div id="cc_tab_list" class="cc-float-left">
+<div id="cc_tab_slider">
+<div id="Tab-20260510" class="cc-tab cc-selectable" onclick="" data-id="2"><span class="cc-day">Sun</span><br><span class="cc-date">May       10</span></div><div id="Tab-20260511" class="cc-tab cc-selectable" onclick="" data-id="3"><span class="cc-day">Mon</span><br><span class="cc-date">May       11</span></div><div id="Tab-20260512" class="cc-tab cc-selectable" onclick="" data-id="4"><span class="cc-day">Tue</span><br><span class="cc-date">May       12</span></div><div id="Tab-20260513" class="cc-tab cc-selectable" onclick="" data-id="5"><span class="cc-day">Wed</span><br><span class="cc-date">May       13</span></div><div id="Tab-20260514" class="cc-tab cc-selectable" onclick="" data-id="6"><span class="cc-day">Thu</span><br><span class="cc-date">May       14</span></div><div id="Tab-20260515" class="cc-tab cc-tab-selected cc-selectable" onclick="" data-id="7"><span class="cc-day">Fri</span><br><span class="cc-date">May       15</span></div><div id="Tab-20260517" class="cc-tab cc-selectable" onclick="" data-id="8"><span class="cc-day">Sun</span><br><span class="cc-date">May       17</span></div><div id="Tab-20260518" class="cc-tab cc-selectable" onclick="" data-id="9"><span class="cc-day">Mon</span><br><span class="cc-date">May       18</span></div><div id="Tab-20260519" class="cc-tab cc-selectable" onclick="" data-id="10"><span class="cc-day">Tue</span><br><span class="cc-date">May       19</span></div><div id="Tab-20260520" class="cc-tab cc-selectable" onclick="" data-id="11"><span class="cc-day">Wed</span><br><span class="cc-date">May       20</span></div>
+&nbsp;&nbsp;</div></div><div id="cc_tab_next" onclick="" title="Show Next Date" style="visibility: visible;">&nbsp;</div></div></div><div id="cc_web_messages">
+<span id="cc_pros_message" class="cc-msg-command cc-msg-popup-header-closed" onclick="">Messages</span><span id="cc_waitlist" class="cc-msg-command cc-msg-popup-header-closed" onclick="" style="visibility: visible;">Wait List</span><span id="cc_view_sheet" class="cc-msg-command cc-msg-popup-header-closed" onclick="" style="visibility: visible;">View Full Sheet</span>
+<div id="cc_players_popup" class="cc-msg-popup" style="display: none;">&nbsp;</div></div>
+<div id="TeeTimes-Div" style="display: block;"> <div id="Div-MyTeeTimes" class="cc-tab-div" data-id="MyTeeTimes" style="display: none;"><div id="Sheet-MyTeeTimes" class="cc-scrolling-sheet"><table id="SheetHeader-MyTeeTimes" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="" colspan="6">
+
+<table style="padding-bottom:10px;" align="center" border="0"><tbody><tr><td width="30px" align="right">
+</td>
+                                            <td width="180px">
+                                            <span class="cc-date"><strong>05/10/2026 - 06/08/2026</strong></span>
+                                            </td>
+                                            <td width="30px" align="left">
+                                            <img id="next_mytee" src="/portal/page/portal/CCTT/images/go-rt-on.gif" style="cursor:pointer;vertical-align:bottom;" title="Click To Go To Next">
+                                            </td></tr></tbody></table>
+</td></tr><tr><td style="width:80px;" class="cc-center" onclick="">View/Edit</td><td style="width:180px;">Club Name</td><td style="width:150px;">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-MyTeeTimes" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td style="height: 47px;" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row" style="background-size: contain;"><td colspan="6">No Tee Times were found</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260510" class="cc-tab-div" data-id="20260510" style="display: none;"><div id="Sheet-20260510" class="cc-scrolling-sheet"><table id="SheetHeader-20260510" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260510" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E7773404B7B76D1DF614F7DA63BEC568Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E7773404B7B76D1DF614F7DA63BEC568Ee_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666E7773404B7B76D1DF614F7DA63BEC568Ee_-0"><span style="display: block;float: left;padding-left: 21px;">12:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E7773404B7B76D1DF614F7DA63BEC568Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E915B4FA6773ABFAA0522879BB8F04A6Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E915B4FA6773ABFAA0522879BB8F04A6Be_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666E915B4FA6773ABFAA0522879BB8F04A6Be_-0"><span style="display: block;float: left;padding-left: 21px;">12:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E915B4FA6773ABFAA0522879BB8F04A6Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666ED3684F8860640EE84F90041D96A9C53Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666ED3684F8860640EE84F90041D96A9C53Ee_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666ED3684F8860640EE84F90041D96A9C53Ee_-0"><span style="display: block;float: left;padding-left: 21px;">12:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666ED3684F8860640EE84F90041D96A9C53Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E9BBF264A4CEAC139AA811A436A5F8BD7e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E9BBF264A4CEAC139AA811A436A5F8BD7e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666E9BBF264A4CEAC139AA811A436A5F8BD7e_-0"><span style="display: block;float: left;padding-left: 21px;">12:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E9BBF264A4CEAC139AA811A436A5F8BD7e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E93A8C3B1766278FF58090898707BD9EAe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E93A8C3B1766278FF58090898707BD9EAe_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E93A8C3B1766278FF58090898707BD9EAe_-2"><span style="display: block;float: left;padding-left: 21px;">12:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E93A8C3B1766278FF58090898707BD9EAe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666ED3A72A2F7A72C4FBB3E7EA05841DF066e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666ED3A72A2F7A72C4FBB3E7EA05841DF066e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666ED3A72A2F7A72C4FBB3E7EA05841DF066e_-0"><span style="display: block;float: left;padding-left: 21px;">12:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666ED3A72A2F7A72C4FBB3E7EA05841DF066e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EAFC5346746FE7CDEA653DBC56623DE60e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EAFC5346746FE7CDEA653DBC56623DE60e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EAFC5346746FE7CDEA653DBC56623DE60e_-2"><span style="display: block;float: left;padding-left: 21px;">01:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EAFC5346746FE7CDEA653DBC56623DE60e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E5967E9AB70DEA883B470FE80A9CFF947e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E5967E9AB70DEA883B470FE80A9CFF947e_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E5967E9AB70DEA883B470FE80A9CFF947e_-1"><span style="display: block;float: left;padding-left: 21px;">01:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E5967E9AB70DEA883B470FE80A9CFF947e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E10B9508E82C8360CE9D97334430EC9CAe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E10B9508E82C8360CE9D97334430EC9CAe_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666E10B9508E82C8360CE9D97334430EC9CAe_-0"><span style="display: block;float: left;padding-left: 21px;">01:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E10B9508E82C8360CE9D97334430EC9CAe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E1D91BBB685E53E9DA6D27920B92477A4e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E1D91BBB685E53E9DA6D27920B92477A4e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666E1D91BBB685E53E9DA6D27920B92477A4e_-0"><span style="display: block;float: left;padding-left: 21px;">01:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E1D91BBB685E53E9DA6D27920B92477A4e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E8FAABFA209FA023671BDBBD67C13AA8Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E8FAABFA209FA023671BDBBD67C13AA8Ee_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E8FAABFA209FA023671BDBBD67C13AA8Ee_-2"><span style="display: block;float: left;padding-left: 21px;">02:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E8FAABFA209FA023671BDBBD67C13AA8Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666ECC0619595C752F2EE40400F748753B72e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666ECC0619595C752F2EE40400F748753B72e_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666ECC0619595C752F2EE40400F748753B72e_-1"><span style="display: block;float: left;padding-left: 21px;">02:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666ECC0619595C752F2EE40400F748753B72e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EFA88CFE1745D62BDB05098978152EDDFe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EFA88CFE1745D62BDB05098978152EDDFe_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666EFA88CFE1745D62BDB05098978152EDDFe_-0"><span style="display: block;float: left;padding-left: 21px;">02:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EFA88CFE1745D62BDB05098978152EDDFe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E0BE8EDE7AD9650C748FA2C1FF90C634Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E0BE8EDE7AD9650C748FA2C1FF90C634Be_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666E0BE8EDE7AD9650C748FA2C1FF90C634Be_-0"><span style="display: block;float: left;padding-left: 21px;">02:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E0BE8EDE7AD9650C748FA2C1FF90C634Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E12B3CBE0C23E5058E53A433B9E161668e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E12B3CBE0C23E5058E53A433B9E161668e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666E12B3CBE0C23E5058E53A433B9E161668e_-0"><span style="display: block;float: left;padding-left: 21px;">02:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E12B3CBE0C23E5058E53A433B9E161668e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EA591DC437B420BA4E1789A05A8F713B2e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EA591DC437B420BA4E1789A05A8F713B2e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EA591DC437B420BA4E1789A05A8F713B2e_-2"><span style="display: block;float: left;padding-left: 21px;">02:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EA591DC437B420BA4E1789A05A8F713B2e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E6A5D3ED25768336355B31D26D87DD104e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E6A5D3ED25768336355B31D26D87DD104e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E6A5D3ED25768336355B31D26D87DD104e_-2"><span style="display: block;float: left;padding-left: 21px;">03:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E6A5D3ED25768336355B31D26D87DD104e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EB00D529130A9EDDCA2C7E0EB5E3E206Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EB00D529130A9EDDCA2C7E0EB5E3E206Ce_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EB00D529130A9EDDCA2C7E0EB5E3E206Ce_-1"><span style="display: block;float: left;padding-left: 21px;">03:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EB00D529130A9EDDCA2C7E0EB5E3E206Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EA4B713A45B62695791031AD9078BC4F1e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EA4B713A45B62695791031AD9078BC4F1e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EA4B713A45B62695791031AD9078BC4F1e_-2"><span style="display: block;float: left;padding-left: 21px;">03:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EA4B713A45B62695791031AD9078BC4F1e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EEDE2C74C43E3BF235F1F2A4126030971e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EEDE2C74C43E3BF235F1F2A4126030971e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EEDE2C74C43E3BF235F1F2A4126030971e_-2"><span style="display: block;float: left;padding-left: 21px;">03:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EEDE2C74C43E3BF235F1F2A4126030971e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E467ACF49133BA59E518BDAA53309315Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E467ACF49133BA59E518BDAA53309315Ce_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E467ACF49133BA59E518BDAA53309315Ce_-2"><span style="display: block;float: left;padding-left: 21px;">03:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E467ACF49133BA59E518BDAA53309315Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EEC0A713A5C5D5EA9113D26BAA303E0E1e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EEC0A713A5C5D5EA9113D26BAA303E0E1e_-3" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EEC0A713A5C5D5EA9113D26BAA303E0E1e_-3"><span style="display: block;float: left;padding-left: 21px;">03:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EEC0A713A5C5D5EA9113D26BAA303E0E1e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">3</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EEBFB5E0E64DE25612F8BD72AC537E86Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EEBFB5E0E64DE25612F8BD72AC537E86Be_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EEBFB5E0E64DE25612F8BD72AC537E86Be_-2"><span style="display: block;float: left;padding-left: 21px;">04:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EEBFB5E0E64DE25612F8BD72AC537E86Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EEA183BF0EDFC871CA649F0F320DBCB0Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EEA183BF0EDFC871CA649F0F320DBCB0Ce_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e9B37AFAD7F64666EEA183BF0EDFC871CA649F0F320DBCB0Ce_-0"><span style="display: block;float: left;padding-left: 21px;">04:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EEA183BF0EDFC871CA649F0F320DBCB0Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E423166C248EBAC94F03187406757A640e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E423166C248EBAC94F03187406757A640e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E423166C248EBAC94F03187406757A640e_-2"><span style="display: block;float: left;padding-left: 21px;">04:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E423166C248EBAC94F03187406757A640e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EA9344C34DB635076319B03D22FB957F1e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EA9344C34DB635076319B03D22FB957F1e_-3" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EA9344C34DB635076319B03D22FB957F1e_-3"><span style="display: block;float: left;padding-left: 21px;">04:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EA9344C34DB635076319B03D22FB957F1e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">3</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E1FA542EB5AD907E9769F34C7F8B8762Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E1FA542EB5AD907E9769F34C7F8B8762Ce_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E1FA542EB5AD907E9769F34C7F8B8762Ce_-2"><span style="display: block;float: left;padding-left: 21px;">04:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E1FA542EB5AD907E9769F34C7F8B8762Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E73EF9B96E679F17B24AE3C087C32724Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E73EF9B96E679F17B24AE3C087C32724Be_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E73EF9B96E679F17B24AE3C087C32724Be_-4"><span style="display: block;float: left;padding-left: 21px;">04:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E73EF9B96E679F17B24AE3C087C32724Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E172DB7940C83CBBF3101EB3B71F09562e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E172DB7940C83CBBF3101EB3B71F09562e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E172DB7940C83CBBF3101EB3B71F09562e_-2"><span style="display: block;float: left;padding-left: 21px;">05:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E172DB7940C83CBBF3101EB3B71F09562e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EEAEC5B7892B8FB0471B8D25131420FD9e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EEAEC5B7892B8FB0471B8D25131420FD9e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EEAEC5B7892B8FB0471B8D25131420FD9e_-4"><span style="display: block;float: left;padding-left: 21px;">05:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EEAEC5B7892B8FB0471B8D25131420FD9e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E8A5D543C795FB3D0F23573230228A525e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E8A5D543C795FB3D0F23573230228A525e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E8A5D543C795FB3D0F23573230228A525e_-4"><span style="display: block;float: left;padding-left: 21px;">05:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E8A5D543C795FB3D0F23573230228A525e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EFCE9C8CA3CF7D67D8C50B10A51FC7FA0e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EFCE9C8CA3CF7D67D8C50B10A51FC7FA0e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EFCE9C8CA3CF7D67D8C50B10A51FC7FA0e_-4"><span style="display: block;float: left;padding-left: 21px;">05:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EFCE9C8CA3CF7D67D8C50B10A51FC7FA0e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E97DF35A32BCE794F5F3F9A8C0107197De_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E97DF35A32BCE794F5F3F9A8C0107197De_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E97DF35A32BCE794F5F3F9A8C0107197De_-4"><span style="display: block;float: left;padding-left: 21px;">05:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E97DF35A32BCE794F5F3F9A8C0107197De_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666EBC3A913E17A41B290FD4947EF01DA4A1e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666EBC3A913E17A41B290FD4947EF01DA4A1e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666EBC3A913E17A41B290FD4947EF01DA4A1e_-4"><span style="display: block;float: left;padding-left: 21px;">05:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666EBC3A913E17A41B290FD4947EF01DA4A1e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E8FD2026D5E6CE5CABB5CC48C177691F5e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E8FD2026D5E6CE5CABB5CC48C177691F5e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E8FD2026D5E6CE5CABB5CC48C177691F5e_-4"><span style="display: block;float: left;padding-left: 21px;">06:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E8FD2026D5E6CE5CABB5CC48C177691F5e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">06:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E87038FB1E100DD40A17A955E5C139089e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E87038FB1E100DD40A17A955E5C139089e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E87038FB1E100DD40A17A955E5C139089e_-4"><span style="display: block;float: left;padding-left: 21px;">06:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E87038FB1E100DD40A17A955E5C139089e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">06:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E66EC9FE6A2EB54FB1D9F2987D7140762e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E66EC9FE6A2EB54FB1D9F2987D7140762e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E66EC9FE6A2EB54FB1D9F2987D7140762e_-4"><span style="display: block;float: left;padding-left: 21px;">06:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E66EC9FE6A2EB54FB1D9F2987D7140762e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">06:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e9B37AFAD7F64666E0A7662296637854C2D756B1DB533A070e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e9B37AFAD7F64666E0A7662296637854C2D756B1DB533A070e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e9B37AFAD7F64666E0A7662296637854C2D756B1DB533A070e_-4"><span style="display: block;float: left;padding-left: 21px;">06:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e9B37AFAD7F64666E0A7662296637854C2D756B1DB533A070e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">06:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260511" class="cc-tab-div" data-id="20260511" style="display: none;"><div id="Sheet-20260511" class="cc-scrolling-sheet"><table id="SheetHeader-20260511" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260511" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row" style="background-size: contain;"><td colspan="6">No Tee Times were found</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260512" class="cc-tab-div" data-id="20260512" style="display: none;"><div id="Sheet-20260512" class="cc-scrolling-sheet"><table id="SheetHeader-20260512" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260512" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980CF5F759638FBBD3B1464C8A6E7341292Ae_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980CF5F759638FBBD3B1464C8A6E7341292Ae_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980CF5F759638FBBD3B1464C8A6E7341292Ae_-1"><span style="display: block;float: left;padding-left: 21px;">12:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980CF5F759638FBBD3B1464C8A6E7341292Ae_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C460F05F96555CDD53E77E113F5C9EA1Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C460F05F96555CDD53E77E113F5C9EA1Be_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C460F05F96555CDD53E77E113F5C9EA1Be_-1"><span style="display: block;float: left;padding-left: 21px;">12:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C460F05F96555CDD53E77E113F5C9EA1Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980CD8DAC2B0F28F2059BE1E262064A065F6e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980CD8DAC2B0F28F2059BE1E262064A065F6e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e1B1347A7ED34980CD8DAC2B0F28F2059BE1E262064A065F6e_-0"><span style="display: block;float: left;padding-left: 21px;">12:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980CD8DAC2B0F28F2059BE1E262064A065F6e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980CD149C4F4ABE6213DF758EB541E3DD04Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980CD149C4F4ABE6213DF758EB541E3DD04Be_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e1B1347A7ED34980CD149C4F4ABE6213DF758EB541E3DD04Be_-0"><span style="display: block;float: left;padding-left: 21px;">12:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980CD149C4F4ABE6213DF758EB541E3DD04Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980CD175A33C85EC87C768AFC4F7187585DAe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980CD175A33C85EC87C768AFC4F7187585DAe_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e1B1347A7ED34980CD175A33C85EC87C768AFC4F7187585DAe_-0"><span style="display: block;float: left;padding-left: 21px;">01:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980CD175A33C85EC87C768AFC4F7187585DAe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C201B7C8E9D0329A73D1A6BC332B545D1e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C201B7C8E9D0329A73D1A6BC332B545D1e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C201B7C8E9D0329A73D1A6BC332B545D1e_-2"><span style="display: block;float: left;padding-left: 21px;">01:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C201B7C8E9D0329A73D1A6BC332B545D1e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C509E99F06EE6E66C7A33B60D9E04EF46e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C509E99F06EE6E66C7A33B60D9E04EF46e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C509E99F06EE6E66C7A33B60D9E04EF46e_-2"><span style="display: block;float: left;padding-left: 21px;">01:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C509E99F06EE6E66C7A33B60D9E04EF46e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C2D2F2FC626EA5245E9A13DDB64E74FB0e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C2D2F2FC626EA5245E9A13DDB64E74FB0e_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C2D2F2FC626EA5245E9A13DDB64E74FB0e_-1"><span style="display: block;float: left;padding-left: 21px;">01:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C2D2F2FC626EA5245E9A13DDB64E74FB0e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C239A63D27917F81C91B57D35D7755D59e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C239A63D27917F81C91B57D35D7755D59e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C239A63D27917F81C91B57D35D7755D59e_-4"><span style="display: block;float: left;padding-left: 21px;">01:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C239A63D27917F81C91B57D35D7755D59e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980CFC172A4F601607378E26FBE81BBBA4FCe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980CFC172A4F601607378E26FBE81BBBA4FCe_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_e1B1347A7ED34980CFC172A4F601607378E26FBE81BBBA4FCe_-0"><span style="display: block;float: left;padding-left: 21px;">02:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980CFC172A4F601607378E26FBE81BBBA4FCe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C14338CD2D27DD49F75F1EDAE41D575B2e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C14338CD2D27DD49F75F1EDAE41D575B2e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C14338CD2D27DD49F75F1EDAE41D575B2e_-4"><span style="display: block;float: left;padding-left: 21px;">02:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C14338CD2D27DD49F75F1EDAE41D575B2e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C98DC3F1B51B49BDEF61019DE5BA0560Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C98DC3F1B51B49BDEF61019DE5BA0560Be_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C98DC3F1B51B49BDEF61019DE5BA0560Be_-4"><span style="display: block;float: left;padding-left: 21px;">02:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C98DC3F1B51B49BDEF61019DE5BA0560Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C63716C23057457EB9A365762EE119C5De_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C63716C23057457EB9A365762EE119C5De_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C63716C23057457EB9A365762EE119C5De_-2"><span style="display: block;float: left;padding-left: 21px;">02:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C63716C23057457EB9A365762EE119C5De_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980CF4ED1F13F630B7E1270729C78B1E701Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980CF4ED1F13F630B7E1270729C78B1E701Ee_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980CF4ED1F13F630B7E1270729C78B1E701Ee_-4"><span style="display: block;float: left;padding-left: 21px;">02:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980CF4ED1F13F630B7E1270729C78B1E701Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C2E7E781FFC11C4B897C83EB35BB90801e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C2E7E781FFC11C4B897C83EB35BB90801e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C2E7E781FFC11C4B897C83EB35BB90801e_-4"><span style="display: block;float: left;padding-left: 21px;">02:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C2E7E781FFC11C4B897C83EB35BB90801e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980CB283087B1CEA7EEF2E83867293B589D0e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980CB283087B1CEA7EEF2E83867293B589D0e_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980CB283087B1CEA7EEF2E83867293B589D0e_-1"><span style="display: block;float: left;padding-left: 21px;">03:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980CB283087B1CEA7EEF2E83867293B589D0e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C644E31A76010A316C3F59F57895AC5ADe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C644E31A76010A316C3F59F57895AC5ADe_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C644E31A76010A316C3F59F57895AC5ADe_-4"><span style="display: block;float: left;padding-left: 21px;">03:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C644E31A76010A316C3F59F57895AC5ADe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e1B1347A7ED34980C061B9DD19C2C8BF30A18BF7B49437F18e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e1B1347A7ED34980C061B9DD19C2C8BF30A18BF7B49437F18e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e1B1347A7ED34980C061B9DD19C2C8BF30A18BF7B49437F18e_-4"><span style="display: block;float: left;padding-left: 21px;">03:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Tue 05/12</td><td data-id="_e1B1347A7ED34980C061B9DD19C2C8BF30A18BF7B49437F18e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260513" class="cc-tab-div" data-id="20260513" style="display: none;"><div id="Sheet-20260513" class="cc-scrolling-sheet"><table id="SheetHeader-20260513" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260513" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eB9C77F5EC0ADCC86C50611443F7B6F505A46785AFBF1C113e_"><td class="cc-col-reserve">
+<span id="reserve_button-_eB9C77F5EC0ADCC86C50611443F7B6F505A46785AFBF1C113e_-2" class="cc-reserve-button cc-selectable" onclick="" data-id="_eB9C77F5EC0ADCC86C50611443F7B6F505A46785AFBF1C113e_-2"><span style="display: block;float: left;padding-left: 21px;">10:40 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Wed 05/13</td><td data-id="_eB9C77F5EC0ADCC86C50611443F7B6F505A46785AFBF1C113e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">10:40 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">2</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eB9C77F5EC0ADCC86B199E1DE760D648DC72E99C297EEA3D5e_"><td class="cc-col-reserve">
+<span id="reserve_button-_eB9C77F5EC0ADCC86B199E1DE760D648DC72E99C297EEA3D5e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_eB9C77F5EC0ADCC86B199E1DE760D648DC72E99C297EEA3D5e_-4"><span style="display: block;float: left;padding-left: 21px;">11:20 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Wed 05/13</td><td data-id="_eB9C77F5EC0ADCC86B199E1DE760D648DC72E99C297EEA3D5e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">11:20 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eB9C77F5EC0ADCC86577D16CAA33B98DE0DAD527B997DA665e_"><td class="cc-col-reserve">
+<span id="reserve_button-_eB9C77F5EC0ADCC86577D16CAA33B98DE0DAD527B997DA665e_-0" class="cc-reserve-button cc-disabled cc-disabled-always cc-selectable" style="cursor: default" data-id="_eB9C77F5EC0ADCC86577D16CAA33B98DE0DAD527B997DA665e_-0"><span style="display: block;float: left;padding-left: 21px;">01:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Wed 05/13</td><td data-id="_eB9C77F5EC0ADCC86577D16CAA33B98DE0DAD527B997DA665e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260514" class="cc-tab-div" data-id="20260514" style="display: none;"><div id="Sheet-20260514" class="cc-scrolling-sheet"><table id="SheetHeader-20260514" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260514" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eD50FD31576E581F15895934CB05DA7F29BB1100B8121DF90e_"><td class="cc-col-reserve">
+<span id="reserve_button-_eD50FD31576E581F15895934CB05DA7F29BB1100B8121DF90e_-3" class="cc-reserve-button cc-selectable" onclick="" data-id="_eD50FD31576E581F15895934CB05DA7F29BB1100B8121DF90e_-3"><span style="display: block;float: left;padding-left: 21px;">10:40 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Thu 05/14</td><td data-id="_eD50FD31576E581F15895934CB05DA7F29BB1100B8121DF90e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">10:40 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">3</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eD50FD31576E581F1B31441FD0F8E4271BFED2BC054200CF9e_"><td class="cc-col-reserve">
+<span id="reserve_button-_eD50FD31576E581F1B31441FD0F8E4271BFED2BC054200CF9e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_eD50FD31576E581F1B31441FD0F8E4271BFED2BC054200CF9e_-4"><span style="display: block;float: left;padding-left: 21px;">11:00 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Thu 05/14</td><td data-id="_eD50FD31576E581F1B31441FD0F8E4271BFED2BC054200CF9e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">11:00 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_eD50FD31576E581F1A184C05B7421E666871E7D48592F406Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_eD50FD31576E581F1A184C05B7421E666871E7D48592F406Be_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_eD50FD31576E581F1A184C05B7421E666871E7D48592F406Be_-4"><span style="display: block;float: left;padding-left: 21px;">01:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Thu 05/14</td><td data-id="_eD50FD31576E581F1A184C05B7421E666871E7D48592F406Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260515" class="cc-tab-div" data-id="20260515" style="display: block;"><div id="Sheet-20260515" class="cc-scrolling-sheet"><table id="SheetHeader-20260515" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260515" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e526D19BAA746608DE0DAF4061F77A6BCD5C1FCE57F8A3131e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e526D19BAA746608DE0DAF4061F77A6BCD5C1FCE57F8A3131e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e526D19BAA746608DE0DAF4061F77A6BCD5C1FCE57F8A3131e_-0"><span style="display: block;float: left;padding-left: 21px;">10:40 AM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Polo Golf  &amp; Country Club</td><td class="cc-col-play-date">Fri 05/15</td><td data-id="_e526D19BAA746608DE0DAF4061F77A6BCD5C1FCE57F8A3131e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">10:40 AM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260517" class="cc-tab-div" data-id="20260517" style="display: none;"></div><div id="Div-20260518" class="cc-tab-div" data-id="20260518" style="display: none;"></div><div id="Div-20260519" class="cc-tab-div" data-id="20260519" style="display: none;"></div><div id="Div-20260520" class="cc-tab-div" data-id="20260520" style="display: none;"></div>
+</div>
+<div id="Events-Div" style="display: none;"> <div id="Div-MyEvents" class="cc-tab-div" data-id="MyEvents" style="display: none;"></div></div>
+<div id="cc_close_ftr" class="cc-right"></div></div>
+
+
+</div>
+                <div id="cc_waiting" style="display: none;">
+                  <div id="cc_waiting_img"><img src="/portal/page/portal/CCTTWEB/images/Tee_Times_Wait.gif" style="margin-top: 420px;"></div>
+                </div>
+              </div>
+              <div id="cc_content_area"></div>
+            </div></div></div><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-txcxr0xoqpv1" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/enterprise/anchor?ar=1&amp;k=6LdkWCUsAAAAAD3GpH6MnrHDDTieVv2wtUGE5R6Y&amp;co=aHR0cHM6Ly9hcHBzLmludml0ZWRjbHVicy5jb206NDQz&amp;hl=en&amp;v=U5VsmTDhJM1iOJUyw4DEUTYv&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=tv8wk7mrwbjv"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>

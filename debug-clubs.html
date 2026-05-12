@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+            <title>ClubCorp Web Tee Time Reservations</title>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-1.7.1.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-ui-1.8.16.custom.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.pack.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.simplemodal-1.4.1.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.ba-postmessage.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.css?reload=1778390104710">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/themes/default_v1.8.16/css/custom-theme/jquery-ui-1.8.16.custom.css?reload=1778390104710">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/CCTTWEB/css/ccttweb_common.css?reload=1778390104710">
+            <script type="text/javascript" src="/portal/page/portal/CCXXWEB/js/fix_chrome_css.js"></script>
+            
+            
+            <!--New event to create JS and CSS from controller-->
+            <script type="text/javascript" src="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=JS"></script>
+            <link rel="stylesheet" type="text/css" href="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=CSS">
+            
+            <script type="text/javascript">
+              // need to set domain to avoid iFrame cross-domain access error
+              //document.domain = "clubcorp.com";
+              var openmsg = true, leadcount;
+              $(document).ready( function () {
+              
+                
+                // define modal window processing 
+                $("#cc_web_margin1").modal( {
+                  closeHTML: "",
+                  containerId: "modalFormContainer",
+                  minHeight: 600,
+                  minWidth: 800,
+                  zIndex: 800,
+                  // async: false,
+                  onClose: function () {
+                    $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=MODAL_CLOSE",
+                    function(responseText, textStatus, XMLHttpRequest){
+                      $.modal.close();
+                      $.postMessage(
+                        "",
+                        "https://members.clubcorp.com/club/scripts/mylocker/mylocker.asp",
+                        parent
+                      );
+                    });
+                  }
+                });
+                // load window 
+                $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=VIEW"
+                  , function(){
+                  $("#cc_pros_message").click();
+                  });
+              });
+            </script>
+          </head>
+          <body leftmargin="0" rightmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+            <span id="simplemodal-placeholder" style="display: none;"></span>
+          
+        
+<div id="simplemodal-overlay" class="simplemodal-overlay" style="opacity: 0.5; height: 800px; width: 1280px; position: fixed; left: 0px; top: 0px; z-index: 801;"></div><div id="modalFormContainer" class="simplemodal-container" style="position: fixed; z-index: 802; height: 800px; width: 800px; left: 240px; top: 0px;"><div tabindex="-1" class="simplemodal-wrap" style="height: 100%; outline: 0px; width: 100%; overflow: visible;"><div id="cc_web_margin1" class="simplemodal-data" style="">
+              <div id="cc_web_margin2">
+                <div id="cc_web_error"></div>
+                <div id="cc_web_content"></div>
+                <div id="cc_waiting">
+                  <div id="cc_waiting_img"><img src="/portal/page/portal/CCTTWEB/images/Tee_Times_Wait.gif"></div>
+                </div>
+              </div>
+              <div id="cc_content_area"></div>
+            </div></div></div></body></html>

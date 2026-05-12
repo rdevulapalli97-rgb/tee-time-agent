@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/U5VsmTDhJM1iOJUyw4DEUTYv/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-RlZBF+DceOCqWmazqOb46XLCUaBCQCOelQ6x5Vp23p2IQF2OluFH9XDriL4JIqbh"></script>
+            <title>ClubCorp Web Tee Time Reservations</title>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-1.7.1.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/themes/default_v1.8.16/js/jquery-ui-1.8.16.custom.min.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.pack.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.simplemodal-1.4.1.js"></script>
+            <script type="text/javascript" src="/portal/page/portal/CCTTWEB/js/jquery.ba-postmessage.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/lib/plug-ins/jquery.countdown.package-1.5.8/jquery.countdown.css?reload=1778421902306">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/jQuery/themes/default_v1.8.16/css/custom-theme/jquery-ui-1.8.16.custom.css?reload=1778421902306">
+            <link rel="stylesheet" type="text/css" href="https://apps.invitedclubs.com/portal/page/portal/CCTTWEB/css/ccttweb_common.css?reload=1778421902306">
+            <script type="text/javascript" src="/portal/page/portal/CCXXWEB/js/fix_chrome_css.js"></script>
+            
+            
+            <!--New event to create JS and CSS from controller-->
+            <script type="text/javascript" src="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=JS"></script>
+            <link rel="stylesheet" type="text/css" href="/portal/pls/portal/!ccttweb.controller?EVENT=ASSETS&amp;ACT=CSS">
+            
+            <script type="text/javascript">
+              // need to set domain to avoid iFrame cross-domain access error
+              //document.domain = "clubcorp.com";
+              var openmsg = true, leadcount;
+              $(document).ready( function () {
+              
+                
+                // define modal window processing 
+                $("#cc_web_margin1").modal( {
+                  closeHTML: "",
+                  containerId: "modalFormContainer",
+                  minHeight: 600,
+                  minWidth: 800,
+                  zIndex: 800,
+                  // async: false,
+                  onClose: function () {
+                    $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=MODAL_CLOSE",
+                    function(responseText, textStatus, XMLHttpRequest){
+                      $.modal.close();
+                      $.postMessage(
+                        "",
+                        "https://members.clubcorp.com/club/scripts/mylocker/mylocker.asp",
+                        parent
+                      );
+                    });
+                  }
+                });
+                // load window 
+                $("#cc_web_content").load("/portal/pls/portal/!ccttweb.controller?EVENT=WEBTEETIME&ACT=VIEW"
+                  , function(){
+                  $("#cc_pros_message").click();
+                  });
+              });
+            </script>
+          </head>
+          <body leftmargin="0" rightmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+            <span id="simplemodal-placeholder" style="display: none;"></span>
+          
+        
+<div id="simplemodal-overlay" class="simplemodal-overlay" style="opacity: 0.5; height: 900px; width: 1280px; position: fixed; left: 0px; top: 0px; z-index: 801;"></div><div id="modalFormContainer" class="simplemodal-container" style="position: fixed; z-index: 802; height: 900px; width: 800px; left: 240px; top: 0px;"><div tabindex="-1" class="simplemodal-wrap" style="height: 100%; outline: 0px; width: 100%; overflow: visible;"><div id="cc_web_margin1" class="simplemodal-data" style="">
+              <div id="cc_web_margin2">
+                <div id="cc_web_error"></div>
+                <div id="cc_web_content"><style>
+                                         .cc-col-int-chkbx{
+                                           width: 3%;
+                                         }
+                                         .cc-col-int-pslot{
+                                           width: 8%;
+                                         }
+                                         .cc-col-int-ptype{
+                                           width: 8%;
+                                         }
+                                         .cc-col-int-pname{
+                                           width: 28%;
+                                         }
+                                         .cc-col-int-prent{
+                                           width: 15%;
+                                         }
+                                         .cc-col-int-pcaddie{
+                                           width: 15%;
+                                         }
+                                         .cc-col-int-email{
+                                           width: 23%;
+                                         }
+                                         
+                                         /*******************NTWK****************************/
+                                         .cc-col-ntwk-chkbx{
+                                           width: 3%;
+                                         }
+                                         .cc-col-ntwk-pslot{
+                                           width: 7%;
+                                         }
+                                         .cc-col-ntwk-ptype{
+                                           width:11%;
+                                         }
+                                         .cc-col-ntwk-pname{
+                                           width: 17%;
+                                         }
+                                         .cc-col-ntwk-prent{
+                                           width: 15%;
+                                         }
+                                         .cc-col-ntwk-pcaddie{
+                                           width: 15%;
+                                         }
+                                         .cc-col-ntwk-email{
+                                           width: 20%;
+                                         }
+                                         .cc-col-ntwk-benefit{
+                                           width: 12%;
+                                         }
+                                         /*******************NTWK****************************/
+                                         
+                                         .cc-player-row select,input,textarea {
+                                           width: 90%;
+                                         }
+                                         .cc-player-row input {
+                                           width: 87%;
+                                         }
+                                         .cc-buttons{
+                                           display: flex;
+                                           justify-content:  space-between;
+                                         }
+                                         .cc-buttons > span{
+                                           margin: auto;
+                                         }
+                                         /**************************MyTeeTimes**************************/
+                                         .cc-grid-myteetimes {
+                                           display : grid; 
+                                           grid-template-columns : 80px 180px 150px 95px 110px 165px; 
+                                           align-items : center; 
+                                           grid-template-rows: minmax(35px,auto) auto;
+                                         }
+                                         .cc-grid-myteetimes > div:first-child {
+                                           width: auto;
+                                         }
+                                         
+                                         .cc-grid-myteetimes > div:nth-child(7) {
+                                           font-size: smaller;
+                                           color: red;
+                                           grid-column: 1/7;
+                                         }
+                                         
+                                         .ui-autocomplete-loading { 
+                                           background: white url("/portal/page/portal/CCTTWEB/images/Tee_Times_Wait.gif") right center no-repeat;
+                                           background-size: 15px;
+                                         }
+
+                                         .grecaptcha-badge {
+                                           visibility: hidden !important;
+                                         }
+                                      </style>
+<div id="cc_web_modal"><div id="cc_web_header"><div id="cc_homerenovation_hdr" class="cc-float-left cc-selectable">
+                                <span class="cc-close-hdr" onclick="">HOME</span></div><div id="cc_close_hdr" class="cc-right" style="margin-right: 2px;height: 15px;"></div><div id="cc_navigation"><div id="Tab-MyTeeTimes" class="cc-tab-my-tee-times cc-selectable" onclick="" data-id="1">&nbsp;</div>
+<div id="cc_tab_prev" class="cc-float-left" onclick="" title="Show Previous Date" style="visibility: hidden;">&nbsp;</div>
+<div id="cc_tab_list" class="cc-float-left">
+<div id="cc_tab_slider">
+<div id="Tab-20260510" class="cc-tab cc-tab-selected cc-selectable" onclick="" data-id="2"><span class="cc-day">Sun</span><br><span class="cc-date">May       10</span></div><div id="Tab-20260511" class="cc-tab cc-selectable" onclick="" data-id="3"><span class="cc-day">Mon</span><br><span class="cc-date">May       11</span></div><div id="Tab-20260512" class="cc-tab cc-selectable" onclick="" data-id="4"><span class="cc-day">Tue</span><br><span class="cc-date">May       12</span></div><div id="Tab-20260513" class="cc-tab cc-selectable" onclick="" data-id="5"><span class="cc-day">Wed</span><br><span class="cc-date">May       13</span></div><div id="Tab-20260514" class="cc-tab cc-selectable" onclick="" data-id="6"><span class="cc-day">Thu</span><br><span class="cc-date">May       14</span></div><div id="Tab-20260515" class="cc-tab cc-selectable" onclick="" data-id="7"><span class="cc-day">Fri</span><br><span class="cc-date">May       15</span></div><div id="Tab-20260517" class="cc-tab cc-selectable" onclick="" data-id="8"><span class="cc-day">Sun</span><br><span class="cc-date">May       17</span></div><div id="Tab-20260518" class="cc-tab cc-selectable" onclick="" data-id="9"><span class="cc-day">Mon</span><br><span class="cc-date">May       18</span></div><div id="Tab-20260519" class="cc-tab cc-selectable" onclick="" data-id="10"><span class="cc-day">Tue</span><br><span class="cc-date">May       19</span></div><div id="Tab-20260520" class="cc-tab cc-selectable" onclick="" data-id="11"><span class="cc-day">Wed</span><br><span class="cc-date">May       20</span></div>
+&nbsp;&nbsp;</div></div><div id="cc_tab_next" onclick="" title="Show Next Date" style="visibility: visible;">&nbsp;</div></div></div><div id="cc_web_messages">
+<span id="cc_pros_message" class="cc-msg-command cc-msg-popup-header-closed" onclick="">Messages</span><span id="cc_waitlist" class="cc-msg-command cc-msg-popup-header-closed" onclick="" style="visibility: visible;">Wait List</span><span id="cc_view_sheet" class="cc-msg-command cc-msg-popup-header-closed" onclick="" style="visibility: hidden;">View Full Sheet</span>
+<span id="cc_course_selector" style="display:block;float:right;padding-right: 20px;"><select id="cc-course-selection" class="cc-course-selection" style="display: inline-block;">
+<option data-id="LOV_WEB_AVAIL" value="_eE7511BDA4D75CB8810F6F17D1C6A6FE2e_" selected="selected">Brookfield</option>
+<option data-id="LOV_WEB_AVAIL" value="_eE7511BDA4D75CB8810F6F17D1C6A6FE2e_">Brookfield</option>
+<option data-id="LOV_WEB_AVAIL" value="_eE7511BDA4D75CB8810F6F17D1C6A6FE2e_">Brookfield</option>
+</select></span><span id="cc_course_message" class="cc-course-message" style="display: block;">Select Course for Play:</span>
+<div id="cc_players_popup" class="cc-msg-popup" style="display: none;">&nbsp;</div></div>
+<div id="TeeTimes-Div" style="display: block;"> <div id="Div-MyTeeTimes" class="cc-tab-div" data-id="MyTeeTimes" style="display: none;"><div id="Sheet-MyTeeTimes" class="cc-scrolling-sheet"><table id="SheetHeader-MyTeeTimes" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="" colspan="6">
+
+<table style="padding-bottom:10px;" align="center" border="0"><tbody><tr><td width="30px" align="right">
+</td>
+                                            <td width="180px">
+                                            <span class="cc-date"><strong>05/10/2026 - 06/08/2026</strong></span>
+                                            </td>
+                                            <td width="30px" align="left">
+                                            <img id="next_mytee" src="/portal/page/portal/CCTT/images/go-rt-on.gif" style="cursor:pointer;vertical-align:bottom;" title="Click To Go To Next">
+                                            </td></tr></tbody></table>
+</td></tr><tr><td style="width:80px;" class="cc-center" onclick="">View/Edit</td><td style="width:180px;">Club Name</td><td style="width:150px;">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-MyTeeTimes" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td style="height: 47px;" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row" style="background-size: contain;"><td colspan="6">No Tee Times were found</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260510" class="cc-tab-div" data-id="20260510" style="display: block;"><div id="Sheet-20260510" class="cc-scrolling-sheet"><table id="SheetHeader-20260510" class="cc-table-header" style="width:780px !important;"><tbody>
+<tr><td class="cc-avail-hdr" colspan="6">Available Tee Times</td></tr><tr><td class="cc-col-reserve">Reserve</td><td class="cc-col-action cc-center" onclick="">Multigrab </td> <td class="cc-col-course">Course Name</td>
+<td class="cc-col-play-date">Play Date</td><td class="cc-col-tee-time">Tee Time</td><td class="cc-col-players">Player Slots Available</td></tr></tbody></table><table id="SheetDetails-20260510" class="cc-table-detail" style="width:780px !important;"><tbody>
+<tr><td class="cc-blank-td-row" colspan="6">&nbsp;</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79BB36105D34AF76A67ABA0FFEBE9CCC98e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79BB36105D34AF76A67ABA0FFEBE9CCC98e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79BB36105D34AF76A67ABA0FFEBE9CCC98e_-0"><span style="display: block;float: left;padding-left: 21px;">12:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79BB36105D34AF76A67ABA0FFEBE9CCC98e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79AB8E707DB1F5EBF59AF31E2015D62764e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79AB8E707DB1F5EBF59AF31E2015D62764e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79AB8E707DB1F5EBF59AF31E2015D62764e_-0"><span style="display: block;float: left;padding-left: 21px;">12:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79AB8E707DB1F5EBF59AF31E2015D62764e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F792B95A4281E4849884D27F5A227C79138e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F792B95A4281E4849884D27F5A227C79138e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F792B95A4281E4849884D27F5A227C79138e_-0"><span style="display: block;float: left;padding-left: 21px;">12:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F792B95A4281E4849884D27F5A227C79138e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F7964EB721CDBBD7F3EE851C32D23F7F760e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F7964EB721CDBBD7F3EE851C32D23F7F760e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F7964EB721CDBBD7F3EE851C32D23F7F760e_-0"><span style="display: block;float: left;padding-left: 21px;">12:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F7964EB721CDBBD7F3EE851C32D23F7F760e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79973994C9E5EDAFEE027981EA0E5E53BCe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79973994C9E5EDAFEE027981EA0E5E53BCe_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79973994C9E5EDAFEE027981EA0E5E53BCe_-0"><span style="display: block;float: left;padding-left: 21px;">12:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79973994C9E5EDAFEE027981EA0E5E53BCe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F794C28618531AF8F798E0E11E93F0BE365e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F794C28618531AF8F798E0E11E93F0BE365e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F794C28618531AF8F798E0E11E93F0BE365e_-0"><span style="display: block;float: left;padding-left: 21px;">12:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F794C28618531AF8F798E0E11E93F0BE365e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">12:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F7981A7C8586B0EFB59AE700A959821ABB0e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F7981A7C8586B0EFB59AE700A959821ABB0e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F7981A7C8586B0EFB59AE700A959821ABB0e_-0"><span style="display: block;float: left;padding-left: 21px;">01:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F7981A7C8586B0EFB59AE700A959821ABB0e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79FC4A6EE1645C895B0A057E46C9E73D8Fe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79FC4A6EE1645C895B0A057E46C9E73D8Fe_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79FC4A6EE1645C895B0A057E46C9E73D8Fe_-0"><span style="display: block;float: left;padding-left: 21px;">01:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79FC4A6EE1645C895B0A057E46C9E73D8Fe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F790220198D6211D2513A676EBAD762FE19e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F790220198D6211D2513A676EBAD762FE19e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F790220198D6211D2513A676EBAD762FE19e_-0"><span style="display: block;float: left;padding-left: 21px;">01:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F790220198D6211D2513A676EBAD762FE19e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79E522E7EE5C1169B59C7B3266EE012319e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79E522E7EE5C1169B59C7B3266EE012319e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79E522E7EE5C1169B59C7B3266EE012319e_-0"><span style="display: block;float: left;padding-left: 21px;">01:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79E522E7EE5C1169B59C7B3266EE012319e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79C3DA01257E1669F58D0AFCBD591C94E0e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79C3DA01257E1669F58D0AFCBD591C94E0e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79C3DA01257E1669F58D0AFCBD591C94E0e_-0"><span style="display: block;float: left;padding-left: 21px;">01:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79C3DA01257E1669F58D0AFCBD591C94E0e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79BD8AFC3EADC96F5C75E556E3B3CAA4B5e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79BD8AFC3EADC96F5C75E556E3B3CAA4B5e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79BD8AFC3EADC96F5C75E556E3B3CAA4B5e_-0"><span style="display: block;float: left;padding-left: 21px;">01:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79BD8AFC3EADC96F5C75E556E3B3CAA4B5e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">01:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79BEF3E873D294E3E27195AB723EC4FC0Ae_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79BEF3E873D294E3E27195AB723EC4FC0Ae_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79BEF3E873D294E3E27195AB723EC4FC0Ae_-0"><span style="display: block;float: left;padding-left: 21px;">02:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79BEF3E873D294E3E27195AB723EC4FC0Ae_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79534FAA23B92214CA1507D9EBB5EA7300e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79534FAA23B92214CA1507D9EBB5EA7300e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79534FAA23B92214CA1507D9EBB5EA7300e_-0"><span style="display: block;float: left;padding-left: 21px;">02:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79534FAA23B92214CA1507D9EBB5EA7300e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F792762082364A0810D2017DE2DC15D407Ae_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F792762082364A0810D2017DE2DC15D407Ae_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F792762082364A0810D2017DE2DC15D407Ae_-0"><span style="display: block;float: left;padding-left: 21px;">02:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F792762082364A0810D2017DE2DC15D407Ae_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79D00D76FA19DB3088AFC2C8C409413D25e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79D00D76FA19DB3088AFC2C8C409413D25e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79D00D76FA19DB3088AFC2C8C409413D25e_-0"><span style="display: block;float: left;padding-left: 21px;">02:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79D00D76FA19DB3088AFC2C8C409413D25e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F796067E9640BDAAF493F09A755E3C89EE6e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F796067E9640BDAAF493F09A755E3C89EE6e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F796067E9640BDAAF493F09A755E3C89EE6e_-0"><span style="display: block;float: left;padding-left: 21px;">02:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F796067E9640BDAAF493F09A755E3C89EE6e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F796D9C99B632E54E5BE69CD74C45C2EE33e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F796D9C99B632E54E5BE69CD74C45C2EE33e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F796D9C99B632E54E5BE69CD74C45C2EE33e_-0"><span style="display: block;float: left;padding-left: 21px;">02:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F796D9C99B632E54E5BE69CD74C45C2EE33e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">02:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F792BBD31FF016153FD55A447CB88E5933De_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F792BBD31FF016153FD55A447CB88E5933De_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F792BBD31FF016153FD55A447CB88E5933De_-0"><span style="display: block;float: left;padding-left: 21px;">03:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F792BBD31FF016153FD55A447CB88E5933De_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79CB4F5A7E62338D4991248DCB62EB45D1e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79CB4F5A7E62338D4991248DCB62EB45D1e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79CB4F5A7E62338D4991248DCB62EB45D1e_-0"><span style="display: block;float: left;padding-left: 21px;">03:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79CB4F5A7E62338D4991248DCB62EB45D1e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F794E25169D4610E0348E45C835B10D127Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F794E25169D4610E0348E45C835B10D127Ce_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F794E25169D4610E0348E45C835B10D127Ce_-0"><span style="display: block;float: left;padding-left: 21px;">03:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F794E25169D4610E0348E45C835B10D127Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F796E2908B120ABE2CD2C44C66BA94769D4e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F796E2908B120ABE2CD2C44C66BA94769D4e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F796E2908B120ABE2CD2C44C66BA94769D4e_-0"><span style="display: block;float: left;padding-left: 21px;">03:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F796E2908B120ABE2CD2C44C66BA94769D4e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79E2B075A2A5368BB0977F09E2CD8A1DEEe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79E2B075A2A5368BB0977F09E2CD8A1DEEe_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79E2B075A2A5368BB0977F09E2CD8A1DEEe_-0"><span style="display: block;float: left;padding-left: 21px;">03:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79E2B075A2A5368BB0977F09E2CD8A1DEEe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79A7A352579AFD2EE8CC24E736E612CC92e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79A7A352579AFD2EE8CC24E736E612CC92e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79A7A352579AFD2EE8CC24E736E612CC92e_-0"><span style="display: block;float: left;padding-left: 21px;">03:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79A7A352579AFD2EE8CC24E736E612CC92e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">03:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79D242A2F2C7F0F76089F87FDE66229D6Ee_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79D242A2F2C7F0F76089F87FDE66229D6Ee_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79D242A2F2C7F0F76089F87FDE66229D6Ee_-0"><span style="display: block;float: left;padding-left: 21px;">04:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79D242A2F2C7F0F76089F87FDE66229D6Ee_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79FA35AA7403786E0AA17BF93662BCE1CFe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79FA35AA7403786E0AA17BF93662BCE1CFe_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79FA35AA7403786E0AA17BF93662BCE1CFe_-0"><span style="display: block;float: left;padding-left: 21px;">04:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79FA35AA7403786E0AA17BF93662BCE1CFe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79D25D4488C2CB8CB02F75DF4F5167C69Fe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79D25D4488C2CB8CB02F75DF4F5167C69Fe_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79D25D4488C2CB8CB02F75DF4F5167C69Fe_-0"><span style="display: block;float: left;padding-left: 21px;">04:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79D25D4488C2CB8CB02F75DF4F5167C69Fe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F7993D3A8CD5660E141A03FF23A55DF5965e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F7993D3A8CD5660E141A03FF23A55DF5965e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F7993D3A8CD5660E141A03FF23A55DF5965e_-0"><span style="display: block;float: left;padding-left: 21px;">04:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F7993D3A8CD5660E141A03FF23A55DF5965e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F7930B0FDAD78AC82D9FC9BF5B4CF163222e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F7930B0FDAD78AC82D9FC9BF5B4CF163222e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F7930B0FDAD78AC82D9FC9BF5B4CF163222e_-0"><span style="display: block;float: left;padding-left: 21px;">04:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F7930B0FDAD78AC82D9FC9BF5B4CF163222e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F7964DA941F560C533D588B2C9DE64B6E00e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F7964DA941F560C533D588B2C9DE64B6E00e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F7964DA941F560C533D588B2C9DE64B6E00e_-0"><span style="display: block;float: left;padding-left: 21px;">04:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F7964DA941F560C533D588B2C9DE64B6E00e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">04:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79E8189F69D2258B84B697538F8E23D2EBe_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79E8189F69D2258B84B697538F8E23D2EBe_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79E8189F69D2258B84B697538F8E23D2EBe_-0"><span style="display: block;float: left;padding-left: 21px;">05:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79E8189F69D2258B84B697538F8E23D2EBe_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79970D7AF54A741AE7CF174B12FE837695e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79970D7AF54A741AE7CF174B12FE837695e_-0" class="cc-reserve-button cc-not-selectable cc-disabled cc-disabled-always" style="cursor: default" data-id="_e758001F309934F79970D7AF54A741AE7CF174B12FE837695e_-0"><span style="display: block;float: left;padding-left: 21px;">05:10 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79970D7AF54A741AE7CF174B12FE837695e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:10 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">0</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79B4FB32AF77ECDCE52A603DCD912DDBB5e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79B4FB32AF77ECDCE52A603DCD912DDBB5e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e758001F309934F79B4FB32AF77ECDCE52A603DCD912DDBB5e_-4"><span style="display: block;float: left;padding-left: 21px;">05:20 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79B4FB32AF77ECDCE52A603DCD912DDBB5e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:20 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79C1BEFDF3BE33C8DC79F1B0E28E19308Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79C1BEFDF3BE33C8DC79F1B0E28E19308Ce_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e758001F309934F79C1BEFDF3BE33C8DC79F1B0E28E19308Ce_-4"><span style="display: block;float: left;padding-left: 21px;">05:30 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79C1BEFDF3BE33C8DC79F1B0E28E19308Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:30 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F796140D3D560DBF8550E0C00E5AE080A1Be_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F796140D3D560DBF8550E0C00E5AE080A1Be_-1" class="cc-reserve-button cc-selectable" onclick="" data-id="_e758001F309934F796140D3D560DBF8550E0C00E5AE080A1Be_-1"><span style="display: block;float: left;padding-left: 21px;">05:40 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F796140D3D560DBF8550E0C00E5AE080A1Be_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:40 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">1</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F793DFE34F201B265F20F905DEB3578C97Ce_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F793DFE34F201B265F20F905DEB3578C97Ce_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e758001F309934F793DFE34F201B265F20F905DEB3578C97Ce_-4"><span style="display: block;float: left;padding-left: 21px;">05:50 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F793DFE34F201B265F20F905DEB3578C97Ce_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">05:50 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+<tr class="cc-tee-time-row " style="background-size: contain;" data-id="_e758001F309934F79C3E8F3E7CC7552568E2DE4FEE80B6DA0e_"><td class="cc-col-reserve">
+<span id="reserve_button-_e758001F309934F79C3E8F3E7CC7552568E2DE4FEE80B6DA0e_-4" class="cc-reserve-button cc-selectable" onclick="" data-id="_e758001F309934F79C3E8F3E7CC7552568E2DE4FEE80B6DA0e_-4"><span style="display: block;float: left;padding-left: 21px;">06:00 PM</span></span>
+</td>
+<td><table><tbody><tr><td class="" style="width:110px;" onclick="" kyle="n"><span>&nbsp;</span></td><td class="cc-col-action cc-selectable" style="display: none;" onclick=""><span>&nbsp;</span></td></tr></tbody></table></td>
+<td class="cc-col-course">Brookfield</td><td class="cc-col-play-date">Sun 05/10</td><td data-id="_e758001F309934F79C3E8F3E7CC7552568E2DE4FEE80B6DA0e_" class="cc-col-tee-time"><table class="cc-table"><tbody><tr><td class=" cc-tee-time-subtable"><span style="float: left;display: block;">06:00 PM</span><span class="cc-tee-time-hole-blank"></span></td></tr></tbody></table></td><td class="cc-col-players" title="">4</td></tr>
+</tbody></table></div>
+</div><div id="Div-20260511" class="cc-tab-div" data-id="20260511" style="display: none;"></div><div id="Div-20260512" class="cc-tab-div" data-id="20260512" style="display: none;"></div><div id="Div-20260513" class="cc-tab-div" data-id="20260513" style="display: none;"></div><div id="Div-20260514" class="cc-tab-div" data-id="20260514" style="display: none;"></div><div id="Div-20260515" class="cc-tab-div" data-id="20260515" style="display: none;"></div><div id="Div-20260517" class="cc-tab-div" data-id="20260517" style="display: none;"></div><div id="Div-20260518" class="cc-tab-div" data-id="20260518" style="display: none;"></div><div id="Div-20260519" class="cc-tab-div" data-id="20260519" style="display: none;"></div><div id="Div-20260520" class="cc-tab-div" data-id="20260520" style="display: none;"></div>
+</div>
+<div id="Events-Div" style="display: none;"> <div id="Div-MyEvents" class="cc-tab-div" data-id="MyEvents" style="display: none;"></div></div>
+<div id="cc_close_ftr" class="cc-right"></div></div>
+
+
+</div>
+                <div id="cc_waiting" style="display: none;">
+                  <div id="cc_waiting_img"><img src="/portal/page/portal/CCTTWEB/images/Tee_Times_Wait.gif" style="margin-top: 420px;"></div>
+                </div>
+              </div>
+              <div id="cc_content_area"></div>
+            </div></div></div><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-smm5ojc3m3o6" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/enterprise/anchor?ar=1&amp;k=6LdkWCUsAAAAAD3GpH6MnrHDDTieVv2wtUGE5R6Y&amp;co=aHR0cHM6Ly9hcHBzLmludml0ZWRjbHVicy5jb206NDQz&amp;hl=en&amp;v=U5VsmTDhJM1iOJUyw4DEUTYv&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=ko1qswmysskk"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>
