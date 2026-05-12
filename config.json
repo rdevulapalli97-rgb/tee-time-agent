@@ -55,9 +55,9 @@
       "role": "guest",
       "index": 1,
       "_comment": "Default guest — used automatically when booking 2 players",
-      "firstName": "GUEST1_FIRST_NAME",
-      "lastName": "GUEST1_LAST_NAME",
-      "phone": "GUEST1_PHONE_NUMBER"
+      "firstName": "Devang",
+      "lastName": "Desai",
+      "phone": ""
     },
     {
       "role": "guest",

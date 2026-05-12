@@ -912,9 +912,12 @@ if (require.main === module) {
   if (dateIdx !== -1 && args[dateIdx + 1]) {
     isoDate = args[dateIdx + 1];
   } else {
-    const d = new Date();
-    d.setDate(d.getDate() + (config.booking.homeClub.daysInAdvance || 6));
-    isoDate = d.toISOString().split('T')[0];
+    // Snap to the next target day (e.g. Saturday) that is at least daysInAdvance days out.
+    // Previously this used today+6 which produced random weekdays instead of Saturdays.
+    isoDate = getNextTargetDate(
+      config.booking.homeClub.targetDay || 'Saturday',
+      config.booking.homeClub.daysInAdvance || 6
+    );
   }
 
   const fallbackNames = config.fallbackClubs || [];
