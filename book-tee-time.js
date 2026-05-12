@@ -82,7 +82,7 @@ async function dismissNotice(page) {
     if (typeof $ !== 'undefined') {
       try { $('#popup_message').closest('.ui-dialog').find('button').first().trigger('click'); } catch(e) {}
     }
-  });
+  }).catch(() => {}); // clicking Dismiss can trigger navigation, destroying context before result returns
   await pollUntil(page, () => page.evaluate(() => !document.querySelector('.ui-widget-overlay')), 3000);
   await sleep(200);
 }
@@ -94,7 +94,7 @@ async function goToClub(page, club) {
 
   await Promise.all([
     page.waitForNavigation({ waitUntil: 'networkidle', timeout: 25000 }).catch(() => {}),
-    page.evaluate((p) => { window.location.href = p; }, clubPath)
+    page.evaluate((p) => { window.location.href = p; }, clubPath).catch(() => {}) // navigation destroys context before result returns — suppress
   ]);
   await sleep(400);
 
