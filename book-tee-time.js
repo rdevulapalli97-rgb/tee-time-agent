@@ -93,7 +93,7 @@ async function goToClub(page, club) {
     : `/portal/pls/portal/!CCTTWEB.controller?EVENT=HASH&ACT=VIEW&LOC=NTWK&ENTITY=${club.entity}`;
 
   await Promise.all([
-    page.waitForNavigation({ waitUntil: 'load', timeout: 25000 }).catch(() => {}),
+    page.waitForNavigation({ waitUntil: 'networkidle', timeout: 25000 }).catch(() => {}),
     page.evaluate((p) => { window.location.href = p; }, clubPath).catch(() => {}) // navigation destroys context before result returns — suppress
   ]);
   await sleep(400);
@@ -143,11 +143,8 @@ async function navigateToDate(page, isoDate) {
   return false;
 }
 
-// Parse tee time slots from the date container.
-// Portal row structure (confirmed from live inspection):
-//   [Reserve link | Multigrab | empty... | Course | Date | Time | Time | Slots]
-//   e.g. ["11:00 AM","","","","LAUREL SPRINGS","Sat 05/16","11:00 AM","11:00 AM","4"]
-// Strategy: last cell = slot count (pure integer), find exact time match in any middle cell.
+// Parse tee time slots — exact same logic as check-availability.js (confirmed working).
+// Scans every cell for a time pattern, then finds the next pure-integer cell as slot count.
 async function parseSlots(page, isoDate, minPlayers = 1) {
   const dt  = new Date(isoDate + 'T12:00:00');
   const y   = dt.getFullYear();
@@ -155,54 +152,67 @@ async function parseSlots(page, isoDate, minPlayers = 1) {
   const d   = String(dt.getDate()).padStart(2, '0');
   const divId = `Div-${y}${mo}${d}`;
 
-  // Single evaluate: parse and return slots atomically (avoids context-destroyed between two calls)
-  return page.evaluate((divId, minPlayers) => {
-    const dateStr   = divId.replace('Div-', '');
-    const container = document.getElementById(divId)
-                   || document.getElementById('SheetDetails-' + dateStr);
-    if (!container || container.innerHTML.trim().length < 80) return [];
+  let result;
+  try {
+    result = await page.evaluate((divId) => {
+      const container = document.getElementById(divId);
+      const debug = { divId, found: !!container, htmlLen: container ? container.innerHTML.trim().length : 0, rows: 0, slots: [] };
+      if (!container || container.innerHTML.trim().length < 80) return { debug, slots: [] };
 
-    const TIME_RE = /^(\d{1,2}):(\d{2})\s*(AM|PM)$/i;  // exact-cell match
-    const slots = [];
-    const seen  = new Set();
+      const slots = [];
+      const seen  = new Set();
+      const allRows = container.querySelectorAll('tr');
+      debug.rows = allRows.length;
 
-    for (const row of container.querySelectorAll('tr')) {
-      const cells = Array.from(row.querySelectorAll('td, th'));
-      if (cells.length < 4) continue;   // need at least: reserve, ..., time, count
+      for (const row of allRows) {
+        const cells = Array.from(row.querySelectorAll('td'));
+        if (cells.length < 2) continue;
 
-      // Last cell must be a pure integer (slot count)
-      const lastTxt = cells[cells.length - 1].textContent.trim();
-      const count   = parseInt(lastTxt);
-      if (isNaN(count) || lastTxt !== String(count)) continue;
-      if (count < minPlayers) continue;
+        let timeText = null, slotsAvail = NaN;
+        for (let i = 0; i < cells.length; i++) {
+          const txt = cells[i].textContent.trim();
+          const tm  = txt.match(/\b(\d{1,2}):(\d{2})\s*(AM|PM)\b/i);
+          if (tm) {
+            timeText = `${tm[1]}:${tm[2]} ${tm[3].toUpperCase()}`;
+            for (let j = i + 1; j < cells.length; j++) {
+              const raw = cells[j].textContent.trim();
+              const n   = parseInt(raw);
+              if (!isNaN(n) && raw === String(n)) { slotsAvail = n; break; }
+            }
+            break;
+          }
+        }
 
-      // Find exact time in any cell (skip cell 0 = reserve link to avoid duplicates)
-      let timeText = null;
-      for (let i = 1; i < cells.length - 1; i++) {
-        const txt = cells[i].textContent.trim();
-        const m   = txt.match(TIME_RE);
-        if (m) {
-          timeText = `${m[1]}:${m[2]} ${m[3].toUpperCase()}`;
-          break;
+        if (!timeText || isNaN(slotsAvail) || slotsAvail <= 0) continue;
+
+        const m = timeText.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+        let hour = parseInt(m[1]), min = parseInt(m[2]);
+        if (m[3].toUpperCase() === 'PM' && hour !== 12) hour += 12;
+        if (m[3].toUpperCase() === 'AM' && hour === 12) hour  = 0;
+
+        const key = `${hour}:${min}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          slots.push({ display: timeText, hour, minutes: min, slotsAvailable: slotsAvail });
         }
       }
-      if (!timeText) continue;
 
-      const m2  = timeText.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
-      let hour  = parseInt(m2[1]), min = parseInt(m2[2]);
-      if (m2[3].toUpperCase() === 'PM' && hour !== 12) hour += 12;
-      if (m2[3].toUpperCase() === 'AM' && hour === 12) hour  = 0;
+      slots.sort((a, b) => a.hour * 60 + a.minutes - (b.hour * 60 + b.minutes));
+      return { debug, slots };
+    }, divId);
+  } catch (err) {
+    log(`   parseSlots evaluate error: ${err.message}`);
+    return [];
+  }
 
-      const key = `${hour}:${min}`;
-      if (!seen.has(key)) {
-        seen.add(key);
-        slots.push({ display: timeText, hour, minutes: min, slotsAvailable: count });
-      }
-    }
+  // Log diagnostics every time so we can see exactly what's happening
+  const d = result?.debug;
+  if (d) {
+    log(`   parseSlots: div=${d.divId} found=${d.found} htmlLen=${d.htmlLen} rows=${d.rows} → ${result.slots.length} slots`);
+  }
 
-    slots.sort((a, b) => a.hour * 60 + a.minutes - (b.hour * 60 + b.minutes));
-    return slots;
-  }, divId, minPlayers).catch(() => []);
+  const slots = result?.slots || [];
+  return slots.filter(s => s.slotsAvailable >= minPlayers);
 }
 
 // ── Interactive guest prompt ──────────────────────────────────────────────────
