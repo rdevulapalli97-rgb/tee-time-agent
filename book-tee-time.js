@@ -277,12 +277,34 @@ async function clickReserveButton(page, isoDate, timeDisplay) {
   await sleep(150 + Math.floor(Math.random() * 200));
 
   try {
+    // Monitor AJAX responses so we can see exactly what the server returns
+    const ajaxResponses = [];
+    const onResponse = async (response) => {
+      if (response.url().includes('CCTTWEB') || response.url().includes('ccttweb')) {
+        const body = await response.text().catch(() => '');
+        ajaxResponses.push({ status: response.status(), url: response.url().slice(-80), body: body.slice(0, 300) });
+      }
+    };
+    page.on('response', onResponse);
+
     // Use Playwright's real locator click — simulates actual mouse cursor movement + click
     // hasText matches the inner span text "11:00 AM" inside the cc-reserve-button span
     const locator = page.locator('span.cc-reserve-button.cc-selectable').filter({ hasText: timeDisplay }).first();
     await locator.scrollIntoViewIfNeeded({ timeout: 5000 }).catch(() => {});
     await sleep(100);
     await locator.click({ timeout: 8000 });
+
+    // Wait briefly to capture AJAX response
+    await sleep(1500);
+    page.off('response', onResponse);
+
+    if (ajaxResponses.length > 0) {
+      log(`   AJAX responses after Reserve click:`);
+      ajaxResponses.forEach(r => log(`     [${r.status}] ...${r.url} → ${r.body.replace(/\s+/g, ' ').slice(0, 200)}`));
+    } else {
+      log(`   No AJAX responses captured after Reserve click`);
+    }
+
     return 'locator-click';
   } catch (e) {
     log(`   Locator click failed (${e.message.slice(0, 80)}) — trying elementHandle`);
