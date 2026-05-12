@@ -206,9 +206,9 @@ async function parseSlots(page, isoDate, minPlayers = 1) {
   }
 
   // Log diagnostics every time so we can see exactly what's happening
-  const d = result?.debug;
-  if (d) {
-    log(`   parseSlots: div=${d.divId} found=${d.found} htmlLen=${d.htmlLen} rows=${d.rows} → ${result.slots.length} slots`);
+  const dbg = result?.debug;
+  if (dbg) {
+    log(`   parseSlots: div=${dbg.divId} found=${dbg.found} htmlLen=${dbg.htmlLen} rows=${dbg.rows} → ${result.slots.length} slots`);
   }
 
   const slots = result?.slots || [];
