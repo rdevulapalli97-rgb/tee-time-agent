@@ -479,15 +479,21 @@ async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun 
     if (!navOk) { log(`   Navigation failed — skipping`); continue; }
     const dateOk = await navigateToDate(page, isoDate);
     if (!dateOk) { log(`   Date not available — skipping`); continue; }
-    const allSlots = await parseSlots(page, isoDate, numPlayers);
-    const inWindow = allSlots.filter(s => s.hour >= earliestHour && s.hour <= latestHour);
-    log(`   ${allSlots.length} total slots, ${inWindow.length} in ${earliestHour}:00–${latestHour}:00 window`);
+    // Get ALL slots with ≥1 spot (don't pre-filter by numPlayers — do it below for transparency)
+    const allSlots  = await parseSlots(page, isoDate, 1);
+    const withRoom  = allSlots.filter(s => s.slotsAvailable >= numPlayers);
+    const inWindow  = withRoom.filter(s => s.hour >= earliestHour && s.hour <= latestHour);
+    log(`   ${allSlots.length} total slots, ${withRoom.length} with ${numPlayers}+ spots, ${inWindow.length} in ${earliestHour}:00–${latestHour}:00 window`);
+    if (allSlots.length > 0) {
+      log(`   All times: ${allSlots.map(s => `${s.display}(${s.slotsAvailable})`).join(', ')}`);
+    }
     if (inWindow.length > 0) {
-      log(`   ✅ In-window: ${inWindow.map(s => `${s.display}(${s.slotsAvailable})`).join(', ')}`);
       candidates.push({ club, slot: inWindow[0], inWindow: true });
-    } else if (allSlots.length > 0 && fallbackEnabled) {
-      log(`   ⏱️  No in-window slots — earliest available: ${allSlots[0].display} (${allSlots[0].slotsAvailable} spots)`);
-      candidates.push({ club, slot: allSlots[0], inWindow: false });
+    } else if (withRoom.length > 0 && fallbackEnabled) {
+      log(`   ⏱️  No in-window slots — earliest with room: ${withRoom[0].display} (${withRoom[0].slotsAvailable} spots)`);
+      candidates.push({ club, slot: withRoom[0], inWindow: false });
+    } else if (allSlots.length > 0) {
+      log(`   ⚠️  Slots exist but none have ${numPlayers}+ spots available`);
     } else {
       log(`   No slots available`);
     }
@@ -751,7 +757,7 @@ async function run(injectedConfig) {
   const clubs = [
     homeClub,
     ...tierNames.map(name => GA_CLUBS.find(c => c.name === name)).filter(Boolean)
-  ];
+  ].filter((c, i, arr) => arr.findIndex(x => x.name === c.name) === i); // deduplicate
 
   // ── Resolve guests ───────────────────────────────────────────────────────
   const numPlayers = injectedConfig?.booking?.numberOfPlayers || 2;
