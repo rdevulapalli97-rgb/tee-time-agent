@@ -114,11 +114,18 @@ async function navigateToDate(page, isoDate) {
   const dateStr = `${y}${mo}${d}`;
 
   for (let attempt = 0; attempt < 8; attempt++) {
-    const clicked = await page.evaluate((tabId) => {
-      const tab = document.getElementById(tabId);
-      if (tab) { tab.click(); return true; }
-      return false;
-    }, `Tab-${dateStr}`).catch(() => false);
+    // Use Playwright locator click for real mouse events (reCAPTCHA-safe)
+    let clicked = false;
+    try {
+      await page.locator(`#Tab-${dateStr}`).click({ timeout: 4000 });
+      clicked = true;
+    } catch (e) {
+      clicked = await page.evaluate((tabId) => {
+        const tab = document.getElementById(tabId);
+        if (tab) { tab.click(); return true; }
+        return false;
+      }, `Tab-${dateStr}`).catch(() => false);
+    }
 
     if (clicked) {
       await sleep(250);
@@ -260,55 +267,86 @@ async function promptForGuests(numGuests, startIndex = 1) {
 // ── Booking-specific functions ────────────────────────────────────────────────
 
 /**
- * Click the Reserve button for a given tee time display string.
- * The Reserve column (cells[0]) contains a link/button/image.
+ * Click the Reserve button using Playwright's real mouse events.
+ * DOM .click() inside evaluate() has no mouse events → reCAPTCHA flags it as a bot → CCTT-608B.
+ * page.locator().click() moves the cursor, fires mousemove/mousedown/mouseup → passes reCAPTCHA.
  */
 async function clickReserveButton(page, isoDate, timeDisplay) {
-  const dt  = new Date(isoDate + 'T12:00:00');
-  const y   = dt.getFullYear();
-  const mo  = String(dt.getMonth() + 1).padStart(2, '0');
-  const d   = String(dt.getDate()).padStart(2, '0');
-  const divId = `Div-${y}${mo}${d}`;
+  // Move mouse to a neutral position first (more human-like)
+  await page.mouse.move(640, 400, { steps: 5 }).catch(() => {});
+  await sleep(150 + Math.floor(Math.random() * 200));
 
-  return page.evaluate(({ divId, timeDisplay }) => {
-    const container = document.getElementById(divId);
-    if (!container) return false;
-    for (const row of container.querySelectorAll('tr')) {
-      const cells = Array.from(row.querySelectorAll('td'));
-      if (cells.length < 2) continue;
-      // Find time cell
-      let timeCell = null;
-      for (let i = 0; i < cells.length; i++) {
-        if (cells[i].textContent.trim() === timeDisplay) { timeCell = i; break; }
+  try {
+    // Use Playwright's real locator click — simulates actual mouse cursor movement + click
+    // hasText matches the inner span text "11:00 AM" inside the cc-reserve-button span
+    const locator = page.locator('span.cc-reserve-button.cc-selectable').filter({ hasText: timeDisplay }).first();
+    await locator.scrollIntoViewIfNeeded({ timeout: 5000 }).catch(() => {});
+    await sleep(100);
+    await locator.click({ timeout: 8000 });
+    return 'locator-click';
+  } catch (e) {
+    log(`   Locator click failed (${e.message.slice(0, 80)}) — trying elementHandle`);
+    // Fallback: get bounding box and use page.mouse.click() for real coordinates
+    try {
+      const handle = await page.evaluateHandle((timeDisplay) => {
+        for (const span of document.querySelectorAll('span.cc-reserve-button.cc-selectable')) {
+          const inner = span.querySelector('span') || span;
+          if (inner.textContent.trim() === timeDisplay || span.textContent.trim() === timeDisplay) return span;
+        }
+        return null;
+      }, timeDisplay);
+      const box = await handle.asElement()?.boundingBox();
+      if (box) {
+        await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 8 });
+        await sleep(80);
+        await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+        return 'mouse-click';
       }
-      if (timeCell === null) continue;
-      // Click the first interactive element in cells[0]
-      const btn = cells[0].querySelector('a, input[type="image"], input[type="button"], button, [onclick]');
-      if (btn) { btn.click(); return true; }
-      // Fallback: click the cell itself
-      cells[0].click();
-      return true;
+    } catch (e2) {
+      log(`   ElementHandle click failed: ${e2.message.slice(0, 60)}`);
     }
     return false;
-  }, { divId, timeDisplay });
+  }
 }
 
 /**
- * Wait for the inline booking form to appear after clicking Reserve.
- * The portal expands the form inline (NOT a jQuery dialog).
- * Detected by: countdown timer text, Save button, or Cancel button.
+ * After clicking Reserve, wait to learn whether the booking form opened
+ * (save_button present) or the slot became unavailable (error state).
+ * Returns: 'ready' | 'error' | 'timeout'
  */
-async function waitForBookingModal(page) {
-  return pollUntil(page, () => page.evaluate(() => {
-    // Most reliable: portal-specific save/cancel span IDs
-    if (document.getElementById('save_button') || document.getElementById('cancel_button')) return true;
+async function waitForBookingFormState(page) {
+  const start = Date.now();
+  while (Date.now() - start < 12000) {
+    try {
+      const state = await page.evaluate(() => {
+        if (document.getElementById('save_button')) return 'ready';
+        const body = (document.body?.innerText || '').toLowerCase();
+        // Portal error messages when a slot is no longer available
+        if (body.includes('we are sorry') || body.includes('no available') ||
+            body.includes('no tee time') || body.includes('not available') ||
+            body.includes('already been reserved')) {
+          if (document.getElementById('cancel_button')) return 'error';
+        }
+        // Also treat cancel-only state (no save) as error after a brief wait
+        const hasSave   = !!document.getElementById('save_button');
+        const hasCancel = !!document.getElementById('cancel_button');
+        if (hasCancel && !hasSave) return 'error';
+        return null;
+      }).catch(() => null);
+      if (state) return state;
+    } catch(e) { /* context reset — keep polling */ }
+    await sleep(300);
+  }
+  return 'timeout';
+}
 
-    // Countdown timer text (also unique to the booking form)
-    const bodyText = document.body.innerText || '';
-    if (bodyText.includes('reservation will close') || bodyText.includes('allotted time')) return true;
-
-    return false;
-  }).catch(() => false), 12000);
+/** Dismiss an open booking form by clicking Cancel. */
+async function cancelBookingForm(page) {
+  await page.evaluate(() => {
+    const c = document.getElementById('cancel_button');
+    if (c) c.click();
+  }).catch(() => {});
+  await sleep(800);
 }
 
 /**
@@ -575,7 +613,7 @@ async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun 
     return { success: false, error: 'No suitable slots found at any club', date: isoDate };
   }
 
-  // ── Phase 2: Select best candidate ────────────────────────────────────────
+  // ── Phase 2: Sort candidates by preference ────────────────────────────────
   candidates.sort((a, b) => {
     if (a.inWindow !== b.inWindow) return a.inWindow ? -1 : 1;
     const tierDiff = getTier(a.club.name) - getTier(b.club.name);
@@ -583,81 +621,83 @@ async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun 
     return (a.slot.hour * 60 + a.slot.minutes) - (b.slot.hour * 60 + b.slot.minutes);
   });
 
-  const winner     = candidates[0];
-  const winnerNote = winner.inWindow ? '' : ' ⚠️  (outside preferred window — earliest available fallback)';
-  log(`\n🎯  Selected: ${winner.slot.display} (${winner.slot.slotsAvailable} spots) at ${winner.club.name}${winnerNote}`);
+  log(`\n🎯  Booking order (${candidates.length} candidate${candidates.length > 1 ? 's' : ''}):`);
+  candidates.forEach((c, i) => log(`   ${i + 1}. ${c.slot.display} at ${c.club.name}${c.inWindow ? '' : ' (fallback)'}`));
 
   if (dryRun) {
-    log(`🔍  DRY RUN — would book ${winner.slot.display} at ${winner.club.name}`);
-    return { success: false, dryRun: true, club: winner.club.name, slot: winner.slot, date: isoDate };
+    const top = candidates[0];
+    log(`🔍  DRY RUN — would book ${top.slot.display} at ${top.club.name}`);
+    return { success: false, dryRun: true, club: top.club.name, slot: top.slot, date: isoDate };
   }
 
-  // ── Phase 3: Navigate back to winner and book ──────────────────────────────
-  log(`\n→ Navigating to ${winner.club.name} to book…`);
-  const navBack = await goToClub(page, winner.club);
-  if (!navBack) return { success: false, error: `Re-navigation to ${winner.club.name} failed`, date: isoDate };
-  const dateBack = await navigateToDate(page, isoDate);
-  if (!dateBack) return { success: false, error: 'Date navigation failed on booking attempt', date: isoDate };
+  // ── Phase 3: Try each candidate until one succeeds ────────────────────────
+  for (const candidate of candidates) {
+    log(`\n→ Attempting ${candidate.slot.display} at ${candidate.club.name}…`);
 
-  // ── Click Reserve ──────────────────────────────────────────────────────────
-  log(`Clicking Reserve for ${winner.slot.display}…`);
-  const reserved = await clickReserveButton(page, isoDate, winner.slot.display);
-  if (!reserved) {
-    log('❌  Reserve button not found — saving debug HTML');
-    fs.writeFileSync(path.join(__dirname, 'debug-no-reserve.html'), await page.content());
-    return { success: false, error: 'Reserve button not found', date: isoDate };
+    const navBack = await goToClub(page, candidate.club);
+    if (!navBack) { log(`   Re-navigation failed — skipping`); continue; }
+    const dateBack = await navigateToDate(page, isoDate);
+    if (!dateBack) { log(`   Date navigation failed — skipping`); continue; }
+
+    // Click reserve
+    const clickResult = await clickReserveButton(page, isoDate, candidate.slot.display);
+    if (!clickResult) { log(`   Reserve button not found — skipping`); continue; }
+    log(`   Clicked reserve (${clickResult})`);
+
+    // Wait to learn if form opened or slot is gone
+    await sleep(600);
+    const formState = await waitForBookingFormState(page);
+    log(`   Form state: ${formState}`);
+
+    if (formState === 'error') {
+      log(`   Slot no longer available — cancelling and trying next`);
+      await cancelBookingForm(page);
+      await sleep(500);
+      continue;
+    }
+    if (formState === 'timeout') {
+      log(`   Form timed out — skipping`);
+      await cancelBookingForm(page);
+      continue;
+    }
+
+    // Form is ready — fill guests and save
+    log(`   Booking form ready — filling details`);
+    await fillBookingForm(page, guests);
+
+    const confirmed = await confirmBooking(page);
+    if (!confirmed) { log(`   Save failed — trying next slot`); continue; }
+
+    await sleep(3000);
+    await page.screenshot({ path: '/tmp/debug-confirmation.png' }).catch(() => {});
+
+    // Check if form is still showing (portal rejected the save)
+    const formStillVisible = await page.evaluate(() => !!document.getElementById('save_button')).catch(() => false);
+    if (formStillVisible) {
+      const errLine = await page.evaluate(() => {
+        const lines = (document.body?.innerText || '').split('\n').map(l => l.trim()).filter(Boolean);
+        return lines.find(l =>
+          l.match(/CCTT-\d+/) || l.toLowerCase().includes('minimum') ||
+          l.toLowerCase().includes('required') || l.toLowerCase().includes('unable')
+        ) || 'Unknown error (form still showing)';
+      }).catch(() => 'Could not read error');
+      log(`   Booking rejected: ${errLine} — trying next slot`);
+      await cancelBookingForm(page);
+      continue;
+    }
+
+    const inWindowNote = candidate.inWindow ? '' : ' ⚠️  (outside preferred window — earliest available fallback)';
+    log('');
+    log('✅  BOOKING CONFIRMED');
+    log(`   Club: ${candidate.club.name}`);
+    log(`   Date: ${isoDate}`);
+    log(`   Time: ${candidate.slot.display}${inWindowNote}`);
+
+    return { success: true, club: candidate.club.name, slot: candidate.slot, date: isoDate, inWindow: candidate.inWindow };
   }
 
-  // ── Wait for booking form ──────────────────────────────────────────────────
-  await sleep(600);
-  const modalOk = await waitForBookingModal(page);
-  if (!modalOk) {
-    log('⚠️  Booking modal did not appear — saving debug screenshot');
-    await page.screenshot({ path: path.join(__dirname, 'debug-no-modal.png') });
-    return { success: false, error: 'Booking modal did not appear', date: isoDate };
-  }
-  await page.screenshot({ path: path.join(__dirname, 'debug-booking-form.png') });
-  log('    Booking form appeared — screenshot saved');
-
-  // ── Fill guest details ─────────────────────────────────────────────────────
-  await fillBookingForm(page, guests);
-
-  // ── Confirm booking ────────────────────────────────────────────────────────
-  const confirmed = await confirmBooking(page);
-  if (!confirmed) return { success: false, error: 'Save button not found', date: isoDate };
-
-  await sleep(3000);
-  await page.screenshot({ path: path.join(__dirname, 'debug-confirmation.png') });
-
-  // Portal still showing form = Save was rejected
-  const formStillVisible = await page.evaluate(() => !!document.getElementById('save_button')).catch(() => false);
-  if (formStillVisible) {
-    const errLine = await page.evaluate(() => {
-      const lines = document.body.innerText.split('\n').map(l => l.trim()).filter(Boolean);
-      return lines.find(l =>
-        l.match(/CCTT-\d+/) ||
-        l.toLowerCase().includes('minimum') ||
-        l.toLowerCase().includes('required') ||
-        l.toLowerCase().includes('unable')
-      ) || 'Unknown error (form still showing)';
-    }).catch(() => 'Could not read error');
-    log(`❌  Booking rejected: ${errLine}`);
-    return { success: false, error: errLine, date: isoDate };
-  }
-
-  const pageText = await page.evaluate(() => document.body.innerText.toLowerCase()).catch(() => '');
-  if (pageText.includes('cctt-') || pageText.includes('minimum') || pageText.includes('unable to') || pageText.includes('cannot be')) {
-    log('⚠️  Confirmation page may contain an error — check debug-confirmation.png');
-    return { success: false, error: 'Portal returned an error on confirmation page', date: isoDate };
-  }
-
-  log('');
-  log('✅  BOOKING CONFIRMED');
-  log(`   Club: ${winner.club.name}`);
-  log(`   Date: ${isoDate}`);
-  log(`   Time: ${winner.slot.display}${winnerNote}`);
-
-  return { success: true, club: winner.club.name, slot: winner.slot, date: isoDate, inWindow: winner.inWindow };
+  log('\n❌  All candidates exhausted — no booking made');
+  return { success: false, error: 'All available slots were taken by the time booking was attempted', date: isoDate };
 }
 
 // ── Main booking function (CLI entry point) ───────────────────────────────────
