@@ -395,34 +395,80 @@ async function fillBookingForm(page, guests = []) {
 
 /**
  * Click the Save button to finalize the booking.
- * The portal renders Save/Cancel as <span id="save_button"> / <span id="cancel_button">
- * inside a <div class="cc-buttons">.
  */
 async function confirmBooking(page) {
+  // First: dump every interactive element so we can see what's actually on the page
+  const pageInfo = await page.evaluate(() => {
+    const url = window.location.href;
+    const bodySnippet = (document.body?.innerText || '').slice(0, 300).replace(/\s+/g, ' ');
+    const interactive = Array.from(document.querySelectorAll(
+      'input[type="submit"], input[type="button"], input[type="image"], button, a[href], span[id], div[id*="button"], div[id*="save"], div[id*="confirm"]'
+    )).slice(0, 30).map(el => ({
+      tag: el.tagName,
+      id: el.id || '',
+      cls: el.className || '',
+      txt: (el.value || el.textContent || '').trim().slice(0, 40),
+      onclick: !!(el.onclick || el.getAttribute('onclick'))
+    }));
+    return { url, bodySnippet, interactive };
+  }).catch(e => ({ url: 'eval-error', bodySnippet: e.message, interactive: [] }));
+
+  log(`   confirmBooking — URL: ${pageInfo.url}`);
+  log(`   Body: ${pageInfo.bodySnippet}`);
+  log(`   Interactive elements (${pageInfo.interactive.length}):`);
+  pageInfo.interactive.forEach(el => log(`     [${el.tag}] id="${el.id}" cls="${el.cls}" txt="${el.txt}" onclick=${el.onclick}`));
+
   const clicked = await page.evaluate(() => {
-    // Primary: portal-specific span IDs
+    // 1. Portal span IDs
     const byId = document.getElementById('save_button');
     if (byId) { byId.click(); return 'save_button#id'; }
 
-    // Fallback: any span/div/button/input whose text is exactly "Save"
-    const all = Array.from(document.querySelectorAll('span, div, button, input[type="button"], input[type="submit"], a'));
-    for (const el of all) {
-      const label = (el.value || el.textContent || '').trim();
-      if (label === 'Save') { el.click(); return `Save via ${el.tagName}`; }
+    const cancelId = document.getElementById('cancel_button');
+    // (don't click cancel — just note its presence for context)
+
+    // 2. input[type="submit"] or input[type="button"] with save/confirm/book/reserve value
+    for (const el of document.querySelectorAll('input[type="submit"], input[type="button"], input[type="image"]')) {
+      const v = (el.value || el.alt || '').trim().toLowerCase();
+      if (v.includes('save') || v.includes('confirm') || v.includes('book') || v.includes('reserv')) {
+        el.click(); return `input submit: "${el.value}"`;
+      }
     }
 
-    // Wider fallback: anything containing "save"
+    // 3. <button> elements
+    for (const el of document.querySelectorAll('button')) {
+      const v = (el.textContent || '').trim().toLowerCase();
+      if (v.includes('save') || v.includes('confirm') || v.includes('book') || v.includes('reserv')) {
+        el.click(); return `button: "${el.textContent.trim()}"`;
+      }
+    }
+
+    // 4. Any element with id/class containing "save" or "confirm"
+    for (const el of document.querySelectorAll('[id*="save"],[id*="confirm"],[id*="book"],[class*="save"],[class*="confirm"]')) {
+      if (el.tagName === 'INPUT' || el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'DIV') {
+        el.click(); return `by id/class: ${el.tagName}#${el.id}.${el.className} "${(el.textContent||'').trim().slice(0,30)}"`;
+      }
+    }
+
+    // 5. Widest fallback: any clickable element whose visible text contains save/confirm
+    const all = Array.from(document.querySelectorAll('span, div, a, label'));
     for (const el of all) {
-      const label = (el.value || el.textContent || '').trim().toLowerCase();
-      if (label.includes('save')) { el.click(); return `save-partial via ${el.tagName}`; }
+      const own = (el.childNodes[0]?.nodeValue || '').trim().toLowerCase(); // own text node only
+      if (own === 'save' || own === 'confirm' || own === 'book') {
+        el.click(); return `text-node: ${el.tagName}#${el.id} "${own}"`;
+      }
     }
 
     return null;
-  });
+  }).catch(e => { log(`   confirmBooking evaluate error: ${e.message}`); return null; });
 
   if (!clicked) {
-    log('❌  Save button not found — saving debug HTML');
-    fs.writeFileSync(path.join(__dirname, 'debug-no-save-btn.html'), await page.content());
+    log('❌  Save button not found after exhaustive search');
+    // Write debug to /tmp which is always writable
+    try {
+      const html = await page.content().catch(() => 'page.content() failed');
+      fs.writeFileSync('/tmp/debug-no-save-btn.html', html);
+      log('   Debug HTML written to /tmp/debug-no-save-btn.html');
+    } catch(e) { log(`   Could not write debug HTML: ${e.message}`); }
     return false;
   }
   log(`    Clicked Save (${clicked})`);
