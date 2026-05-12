@@ -143,7 +143,7 @@ async function navigateToDate(page, isoDate) {
   return false;
 }
 
-// minPlayers: only return slots with at least this many open spots (speeds up booking)
+// minPlayers: only return slots with at least this many open spots
 async function parseSlots(page, isoDate, minPlayers = 1) {
   const dt  = new Date(isoDate + 'T12:00:00');
   const y   = dt.getFullYear();
@@ -151,8 +151,36 @@ async function parseSlots(page, isoDate, minPlayers = 1) {
   const d   = String(dt.getDate()).padStart(2, '0');
   const divId = `Div-${y}${mo}${d}`;
 
+  // First, dump what's actually in the container so we can debug parse failures
+  const debugInfo = await page.evaluate((divId) => {
+    const div = document.getElementById(divId);
+    if (!div) return { found: false, len: 0, sample: '', rows: 0, cells: [] };
+    const rows = div.querySelectorAll('tr');
+    const firstRowCells = rows.length > 0
+      ? Array.from(rows[0].querySelectorAll('td')).map(td => td.textContent.trim().slice(0, 40))
+      : [];
+    // Also try SheetDetails
+    const dateStr = divId.replace('Div-', '');
+    const sheet = document.getElementById('SheetDetails-' + dateStr);
+    return {
+      found: true,
+      len: div.innerHTML.trim().length,
+      rows: rows.length,
+      firstRowCells,
+      sheetLen: sheet ? sheet.innerHTML.trim().length : -1,
+      sample: div.innerHTML.trim().slice(0, 300)
+    };
+  }, divId).catch(() => ({ found: false, len: 0, rows: 0 }));
+
+  log(`   [debug] Div-${y}${mo}${d}: found=${debugInfo.found}, len=${debugInfo.len}, rows=${debugInfo.rows}, SheetDetails len=${debugInfo.sheetLen}`);
+  if (debugInfo.rows > 0) log(`   [debug] First row cells: ${JSON.stringify(debugInfo.firstRowCells)}`);
+  if (!debugInfo.found || debugInfo.len < 80) log(`   [debug] Sample: ${debugInfo.sample}`);
+
   return page.evaluate((divId, minPlayers) => {
-    const container = document.getElementById(divId);
+    // Try Div-YYYYMMDD first, fall back to SheetDetails-YYYYMMDD
+    const dateStr = divId.replace('Div-', '');
+    const container = document.getElementById(divId)
+      || document.getElementById('SheetDetails-' + dateStr);
     if (!container || container.innerHTML.trim().length < 80) return [];
     const slots = [];
     const seen  = new Set();
@@ -173,7 +201,6 @@ async function parseSlots(page, isoDate, minPlayers = 1) {
           break;
         }
       }
-      // Filter by minPlayers right here — no point returning slots we can't use
       if (!timeText || isNaN(slotsAvail) || slotsAvail < minPlayers) continue;
       const m = timeText.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
       let hour = parseInt(m[1]), min = parseInt(m[2]);
@@ -182,7 +209,7 @@ async function parseSlots(page, isoDate, minPlayers = 1) {
       const key = `${hour}:${min}`;
       if (!seen.has(key)) {
         seen.add(key);
-        slots.push({ display: timeText, hour, minutes: min, slotsAvailable: slotsAvail, _row: null });
+        slots.push({ display: timeText, hour, minutes: min, slotsAvailable: slotsAvail });
       }
     }
     slots.sort((a, b) => a.hour * 60 + a.minutes - (b.hour * 60 + b.minutes));
