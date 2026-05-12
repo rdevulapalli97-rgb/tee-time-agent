@@ -151,30 +151,34 @@ async function parseSlots(page, isoDate, minPlayers = 1) {
   const d   = String(dt.getDate()).padStart(2, '0');
   const divId = `Div-${y}${mo}${d}`;
 
-  // First, dump what's actually in the container so we can debug parse failures
+  // Dump container structure so we can fix the parser
   const debugInfo = await page.evaluate((divId) => {
     const div = document.getElementById(divId);
-    if (!div) return { found: false, len: 0, sample: '', rows: 0, cells: [] };
-    const rows = div.querySelectorAll('tr');
-    const firstRowCells = rows.length > 0
-      ? Array.from(rows[0].querySelectorAll('td')).map(td => td.textContent.trim().slice(0, 40))
-      : [];
-    // Also try SheetDetails
+    if (!div) return { found: false, len: 0, rows: 0, sampleRows: [] };
+    const allRows = Array.from(div.querySelectorAll('tr'));
+    // Collect first 8 rows that have at least 1 cell, show all cell text
+    const sampleRows = [];
+    for (const row of allRows) {
+      const tds = Array.from(row.querySelectorAll('td, th'));
+      if (tds.length > 0) {
+        sampleRows.push(tds.map(td => td.textContent.trim().replace(/\s+/g, ' ').slice(0, 50)));
+        if (sampleRows.length >= 8) break;
+      }
+    }
     const dateStr = divId.replace('Div-', '');
-    const sheet = document.getElementById('SheetDetails-' + dateStr);
+    const sheet   = document.getElementById('SheetDetails-' + dateStr);
     return {
-      found: true,
-      len: div.innerHTML.trim().length,
-      rows: rows.length,
-      firstRowCells,
+      found: true, len: div.innerHTML.trim().length,
+      rows: allRows.length,
       sheetLen: sheet ? sheet.innerHTML.trim().length : -1,
-      sample: div.innerHTML.trim().slice(0, 300)
+      sampleRows
     };
-  }, divId).catch(() => ({ found: false, len: 0, rows: 0 }));
+  }, divId).catch(() => ({ found: false, len: 0, rows: 0, sampleRows: [] }));
 
-  log(`   [debug] Div-${y}${mo}${d}: found=${debugInfo.found}, len=${debugInfo.len}, rows=${debugInfo.rows}, SheetDetails len=${debugInfo.sheetLen}`);
-  if (debugInfo.rows > 0) log(`   [debug] First row cells: ${JSON.stringify(debugInfo.firstRowCells)}`);
-  if (!debugInfo.found || debugInfo.len < 80) log(`   [debug] Sample: ${debugInfo.sample}`);
+  log(`   [debug] Div-${y}${mo}${d}: found=${debugInfo.found}, len=${debugInfo.len}, rows=${debugInfo.rows}`);
+  for (let i = 0; i < debugInfo.sampleRows.length; i++) {
+    log(`   [debug] row${i}: ${JSON.stringify(debugInfo.sampleRows[i])}`);
+  }
 
   return page.evaluate((divId, minPlayers) => {
     // Try Div-YYYYMMDD first, fall back to SheetDetails-YYYYMMDD
