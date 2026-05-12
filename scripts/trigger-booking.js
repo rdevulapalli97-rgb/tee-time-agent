@@ -19,10 +19,27 @@ require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 const db           = require('../db/client');
 const { runForUser } = require('../user-runner');
 
+// Find the next upcoming Saturday (or whatever day, ≥1 day from now)
+function nextUpcomingDay(dayName) {
+  const days = { Sunday:0, Monday:1, Tuesday:2, Wednesday:3, Thursday:4, Friday:5, Saturday:6 };
+  const target = days[dayName] ?? 6;
+  const d = new Date();
+  d.setDate(d.getDate() + 1); // start from tomorrow
+  while (d.getDay() !== target) d.setDate(d.getDate() + 1);
+  return d.toISOString().split('T')[0];
+}
+
 async function main() {
+  // Allow: node trigger-booking.js --date 2026-05-16
+  const dateArgIdx = process.argv.indexOf('--date');
+  const targetDate = dateArgIdx !== -1 && process.argv[dateArgIdx + 1]
+    ? process.argv[dateArgIdx + 1]
+    : nextUpcomingDay('Saturday');
+
   console.log('\n╔══════════════════════════════════════╗');
   console.log('║  Club Concierge — Manual Booking Run  ║');
   console.log('╚══════════════════════════════════════╝\n');
+  console.log(`  Target date: ${targetDate}\n`);
 
   const { data: users, error } = await db.getAllActiveUsers();
   if (error) { console.error('❌ Could not fetch users:', error.message); process.exit(1); }
@@ -35,7 +52,7 @@ async function main() {
   for (const user of users) {
     console.log(`\n─── Running booking for ${user.email} ───`);
     try {
-      const result = await runForUser(user.id, 'booking');
+      const result = await runForUser(user.id, 'booking', { targetDate });
       if (result.success) {
         console.log(`\n✅ SUCCESS`);
         console.log(`   Club: ${result.booking?.club}`);

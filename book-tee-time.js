@@ -739,9 +739,11 @@ async function run(injectedConfig) {
   const { browser, page } = await loginToPortal(pw, username, password);
 
   // ── Resolve target date ──────────────────────────────────────────────────
+  // injectedConfig._targetDate allows callers (e.g. trigger-booking.js) to
+  // override the date rather than using the 6-days-ahead formula.
   const targetDay  = injectedConfig?.booking?.homeClub?.targetDay  || 'Saturday';
   const daysAhead  = injectedConfig?.booking?.homeClub?.daysInAdvance || 6;
-  const targetDate = getNextTargetDate(targetDay, daysAhead);
+  const targetDate = injectedConfig?._targetDate || getNextTargetDate(targetDay, daysAhead);
 
   // ── Resolve clubs ────────────────────────────────────────────────────────
   const homeClub = GA_CLUBS.find(c => c.home) || { name: injectedConfig?.booking?.homeClub?.name || 'Laurel Springs Golf Club', home: true };

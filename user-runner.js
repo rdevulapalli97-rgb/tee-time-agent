@@ -111,6 +111,7 @@ function buildLegacyConfig(userRow, configRow, credRow, playersRows) {
  * @returns {object}        - { success, booking, slotsFound, error }
  */
 async function runForUser(userId, runType = 'availability_check', options = {}) {
+  // options.targetDate — override the booking date (used by trigger-booking.js for testing)
   const startTime = Date.now();
   const tag = `[runner:${userId.slice(0, 8)}]`;
   console.log(`\n${tag} Starting ${runType}...`);
@@ -194,7 +195,7 @@ async function runForUser(userId, runType = 'availability_check', options = {}) 
     }
 
     try {
-      const result = await bookTeeTime.run(config);
+      const result = await bookTeeTime.run({ ...config, _targetDate: options.targetDate || null });
 
       if (result.success) {
         // Persist booking to DB
