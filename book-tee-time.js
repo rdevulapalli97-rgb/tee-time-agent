@@ -278,14 +278,27 @@ async function clickReserveButton(page, isoDate, timeDisplay) {
   await sleep(150 + Math.floor(Math.random() * 200));
 
   try {
-    // Monitor AJAX responses so we can see exactly what the server returns
+    // Monitor AJAX requests AND responses so we can see exactly what's sent/returned
     const ajaxResponses = [];
+    const ajaxRequests  = [];
+    const onRequest = (request) => {
+      const url = request.url();
+      if (url.includes('CCTTWEB') || url.includes('ccttweb')) {
+        ajaxRequests.push({
+          method:   request.method(),
+          url:      url.slice(-100),
+          postData: (request.postData() || '').slice(0, 500),
+          referer:  (request.headers()['referer'] || '').slice(0, 120)
+        });
+      }
+    };
     const onResponse = async (response) => {
       if (response.url().includes('CCTTWEB') || response.url().includes('ccttweb')) {
         const body = await response.text().catch(() => '');
-        ajaxResponses.push({ status: response.status(), url: response.url().slice(-80), body: body.slice(0, 300) });
+        ajaxResponses.push({ status: response.status(), url: response.url().slice(-80), body: body.slice(0, 800) });
       }
     };
+    page.on('request',  onRequest);
     page.on('response', onResponse);
 
     // Use Playwright's real locator click — simulates actual mouse cursor movement + click
@@ -297,11 +310,22 @@ async function clickReserveButton(page, isoDate, timeDisplay) {
 
     // Wait briefly to capture AJAX response
     await sleep(1500);
+    page.off('request',  onRequest);
     page.off('response', onResponse);
 
+    if (ajaxRequests.length > 0) {
+      log(`   AJAX requests sent (${ajaxRequests.length}):`);
+      ajaxRequests.forEach(r => {
+        log(`     → ${r.method} ...${r.url}`);
+        if (r.postData) log(`       POST: ${r.postData}`);
+        if (r.referer)  log(`       Referer: ${r.referer}`);
+      });
+    } else {
+      log(`   No AJAX requests captured`);
+    }
     if (ajaxResponses.length > 0) {
-      log(`   AJAX responses after Reserve click:`);
-      ajaxResponses.forEach(r => log(`     [${r.status}] ...${r.url} → ${r.body.replace(/\s+/g, ' ').slice(0, 200)}`));
+      log(`   AJAX responses (${ajaxResponses.length}):`);
+      ajaxResponses.forEach(r => log(`     [${r.status}] ...${r.url}\n       ${r.body.replace(/\s+/g, ' ').slice(0, 600)}`));
     } else {
       log(`   No AJAX responses captured after Reserve click`);
     }
@@ -585,7 +609,7 @@ async function checkExistingReservation(page, isoDate) {
  *   guests   {Array}    [{ firstName, lastName, phone }]
  * @returns {{ success, club, slot, date, inWindow, error }}
  */
-async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun = false, guests = [], portalUrl = null }) {
+async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun = false, guests = [], portalUrl = null, reloginFn = null }) {
   const { earliestHour, latestHour } = effectiveConfig.booking.homeClub.preferredTimeRange;
   const numPlayers      = effectiveConfig.booking.numberOfPlayers || 2;
   const fallbackEnabled = effectiveConfig.booking.fallbackToEarliestAvailable !== false;
@@ -653,19 +677,39 @@ async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun 
     return { success: false, dryRun: true, club: top.club.name, slot: top.slot, date: isoDate };
   }
 
-  // ── Phase 3: Fresh portal session before booking ──────────────────────────
-  // Navigating through many clubs during Phase 1 puts the portal session in a
-  // degraded state — the booking AJAX call returns CCTT-608B. Reloading the
-  // portal entry point resets the session without requiring a new login.
-  if (portalUrl) {
+  // ── Phase 3: Fresh login before booking ───────────────────────────────────
+  // Phase 1 visits up to 8 clubs, leaving the server-side session in a
+  // degraded state that causes CCTT-608B on Reserve. A completely fresh
+  // login gives us a clean session with correct LOC/ENTITY cookies — the
+  // same state the user's browser is in when they manually book a tee time.
+  let bookingPage = page;
+  let phase3Browser = null;
+  if (reloginFn) {
+    log('\n→ Phase 3: fresh login for clean booking session…');
+    try {
+      const lr = await reloginFn();
+      bookingPage   = lr.page;
+      phase3Browser = lr.browser;
+      portalUrl     = lr.portalUrl || portalUrl;
+      log('   Phase 3 fresh login ✅');
+    } catch (e) {
+      log(`   Phase 3 re-login failed (${e.message.slice(0, 80)}) — using existing session as fallback`);
+      bookingPage = page;
+    }
+  } else if (portalUrl) {
+    // Fallback: just reload the portal entry point (less reliable but keeps
+    // the same browser session when no reloginFn is provided).
     log('\n→ Refreshing portal session before booking…');
     await page.goto(portalUrl, { waitUntil: 'load', timeout: 30000 }).catch(() => {});
-    await sleep(1500);
-    // Dismiss home club selection if it reappears
+    await page.waitForFunction(
+      () => { const c = document.getElementById('cc_web_content'); return c && c.innerHTML.trim().length > 200; },
+      { timeout: 15000 }
+    ).catch(() => {});
     const hasSelection = await page.evaluate(() => !!document.getElementById('home_club')).catch(() => false);
     if (hasSelection) {
       await page.evaluate(() => document.getElementById('home_club')?.click()).catch(() => {});
-      await sleep(800);
+      await page.waitForLoadState('load', { timeout: 15000 }).catch(() => {});
+      await pollUntil(page, () => page.evaluate(() => !!document.querySelector('div[id^="Tab-2"]')).catch(() => false), 10000);
     }
     log('   Portal session refreshed ✅');
   }
@@ -674,47 +718,47 @@ async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun 
   for (const candidate of candidates) {
     log(`\n→ Attempting ${candidate.slot.display} at ${candidate.club.name}…`);
 
-    const navBack = await goToClub(page, candidate.club);
+    const navBack = await goToClub(bookingPage, candidate.club);
     if (!navBack) { log(`   Re-navigation failed — skipping`); continue; }
-    const dateBack = await navigateToDate(page, isoDate);
+    const dateBack = await navigateToDate(bookingPage, isoDate);
     if (!dateBack) { log(`   Date navigation failed — skipping`); continue; }
 
     // Click reserve
-    const clickResult = await clickReserveButton(page, isoDate, candidate.slot.display);
+    const clickResult = await clickReserveButton(bookingPage, isoDate, candidate.slot.display);
     if (!clickResult) { log(`   Reserve button not found — skipping`); continue; }
     log(`   Clicked reserve (${clickResult})`);
 
     // Wait to learn if form opened or slot is gone
     await sleep(600);
-    const formState = await waitForBookingFormState(page);
+    const formState = await waitForBookingFormState(bookingPage);
     log(`   Form state: ${formState}`);
 
     if (formState === 'error') {
       log(`   Slot no longer available — cancelling and trying next`);
-      await cancelBookingForm(page);
+      await cancelBookingForm(bookingPage);
       await sleep(500);
       continue;
     }
     if (formState === 'timeout') {
       log(`   Form timed out — skipping`);
-      await cancelBookingForm(page);
+      await cancelBookingForm(bookingPage);
       continue;
     }
 
     // Form is ready — fill guests and save
     log(`   Booking form ready — filling details`);
-    await fillBookingForm(page, guests);
+    await fillBookingForm(bookingPage, guests);
 
-    const confirmed = await confirmBooking(page);
+    const confirmed = await confirmBooking(bookingPage);
     if (!confirmed) { log(`   Save failed — trying next slot`); continue; }
 
     await sleep(3000);
-    await page.screenshot({ path: '/tmp/debug-confirmation.png' }).catch(() => {});
+    await bookingPage.screenshot({ path: '/tmp/debug-confirmation.png' }).catch(() => {});
 
     // Check if form is still showing (portal rejected the save)
-    const formStillVisible = await page.evaluate(() => !!document.getElementById('save_button')).catch(() => false);
+    const formStillVisible = await bookingPage.evaluate(() => !!document.getElementById('save_button')).catch(() => false);
     if (formStillVisible) {
-      const errLine = await page.evaluate(() => {
+      const errLine = await bookingPage.evaluate(() => {
         const lines = (document.body?.innerText || '').split('\n').map(l => l.trim()).filter(Boolean);
         return lines.find(l =>
           l.match(/CCTT-\d+/) || l.toLowerCase().includes('minimum') ||
@@ -722,7 +766,7 @@ async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun 
         ) || 'Unknown error (form still showing)';
       }).catch(() => 'Could not read error');
       log(`   Booking rejected: ${errLine} — trying next slot`);
-      await cancelBookingForm(page);
+      await cancelBookingForm(bookingPage);
       continue;
     }
 
@@ -733,9 +777,11 @@ async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun 
     log(`   Date: ${isoDate}`);
     log(`   Time: ${candidate.slot.display}${inWindowNote}`);
 
+    if (phase3Browser) await phase3Browser.close().catch(() => {});
     return { success: true, club: candidate.club.name, slot: candidate.slot, date: isoDate, inWindow: candidate.inWindow };
   }
 
+  if (phase3Browser) await phase3Browser.close().catch(() => {});
   log('\n❌  All candidates exhausted — no booking made');
   return { success: false, error: 'All available slots were taken by the time booking was attempted', date: isoDate };
 }
@@ -816,7 +862,19 @@ async function bookTeeTime({ isoDate, clubs, dryRun = false, headless = false, s
       }
     }
 
-    const result = await _bookWithSession(page, config, { isoDate, clubs, dryRun, guests: guests || [], portalUrl });
+    const result = await _bookWithSession(page, config, {
+      isoDate,
+      clubs,
+      dryRun,
+      guests: guests || [],
+      portalUrl,
+      // Provide a reloginFn so Phase 3 gets a fresh browser session.
+      // Phase 1 scanning corrupts server-side state after visiting many clubs;
+      // a full re-login is the only reliable way to reset it.
+      reloginFn: (username && password)
+        ? () => loginToPortal(chromium, username, password)
+        : null,
+    });
 
     // Save updated cookies (CLI only — not needed for auth but useful for debugging)
     const updatedCookies = await context.cookies();
@@ -929,6 +987,9 @@ async function run(injectedConfig) {
       dryRun: false,
       guests,
       portalUrl,
+      // Phase 3 re-login: same rationale as bookTeeTime — multi-club Phase 1
+      // scan degrades session state, fresh login before Reserve is required.
+      reloginFn: () => loginToPortal(pw, username, password),
     });
     await browser.close().catch(() => {});
     return result;
