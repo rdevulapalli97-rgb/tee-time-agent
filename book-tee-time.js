@@ -93,7 +93,7 @@ async function goToClub(page, club) {
     : `/portal/pls/portal/!CCTTWEB.controller?EVENT=HASH&ACT=VIEW&LOC=NTWK&ENTITY=${club.entity}`;
 
   await Promise.all([
-    page.waitForNavigation({ waitUntil: 'networkidle', timeout: 25000 }).catch(() => {}),
+    page.waitForNavigation({ waitUntil: 'load', timeout: 25000 }).catch(() => {}),
     page.evaluate((p) => { window.location.href = p; }, clubPath).catch(() => {}) // navigation destroys context before result returns — suppress
   ]);
   await sleep(400);
@@ -143,7 +143,11 @@ async function navigateToDate(page, isoDate) {
   return false;
 }
 
-// minPlayers: only return slots with at least this many open spots
+// Parse tee time slots from the date container.
+// Portal row structure (confirmed from live inspection):
+//   [Reserve link | Multigrab | empty... | Course | Date | Time | Time | Slots]
+//   e.g. ["11:00 AM","","","","LAUREL SPRINGS","Sat 05/16","11:00 AM","11:00 AM","4"]
+// Strategy: last cell = slot count (pure integer), find exact time match in any middle cell.
 async function parseSlots(page, isoDate, minPlayers = 1) {
   const dt  = new Date(isoDate + 'T12:00:00');
   const y   = dt.getFullYear();
@@ -151,71 +155,51 @@ async function parseSlots(page, isoDate, minPlayers = 1) {
   const d   = String(dt.getDate()).padStart(2, '0');
   const divId = `Div-${y}${mo}${d}`;
 
-  // Dump container structure so we can fix the parser
-  const debugInfo = await page.evaluate((divId) => {
-    const div = document.getElementById(divId);
-    if (!div) return { found: false, len: 0, rows: 0, sampleRows: [] };
-    const allRows = Array.from(div.querySelectorAll('tr'));
-    // Collect first 8 rows that have at least 1 cell, show all cell text
-    const sampleRows = [];
-    for (const row of allRows) {
-      const tds = Array.from(row.querySelectorAll('td, th'));
-      if (tds.length > 0) {
-        sampleRows.push(tds.map(td => td.textContent.trim().replace(/\s+/g, ' ').slice(0, 50)));
-        if (sampleRows.length >= 8) break;
-      }
-    }
-    const dateStr = divId.replace('Div-', '');
-    const sheet   = document.getElementById('SheetDetails-' + dateStr);
-    return {
-      found: true, len: div.innerHTML.trim().length,
-      rows: allRows.length,
-      sheetLen: sheet ? sheet.innerHTML.trim().length : -1,
-      sampleRows
-    };
-  }, divId).catch(() => ({ found: false, len: 0, rows: 0, sampleRows: [] }));
-
-  log(`   [debug] Div-${y}${mo}${d}: found=${debugInfo.found}, len=${debugInfo.len}, rows=${debugInfo.rows}`);
-  for (let i = 0; i < debugInfo.sampleRows.length; i++) {
-    log(`   [debug] row${i}: ${JSON.stringify(debugInfo.sampleRows[i])}`);
-  }
-
+  // Single evaluate: parse and return slots atomically (avoids context-destroyed between two calls)
   return page.evaluate((divId, minPlayers) => {
-    // Try Div-YYYYMMDD first, fall back to SheetDetails-YYYYMMDD
-    const dateStr = divId.replace('Div-', '');
+    const dateStr   = divId.replace('Div-', '');
     const container = document.getElementById(divId)
-      || document.getElementById('SheetDetails-' + dateStr);
+                   || document.getElementById('SheetDetails-' + dateStr);
     if (!container || container.innerHTML.trim().length < 80) return [];
+
+    const TIME_RE = /^(\d{1,2}):(\d{2})\s*(AM|PM)$/i;  // exact-cell match
     const slots = [];
     const seen  = new Set();
+
     for (const row of container.querySelectorAll('tr')) {
-      const cells = Array.from(row.querySelectorAll('td'));
-      if (cells.length < 2) continue;
-      let timeText = null, slotsAvail = NaN;
-      for (let i = 0; i < cells.length; i++) {
+      const cells = Array.from(row.querySelectorAll('td, th'));
+      if (cells.length < 4) continue;   // need at least: reserve, ..., time, count
+
+      // Last cell must be a pure integer (slot count)
+      const lastTxt = cells[cells.length - 1].textContent.trim();
+      const count   = parseInt(lastTxt);
+      if (isNaN(count) || lastTxt !== String(count)) continue;
+      if (count < minPlayers) continue;
+
+      // Find exact time in any cell (skip cell 0 = reserve link to avoid duplicates)
+      let timeText = null;
+      for (let i = 1; i < cells.length - 1; i++) {
         const txt = cells[i].textContent.trim();
-        const tm  = txt.match(/\b(\d{1,2}):(\d{2})\s*(AM|PM)\b/i);
-        if (tm) {
-          timeText = `${tm[1]}:${tm[2]} ${tm[3].toUpperCase()}`;
-          for (let j = i + 1; j < cells.length; j++) {
-            const raw = cells[j].textContent.trim();
-            const n   = parseInt(raw);
-            if (!isNaN(n) && raw === String(n)) { slotsAvail = n; break; }
-          }
+        const m   = txt.match(TIME_RE);
+        if (m) {
+          timeText = `${m[1]}:${m[2]} ${m[3].toUpperCase()}`;
           break;
         }
       }
-      if (!timeText || isNaN(slotsAvail) || slotsAvail < minPlayers) continue;
-      const m = timeText.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
-      let hour = parseInt(m[1]), min = parseInt(m[2]);
-      if (m[3].toUpperCase() === 'PM' && hour !== 12) hour += 12;
-      if (m[3].toUpperCase() === 'AM' && hour === 12) hour = 0;
+      if (!timeText) continue;
+
+      const m2  = timeText.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+      let hour  = parseInt(m2[1]), min = parseInt(m2[2]);
+      if (m2[3].toUpperCase() === 'PM' && hour !== 12) hour += 12;
+      if (m2[3].toUpperCase() === 'AM' && hour === 12) hour  = 0;
+
       const key = `${hour}:${min}`;
       if (!seen.has(key)) {
         seen.add(key);
-        slots.push({ display: timeText, hour, minutes: min, slotsAvailable: slotsAvail });
+        slots.push({ display: timeText, hour, minutes: min, slotsAvailable: count });
       }
     }
+
     slots.sort((a, b) => a.hour * 60 + a.minutes - (b.hour * 60 + b.minutes));
     return slots;
   }, divId, minPlayers).catch(() => []);
