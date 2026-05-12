@@ -562,7 +562,7 @@ async function checkExistingReservation(page, isoDate) {
  *   guests   {Array}    [{ firstName, lastName, phone }]
  * @returns {{ success, club, slot, date, inWindow, error }}
  */
-async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun = false, guests = [] }) {
+async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun = false, guests = [], portalUrl = null }) {
   const { earliestHour, latestHour } = effectiveConfig.booking.homeClub.preferredTimeRange;
   const numPlayers      = effectiveConfig.booking.numberOfPlayers || 2;
   const fallbackEnabled = effectiveConfig.booking.fallbackToEarliestAvailable !== false;
@@ -628,6 +628,23 @@ async function _bookWithSession(page, effectiveConfig, { isoDate, clubs, dryRun 
     const top = candidates[0];
     log(`🔍  DRY RUN — would book ${top.slot.display} at ${top.club.name}`);
     return { success: false, dryRun: true, club: top.club.name, slot: top.slot, date: isoDate };
+  }
+
+  // ── Phase 3: Fresh portal session before booking ──────────────────────────
+  // Navigating through many clubs during Phase 1 puts the portal session in a
+  // degraded state — the booking AJAX call returns CCTT-608B. Reloading the
+  // portal entry point resets the session without requiring a new login.
+  if (portalUrl) {
+    log('\n→ Refreshing portal session before booking…');
+    await page.goto(portalUrl, { waitUntil: 'load', timeout: 30000 }).catch(() => {});
+    await sleep(1500);
+    // Dismiss home club selection if it reappears
+    const hasSelection = await page.evaluate(() => !!document.getElementById('home_club')).catch(() => false);
+    if (hasSelection) {
+      await page.evaluate(() => document.getElementById('home_club')?.click()).catch(() => {});
+      await sleep(800);
+    }
+    log('   Portal session refreshed ✅');
   }
 
   // ── Phase 3: Try each candidate until one succeeds ────────────────────────
@@ -853,7 +870,7 @@ async function run(injectedConfig) {
   if (!username || !password) throw new Error('run() requires injectedConfig.credentials');
 
   // ── Login ────────────────────────────────────────────────────────────────
-  const { browser, page } = await loginToPortal(pw, username, password);
+  const { browser, page, portalUrl } = await loginToPortal(pw, username, password);
 
   // ── Resolve target date ──────────────────────────────────────────────────
   // injectedConfig._targetDate allows callers (e.g. trigger-booking.js) to
@@ -891,6 +908,7 @@ async function run(injectedConfig) {
       clubs,
       dryRun: false,
       guests,
+      portalUrl,
     });
     await browser.close().catch(() => {});
     return result;
