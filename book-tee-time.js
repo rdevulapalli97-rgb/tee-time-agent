@@ -19,6 +19,7 @@ const { chromium } = require('playwright');
 const fs       = require('fs');
 const path     = require('path');
 const readline = require('readline');
+const { loginToPortal } = require('./lib/login');
 
 const CONFIG_FILE  = path.join(__dirname, 'config.json');
 const SESSION_FILE = path.join(__dirname, 'session.json');
@@ -777,36 +778,34 @@ async function bookTeeTime({ isoDate, clubs, dryRun = false, headless = false, s
     }
   }
 
+  // ── Credentials — prefer env vars, fall back to session.json ──────────────
+  // Apps.invitedclubs.com session cookies are server-side sessions that die
+  // the moment the setup browser closes. We must always do a fresh login.
+  const username = process.env.INVITED_USERNAME || session.username || '';
+  const password = process.env.INVITED_PASSWORD || session.password || '';
+
   let browser, context, page;
+  let portalUrl = PORTAL_URL;
   try {
-    browser = await chromium.launch({ headless, args: headless ? ['--no-sandbox'] : ['--start-maximized'] });
-    context = await browser.newContext({ viewport: headless ? { width: 1280, height: 900 } : null });
-    if (session.cookies?.length) await context.addCookies(session.cookies);
-    page = await context.newPage();
-
-    log('Loading portal…');
-    await page.goto(PORTAL_URL, { waitUntil: 'networkidle', timeout: 25000 });
-
-    const sessionOk = await page.evaluate(() => {
-      const c = document.getElementById('cc_web_content');
-      return !!(c && c.innerHTML.trim().length > 200);
-    }).catch(() => false);
-
-    if (!sessionOk || page.url().includes('login')) {
-      if (headless) {
-        await browser.close();
-        browser  = await chromium.launch({ headless: false, args: ['--start-maximized'] });
-        context  = await browser.newContext({ viewport: null });
-        if (session.cookies?.length) await context.addCookies(session.cookies);
-        page     = await context.newPage();
-        await page.goto(PORTAL_URL, { waitUntil: 'networkidle', timeout: 25000 });
-      }
-      log('Session expired — log in to the browser and press Enter...');
-      const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-      await new Promise(resolve => rl.question('Press Enter once logged in… ', () => { rl.close(); resolve(); }));
-      await page.goto(PORTAL_URL, { waitUntil: 'networkidle', timeout: 25000 });
+    if (username && password) {
+      log('Logging in fresh (session cookies expire on browser close)…');
+      const lr = await loginToPortal(chromium, username, password);
+      browser   = lr.browser;
+      context   = lr.context;
+      page      = lr.page;
+      portalUrl = lr.portalUrl || PORTAL_URL;
+      log('Fresh login successful ✅');
     } else {
-      log('Session valid ✅');
+      // Fallback: restore saved cookies (likely stale — only works if run
+      // within minutes of setup and before the browser was closed)
+      log('⚠️  No credentials in session.json or env vars — restoring saved cookies (may fail).');
+      log('   Run 1-SETUP.command again and enter your username/password when prompted.');
+      browser = await chromium.launch({ headless, args: headless ? ['--no-sandbox'] : ['--start-maximized'] });
+      context = await browser.newContext({ viewport: headless ? { width: 1280, height: 900 } : null });
+      if (session.cookies?.length) await context.addCookies(session.cookies);
+      page = await context.newPage();
+      log('Loading portal…');
+      await page.goto(portalUrl, { waitUntil: 'load', timeout: 25000 });
     }
 
     if (!skipExistingCheck) {
@@ -817,9 +816,9 @@ async function bookTeeTime({ isoDate, clubs, dryRun = false, headless = false, s
       }
     }
 
-    const result = await _bookWithSession(page, config, { isoDate, clubs, dryRun, guests: guests || [] });
+    const result = await _bookWithSession(page, config, { isoDate, clubs, dryRun, guests: guests || [], portalUrl });
 
-    // Save updated cookies (CLI only)
+    // Save updated cookies (CLI only — not needed for auth but useful for debugging)
     const updatedCookies = await context.cookies();
     fs.writeFileSync(SESSION_FILE, JSON.stringify({ ...session, savedAt: new Date().toISOString(), cookies: updatedCookies }, null, 2));
 
@@ -884,7 +883,6 @@ if (require.main === module) {
  * Returns { success, club, slot, date, inWindow, error }.
  */
 async function run(injectedConfig) {
-  const { loginToPortal } = require('./lib/login');
   const { chromium: pw }  = require('playwright');
 
   const username = injectedConfig?.credentials?.username;

@@ -19,6 +19,27 @@ async function setupLogin() {
   console.log('  Invited Clubs — One-Time Login Setup');
   console.log('='.repeat(60));
   console.log('');
+
+  // ── Collect credentials first ───────────────────────────────────────────────
+  // Stored so the booking script can do a fresh login on every run.
+  // Session cookies from apps.invitedclubs.com expire as soon as the browser
+  // closes (server-side sessions), so we cannot rely on saved cookies alone.
+  const rl2 = readline.createInterface({ input: process.stdin, output: process.stdout });
+  const ask  = (q) => new Promise(resolve => rl2.question(q, resolve));
+
+  console.log('Enter your Invited Clubs login credentials.');
+  console.log('These will be saved to session.json and used for automatic re-login on every booking run.');
+  console.log('');
+  const username = (await ask('  Email / Username: ')).trim();
+  const password = (await ask('  Password: ')).trim();
+  rl2.close();
+
+  if (!username || !password) {
+    console.error('\n❌  Username and password are required.');
+    process.exit(1);
+  }
+
+  console.log('');
   console.log('A browser window will open. Please:');
   console.log('  1. Log in to your Invited Clubs account');
   console.log('  2. Make sure you reach the HOME PAGE');
@@ -100,11 +121,13 @@ async function setupLogin() {
     console.log('    The booking scripts will use the default ID from the config.');
   }
 
-  // Save all cookies from all domains
+  // Save all cookies from all domains + credentials for fresh re-login
   const cookies = await context.cookies();
   const session = {
     savedAt: new Date().toISOString(),
     memberId: memberId || null,
+    username,   // ← stored for automatic re-login; session cookies expire on browser close
+    password,   // ← stored for automatic re-login
     cookies
   };
 
