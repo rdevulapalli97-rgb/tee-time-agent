@@ -835,7 +835,7 @@ async function bookTeeTime({ isoDate, clubs, dryRun = false, headless = false, s
   try {
     if (username && password) {
       log('Logging in fresh (session cookies expire on browser close)…');
-      const lr = await loginToPortal(chromium, username, password);
+      const lr = await loginToPortal(chromium, username, password, { headless });
       browser   = lr.browser;
       context   = lr.context;
       page      = lr.page;
@@ -872,7 +872,7 @@ async function bookTeeTime({ isoDate, clubs, dryRun = false, headless = false, s
       // Phase 1 scanning corrupts server-side state after visiting many clubs;
       // a full re-login is the only reliable way to reset it.
       reloginFn: (username && password)
-        ? () => loginToPortal(chromium, username, password)
+        ? () => loginToPortal(chromium, username, password, { headless })
         : null,
     });
 
@@ -951,7 +951,7 @@ async function run(injectedConfig) {
   if (!username || !password) throw new Error('run() requires injectedConfig.credentials');
 
   // ── Login ────────────────────────────────────────────────────────────────
-  const { browser, page, portalUrl } = await loginToPortal(pw, username, password);
+  const { browser, page, portalUrl } = await loginToPortal(pw, username, password, { headless: true });
 
   // ── Resolve target date ──────────────────────────────────────────────────
   // injectedConfig._targetDate allows callers (e.g. trigger-booking.js) to
@@ -992,7 +992,7 @@ async function run(injectedConfig) {
       portalUrl,
       // Phase 3 re-login: same rationale as bookTeeTime — multi-club Phase 1
       // scan degrades session state, fresh login before Reserve is required.
-      reloginFn: () => loginToPortal(pw, username, password),
+      reloginFn: () => loginToPortal(pw, username, password, { headless: true }),
     });
     await browser.close().catch(() => {});
     return result;
