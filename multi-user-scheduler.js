@@ -180,6 +180,24 @@ const server = http.createServer(async (req, res) => {
       running_now:  runningUsers.size,
       timestamp:    new Date().toISOString()
     }));
+  } else if (req.method === 'POST' && req.url === '/sms') {
+    // Twilio SMS webhook — parse URL-encoded form, call SMS agent
+    let rawBody = '';
+    req.on('data', chunk => rawBody += chunk);
+    req.on('end', async () => {
+      try {
+        const params = new URLSearchParams(rawBody);
+        const msgBody = params.get('Body') || '';
+        const { handleSMS } = require('./lib/sms-agent');
+        const twiml = await handleSMS(msgBody);
+        res.writeHead(200, { 'Content-Type': 'text/xml' });
+        res.end(twiml);
+      } catch (err) {
+        log(`SMS handler error: ${err.message}`);
+        res.writeHead(200, { 'Content-Type': 'text/xml' });
+        res.end('<Response><Message>Sorry, something went wrong. Try again in a moment! ⛳</Message></Response>');
+      }
+    });
   } else {
     res.writeHead(404);
     res.end('Not found');
