@@ -101,6 +101,11 @@
     "toNumber":   "+1XXXXXXXXXX"
   },
 
+  "capsolver": {
+    "_comment": "CapSolver solves the portal's bot-detection challenge that blocks automated booking. Sign up at https://capsolver.com — free $1 credit on signup, costs ~$0.001–0.003 per booking (pennies/month). Paste your API key below OR set the CAPSOLVER_API_KEY environment variable.",
+    "apiKey": ""
+  },
+
   "intelligence": {
     "surgeIntervalMinutes": 3,
     "normalIntervalMinutes": 15,

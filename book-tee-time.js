@@ -268,48 +268,53 @@ async function promptForGuests(numGuests, startIndex = 1) {
 // ── Booking-specific functions ────────────────────────────────────────────────
 
 /**
- * Click the Reserve button using Playwright's real mouse events.
- * DOM .click() inside evaluate() has no mouse events → reCAPTCHA flags it as a bot → CCTT-608B.
- * page.locator().click() moves the cursor, fires mousemove/mousedown/mouseup → passes reCAPTCHA.
+ * Click the Reserve button using real Playwright mouse events.
+ *
+ * Key points:
+ *   - page.locator().click() moves the actual cursor and fires real mouse events,
+ *     which reCAPTCHA v3 scores more favourably than DOM .click().
+ *   - We move to a neutral position first, then navigate to the button via a
+ *     smooth curve to build a more natural movement trace.
+ *   - The persistent Chrome profile (see lib/login.js) is the primary reCAPTCHA
+ *     fix — this function just handles the mechanical click correctly.
  */
 async function clickReserveButton(page, isoDate, timeDisplay) {
-  // Move mouse to a neutral position first (more human-like)
-  await page.mouse.move(640, 400, { steps: 5 }).catch(() => {});
-  await sleep(150 + Math.floor(Math.random() * 200));
+  // Smooth approach to a neutral centre position
+  await _smoothMouseMove(page, 640, 400);
+  await sleep(200 + Math.floor(Math.random() * 200));
+
+  // Monitor AJAX traffic for debugging
+  const ajaxResponses = [];
+  const ajaxRequests  = [];
+  const onRequest = (request) => {
+    const url = request.url();
+    if (url.includes('CCTTWEB') || url.includes('ccttweb')) {
+      ajaxRequests.push({
+        method:   request.method(),
+        url:      url.slice(-100),
+        postData: (request.postData() || '').slice(0, 500),
+        referer:  (request.headers()['referer'] || '').slice(0, 120),
+      });
+    }
+  };
+  const onResponse = async (response) => {
+    if (response.url().includes('CCTTWEB') || response.url().includes('ccttweb')) {
+      const body = await response.text().catch(() => '');
+      ajaxResponses.push({ status: response.status(), url: response.url().slice(-80), body: body.slice(0, 800) });
+    }
+  };
+  page.on('request',  onRequest);
+  page.on('response', onResponse);
 
   try {
-    // Monitor AJAX requests AND responses so we can see exactly what's sent/returned
-    const ajaxResponses = [];
-    const ajaxRequests  = [];
-    const onRequest = (request) => {
-      const url = request.url();
-      if (url.includes('CCTTWEB') || url.includes('ccttweb')) {
-        ajaxRequests.push({
-          method:   request.method(),
-          url:      url.slice(-100),
-          postData: (request.postData() || '').slice(0, 500),
-          referer:  (request.headers()['referer'] || '').slice(0, 120)
-        });
-      }
-    };
-    const onResponse = async (response) => {
-      if (response.url().includes('CCTTWEB') || response.url().includes('ccttweb')) {
-        const body = await response.text().catch(() => '');
-        ajaxResponses.push({ status: response.status(), url: response.url().slice(-80), body: body.slice(0, 800) });
-      }
-    };
-    page.on('request',  onRequest);
-    page.on('response', onResponse);
-
-    // Use Playwright's real locator click — simulates actual mouse cursor movement + click
-    // hasText matches the inner span text "11:00 AM" inside the cc-reserve-button span
+    // Scroll the button into view, pause briefly, then click via locator
+    // (locator click drives the real OS-level cursor — reCAPTCHA sees it)
     const locator = page.locator('span.cc-reserve-button.cc-selectable').filter({ hasText: timeDisplay }).first();
     await locator.scrollIntoViewIfNeeded({ timeout: 5000 }).catch(() => {});
-    await sleep(100);
+    await sleep(150 + Math.floor(Math.random() * 150));
     await locator.click({ timeout: 8000 });
 
-    // Wait briefly to capture AJAX response
-    await sleep(1500);
+    await sleep(2000);
     page.off('request',  onRequest);
     page.off('response', onResponse);
 
@@ -332,27 +337,57 @@ async function clickReserveButton(page, isoDate, timeDisplay) {
 
     return 'locator-click';
   } catch (e) {
-    log(`   Locator click failed (${e.message.slice(0, 80)}) — trying elementHandle`);
-    // Fallback: get bounding box and use page.mouse.click() for real coordinates
+    log(`   Locator click failed (${e.message.slice(0, 80)}) — trying bounding-box click`);
+
+    // Fallback: find the element, get its coordinates, move cursor there naturally
     try {
-      const handle = await page.evaluateHandle((timeDisplay) => {
+      const handle = await page.evaluateHandle((td) => {
         for (const span of document.querySelectorAll('span.cc-reserve-button.cc-selectable')) {
           const inner = span.querySelector('span') || span;
-          if (inner.textContent.trim() === timeDisplay || span.textContent.trim() === timeDisplay) return span;
+          if (inner.textContent.trim() === td || span.textContent.trim() === td) return span;
         }
         return null;
       }, timeDisplay);
       const box = await handle.asElement()?.boundingBox();
       if (box) {
-        await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 8 });
+        const cx = box.x + box.width / 2;
+        const cy = box.y + box.height / 2;
+        await _smoothMouseMove(page, cx, cy);
         await sleep(80);
-        await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+        await page.mouse.click(cx, cy);
+
+        await sleep(2000);
+        page.off('request',  onRequest);
+        page.off('response', onResponse);
         return 'mouse-click';
       }
     } catch (e2) {
-      log(`   ElementHandle click failed: ${e2.message.slice(0, 60)}`);
+      log(`   Bounding-box click failed: ${e2.message.slice(0, 60)}`);
     }
+
+    page.off('request',  onRequest);
+    page.off('response', onResponse);
     return false;
+  }
+}
+
+/**
+ * Move the mouse from its current position to (tx, ty) along a gentle arc.
+ * Produces a more organic movement trace than Playwright's built-in steps=N.
+ */
+async function _smoothMouseMove(page, tx, ty) {
+  // We don't know exact current position, so start from a reasonable centre
+  const steps = 14 + Math.floor(Math.random() * 8);
+  // Control point offset gives the movement a slight curve
+  const cpx = (640 + tx) / 2 + (Math.random() - 0.5) * 80;
+  const cpy = (400 + ty) / 2 + (Math.random() - 0.5) * 60;
+  for (let i = 0; i <= steps; i++) {
+    const t  = i / steps;
+    // Quadratic bezier: P = (1-t)²·P0 + 2(1-t)t·CP + t²·P1
+    const x  = (1 - t) * (1 - t) * 640 + 2 * (1 - t) * t * cpx + t * t * tx;
+    const y  = (1 - t) * (1 - t) * 400 + 2 * (1 - t) * t * cpy + t * t * ty;
+    await page.mouse.move(x, y).catch(() => {});
+    await sleep(8 + Math.random() * 14);
   }
 }
 
