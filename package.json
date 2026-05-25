@@ -8,8 +8,8 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "start": "node multi-user-scheduler.js",
-    "dev": "NODE_ENV=development node multi-user-scheduler.js",
+    "start": "node server-v1.js",
+    "dev": "NODE_ENV=development node server-v1.js",
     "check": "node check-availability.js",
     "book": "node book-tee-time.js",
     "setup": "node setup-login.js",
