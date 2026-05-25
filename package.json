@@ -15,8 +15,7 @@
     "setup": "node setup-login.js",
     "dry-run": "node book-tee-time.js --dry-run",
     "encrypt-test": "node -e \"require('./lib/encrypt').selfTest()\"",
-    "onboard": "node scripts/onboard-user.js",
-    "postinstall": "npx playwright install chromium --with-deps"
+    "onboard": "node scripts/onboard-user.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.24.0",
