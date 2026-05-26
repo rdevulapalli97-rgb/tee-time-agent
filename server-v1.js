@@ -252,9 +252,56 @@ const server = http.createServer(async (req, res) => {
   const url = req.url?.split('?')[0];
 
   try {
-    // Dashboard
+    // Landing page (public homepage)
     if (req.method === 'GET' && (url === '/' || url === '/index.html')) {
+      const landingFile = path.join(__dirname, 'public', 'index.html');
+      if (fs.existsSync(landingFile)) {
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        return res.end(fs.readFileSync(landingFile, 'utf8'));
+      }
       return handleDashboard(res);
+    }
+
+    // Signup page
+    if (req.method === 'GET' && (url === '/signup' || url === '/signup/')) {
+      const signupFile = path.join(__dirname, 'signup', 'index.html');
+      if (fs.existsSync(signupFile)) {
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        return res.end(fs.readFileSync(signupFile, 'utf8'));
+      }
+      return json(res, 404, { message: 'Signup page not found' });
+    }
+
+    // Member dashboard (after login)
+    if (req.method === 'GET' && (url === '/dashboard' || url === '/dashboard/')) {
+      return handleDashboard(res);
+    }
+
+    // Admin panel
+    if (req.method === 'GET' && (url === '/admin' || url === '/admin/')) {
+      const adminFile = path.join(__dirname, 'admin', 'index.html');
+      if (fs.existsSync(adminFile)) {
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        return res.end(fs.readFileSync(adminFile, 'utf8'));
+      }
+      return json(res, 404, { message: 'Admin page not found' });
+    }
+
+    // Signup API endpoint
+    if (req.method === 'POST' && url === '/api/signup') {
+      let body = '';
+      req.on('data', chunk => body += chunk);
+      req.on('end', async () => {
+        try {
+          const data = JSON.parse(body);
+          // TODO: save to Supabase via db/client.js
+          console.log('[signup] New signup:', data.email, data.config?.home_club_name);
+          return json(res, 200, { message: 'Signup received', email: data.email });
+        } catch (e) {
+          return json(res, 400, { message: 'Invalid JSON' });
+        }
+      });
+      return;
     }
 
     // Availability data

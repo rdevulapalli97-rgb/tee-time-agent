@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ClubCompanion — Member Setup</title>
+<title>ClubCompanion — Get Started</title>
+<meta name="description" content="Set up your ClubCompanion account in 5 minutes. We'll monitor tee time availability across your Invited Clubs and answer your questions by text." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -136,10 +137,9 @@
 <div class="progress-bar">
   <div class="steps">
     <div class="step active" id="step-indicator-1"><span class="step-num">1</span> Your Info</div>
-    <div class="step"        id="step-indicator-2"><span class="step-num">2</span> Club Setup</div>
-    <div class="step"        id="step-indicator-3"><span class="step-num">3</span> Players</div>
-    <div class="step"        id="step-indicator-4"><span class="step-num">4</span> Portal Login</div>
-    <div class="step"        id="step-indicator-5"><span class="step-num">5</span> Review</div>
+    <div class="step"        id="step-indicator-2"><span class="step-num">2</span> Your Clubs</div>
+    <div class="step"        id="step-indicator-3"><span class="step-num">3</span> Portal Login</div>
+    <div class="step"        id="step-indicator-4"><span class="step-num">4</span> Review</div>
   </div>
 </div>
 
@@ -149,7 +149,7 @@
   <div class="form-step active" id="form-step-1">
     <div class="card">
       <h2>Welcome to ClubCompanion</h2>
-      <p class="subtitle">Let's get your agent set up. We'll start with the basics.</p>
+      <p class="subtitle">Set up takes about 5 minutes. We'll start monitoring your clubs right away.</p>
 
       <div class="field-row">
         <div class="field">
@@ -201,88 +201,28 @@
     </div>
   </div>
 
-  <!-- ── STEP 2: CLUB SETUP ── -->
+  <!-- ── STEP 2: YOUR CLUBS ── -->
   <div class="form-step" id="form-step-2">
     <div class="card">
-      <h2>Your Club Preferences</h2>
-      <p class="subtitle">Tell us which club to book for and when you want to play.</p>
+      <h2>Your Clubs</h2>
+      <p class="subtitle">Tell us which clubs to monitor. We'll check availability every 15 minutes.</p>
 
       <div class="field">
         <label>Home Club Name</label>
         <input id="home-club" type="text" placeholder="Laurel Springs Golf Club" />
-        <div class="hint">Enter the exact club name as it appears in the Invited Clubs portal.</div>
-      </div>
-
-      <div class="field-row">
-        <div class="field">
-          <label>Target Day</label>
-          <select id="home-target-day">
-            <option value="Saturday" selected>Saturday</option>
-            <option value="Sunday">Sunday</option>
-            <option value="Friday">Friday</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Days in Advance</label>
-          <select id="days-advance">
-            <option value="6" selected>6 days (standard)</option>
-            <option value="7">7 days</option>
-            <option value="5">5 days</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="field">
-        <label>Preferred Tee Time Window</label>
-        <div class="time-range">
-          <select id="home-earliest">
-            <option value="6" selected>6:00 AM</option>
-            <option value="7">7:00 AM</option>
-            <option value="8">8:00 AM</option>
-            <option value="9">9:00 AM</option>
-          </select>
-          <span>to</span>
-          <select id="home-latest">
-            <option value="9">9:00 AM</option>
-            <option value="10">10:00 AM</option>
-            <option value="11" selected>11:00 AM</option>
-            <option value="12">12:00 PM</option>
-          </select>
-        </div>
-        <div class="hint">If no slots are in this window, we'll book the earliest available time instead.</div>
+        <div class="hint">Enter the club name as it appears in the Invited Clubs portal.</div>
       </div>
 
       <div class="field" id="aa-section">
-        <label>Access Advantage Clubs (Sunday)</label>
+        <label>Access Advantage Clubs <span class="optional">optional</span></label>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
           <input type="checkbox" id="aa-enabled" style="width:auto;" onchange="toggleAA(this.checked)" />
-          <span style="font-size:13px;">Also book Access Advantage clubs on Sundays</span>
+          <span style="font-size:13px;">Also monitor Access Advantage clubs</span>
         </div>
         <div id="aa-fields" style="display:none;">
-          <div class="time-range" style="margin-bottom:8px;">
-            <select id="aa-earliest">
-              <option value="6" selected>6:00 AM</option>
-              <option value="7">7:00 AM</option>
-              <option value="8">8:00 AM</option>
-            </select>
-            <span>to</span>
-            <select id="aa-latest">
-              <option value="8">8:00 AM</option>
-              <option value="9" selected>9:00 AM</option>
-              <option value="10">10:00 AM</option>
-            </select>
-          </div>
+          <input id="aa-clubs" type="text" placeholder="e.g. Atlanta National, Eagle Watch" />
+          <div class="hint">Separate multiple clubs with commas.</div>
         </div>
-      </div>
-
-      <div class="field">
-        <label>Number of Players</label>
-        <select id="num-players">
-          <option value="1">1 player</option>
-          <option value="2" selected>2 players</option>
-          <option value="3">3 players</option>
-          <option value="4">4 players</option>
-        </select>
       </div>
 
       <div class="btn-row">
@@ -292,86 +232,25 @@
     </div>
   </div>
 
-  <!-- ── STEP 3: PLAYERS ── -->
+  <!-- ── STEP 3: PORTAL LOGIN ── -->
   <div class="form-step" id="form-step-3">
     <div class="card">
-      <h2>Guest Players</h2>
-      <p class="subtitle">Add the guest(s) you usually play with. These will be filled in automatically when booking.</p>
-
-      <div id="guest-fields">
-        <div class="field-row thirds">
-          <div class="field">
-            <label>Guest 1 First Name</label>
-            <input id="g1-first" type="text" placeholder="First" />
-          </div>
-          <div class="field">
-            <label>Guest 1 Last Name</label>
-            <input id="g1-last" type="text" placeholder="Last" />
-          </div>
-          <div class="field">
-            <label>Phone <span class="optional">optional</span></label>
-            <input id="g1-phone" type="tel" placeholder="+1 (555) 000-0000" />
-          </div>
-        </div>
-      </div>
-
-      <div id="extra-guests" style="display:none;">
-        <div class="field-row thirds">
-          <div class="field">
-            <label>Guest 2 First Name</label>
-            <input id="g2-first" type="text" placeholder="First" />
-          </div>
-          <div class="field">
-            <label>Guest 2 Last Name</label>
-            <input id="g2-last" type="text" placeholder="Last" />
-          </div>
-          <div class="field">
-            <label>Phone <span class="optional">optional</span></label>
-            <input id="g2-phone" type="tel" placeholder="+1 (555) 000-0000" />
-          </div>
-        </div>
-        <div class="field-row thirds">
-          <div class="field">
-            <label>Guest 3 First Name</label>
-            <input id="g3-first" type="text" placeholder="First" />
-          </div>
-          <div class="field">
-            <label>Guest 3 Last Name</label>
-            <input id="g3-last" type="text" placeholder="Last" />
-          </div>
-          <div class="field">
-            <label>Phone <span class="optional">optional</span></label>
-            <input id="g3-phone" type="tel" placeholder="+1 (555) 000-0000" />
-          </div>
-        </div>
-      </div>
-
-      <div class="btn-row">
-        <button class="btn btn-ghost" onclick="prevStep(3)">← Back</button>
-        <button class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── STEP 4: PORTAL LOGIN ── -->
-  <div class="form-step" id="form-step-4">
-    <div class="card">
       <h2>Invited Clubs Login</h2>
-      <p class="subtitle">Your agent needs your portal credentials to check and book tee times on your behalf.</p>
+      <p class="subtitle">We need your portal credentials to check availability on your behalf.</p>
 
       <div class="security-box">
         <span class="icon">🔒</span>
         <div>
           <strong>Your credentials are encrypted with AES-256-GCM</strong> before being stored.
           They are never logged, never stored in plaintext, and never shared.
-          They are used only to authenticate with the Invited Clubs portal.
+          They are used only to check availability at members.invitedclubs.com.
         </div>
       </div>
 
       <div class="field">
         <label>Invited Clubs Username</label>
         <input id="portal-username" type="text" autocomplete="username" placeholder="Your portal login username" />
-        <div class="hint">This is the username you use at members.invitedclubs.com</div>
+        <div class="hint">The username you use at members.invitedclubs.com</div>
       </div>
       <div class="field">
         <label>Invited Clubs Password</label>
@@ -379,23 +258,23 @@
       </div>
 
       <div class="btn-row">
-        <button class="btn btn-ghost" onclick="prevStep(4)">← Back</button>
-        <button class="btn btn-primary" onclick="nextStep(4)">Review Setup →</button>
+        <button class="btn btn-ghost" onclick="prevStep(3)">← Back</button>
+        <button class="btn btn-primary" onclick="nextStep(3)">Review Setup →</button>
       </div>
     </div>
   </div>
 
-  <!-- ── STEP 5: REVIEW ── -->
-  <div class="form-step" id="form-step-5">
+  <!-- ── STEP 4: REVIEW ── -->
+  <div class="form-step" id="form-step-4">
     <div class="card">
       <h2>Review Your Setup</h2>
-      <p class="subtitle">Everything look right? Hit confirm and your agent will be active within the hour.</p>
+      <p class="subtitle">Everything look right? We'll start monitoring your clubs right away.</p>
 
       <div id="review-content" style="font-size:13px;line-height:2;"></div>
 
       <div class="btn-row">
-        <button class="btn btn-ghost" onclick="prevStep(5)">← Back</button>
-        <button class="btn btn-gold" onclick="submitSignup()">✅ Confirm & Activate Agent</button>
+        <button class="btn btn-ghost" onclick="prevStep(4)">← Back</button>
+        <button class="btn btn-gold" onclick="submitSignup()">✅ Confirm & Get Started</button>
       </div>
     </div>
   </div>
@@ -405,8 +284,9 @@
     <div class="card success-screen">
       <div class="success-icon">⛳</div>
       <h2>You're all set!</h2>
-      <p>Your ClubCompanion agent is now active. We'll check for availability every 15 minutes and send you an SMS and email the moment your tee time is booked.</p>
-      <p style="font-size:12px;color:var(--muted);">Didn't get a confirmation email? Check your spam folder or email <a href="mailto:support@clubcompanion.ai" style="color:var(--forest);">support@clubcompanion.ai</a></p>
+      <p>Your ClubCompanion is now active. We're checking your clubs every 15 minutes. Text your ClubCompanion number any time to ask about availability.</p>
+      <p style="margin-top:16px;"><strong>Your ClubCompanion number: (781) 630-6195</strong></p>
+      <p style="font-size:12px;color:var(--muted);margin-top:12px;">Didn't get a confirmation email? Check your spam folder or email <a href="mailto:support@clubcompanion.ai" style="color:var(--forest);">support@clubcompanion.ai</a></p>
     </div>
   </div>
 
@@ -414,20 +294,12 @@
 
 <script>
 let currentStep = 1;
-const totalSteps = 5;
+const totalSteps = 4;
 
 function selectPlan(plan, el) {
   document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
   document.getElementById('plan').value = plan;
-  // Show/hide extra guests based on plan
-  updateGuestVisibility();
-}
-
-function updateGuestVisibility() {
-  const plan = document.getElementById('plan').value;
-  const players = parseInt(document.getElementById('num-players')?.value || 2);
-  document.getElementById('extra-guests').style.display = players > 2 ? '' : 'none';
 }
 
 function toggleAA(enabled) {
@@ -436,7 +308,7 @@ function toggleAA(enabled) {
 
 function nextStep(from) {
   if (!validateStep(from)) return;
-  if (from === 4) buildReview();
+  if (from === 3) buildReview();
   goToStep(from + 1);
 }
 
@@ -449,7 +321,7 @@ function goToStep(n) {
   document.getElementById(`form-step-${n}`).classList.add('active');
   for (let i = 1; i <= totalSteps; i++) {
     const ind = document.getElementById(`step-indicator-${i}`);
-    ind.className = 'step' + (i === n ? ' active' : i < n ? ' done' : '');
+    if (ind) ind.className = 'step' + (i === n ? ' active' : i < n ? ' done' : '');
   }
   currentStep = n;
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -459,7 +331,7 @@ function validateStep(step) {
   const checks = {
     1: [['first-name','First name'], ['last-name','Last name'], ['email','Email']],
     2: [['home-club','Home club name']],
-    4: [['portal-username','Portal username'], ['portal-password','Portal password']]
+    3: [['portal-username','Portal username'], ['portal-password','Portal password']]
   };
   for (const [id, label] of (checks[step] || [])) {
     if (!document.getElementById(id)?.value.trim()) {
@@ -480,47 +352,32 @@ function buildReview() {
       <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Phone</td><td style="padding:8px 12px;">${document.getElementById('phone').value || '—'}</td></tr>
       <tr><td style="padding:8px 12px;font-weight:600;">Plan</td><td style="padding:8px 12px;">${document.getElementById('plan').value}</td></tr>
       <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Home Club</td><td style="padding:8px 12px;">${document.getElementById('home-club').value}</td></tr>
-      <tr><td style="padding:8px 12px;font-weight:600;">Target Day</td><td style="padding:8px 12px;">${document.getElementById('home-target-day').value}</td></tr>
-      <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Preferred Window</td><td style="padding:8px 12px;">${document.getElementById('home-earliest').options[document.getElementById('home-earliest').selectedIndex].text} – ${document.getElementById('home-latest').options[document.getElementById('home-latest').selectedIndex].text}</td></tr>
-      <tr><td style="padding:8px 12px;font-weight:600;">Players</td><td style="padding:8px 12px;">${document.getElementById('num-players').value}</td></tr>
-      <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Access Advantage</td><td style="padding:8px 12px;">${aaEnabled ? '✅ Enabled for Sundays' : 'Disabled'}</td></tr>
-      <tr><td style="padding:8px 12px;font-weight:600;">Guest 1</td><td style="padding:8px 12px;">${document.getElementById('g1-first').value} ${document.getElementById('g1-last').value || '—'}</td></tr>
+      <tr><td style="padding:8px 12px;font-weight:600;">Access Advantage</td><td style="padding:8px 12px;">${aaEnabled ? (document.getElementById('aa-clubs').value || 'Enabled') : 'Not monitoring'}</td></tr>
       <tr style="background:#faf7f2;"><td style="padding:8px 12px;font-weight:600;">Portal Login</td><td style="padding:8px 12px;">${document.getElementById('portal-username').value} · <span style="color:#2d7a4f;">🔒 Password encrypted</span></td></tr>
     </table>`;
   document.getElementById('review-content').innerHTML = html;
 }
 
 async function submitSignup() {
-  const btn = document.querySelector('#form-step-5 .btn-gold');
+  const btn = document.querySelector('#form-step-4 .btn-gold');
   btn.textContent = 'Saving...';
   btn.disabled = true;
 
   const payload = {
-    email:     document.getElementById('email').value.trim(),
-    name:      `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`.trim(),
-    phone:     document.getElementById('phone').value.trim(),
-    plan:      document.getElementById('plan').value,
-    username:  document.getElementById('portal-username').value.trim(),
-    password:  document.getElementById('portal-password').value,
+    email:    document.getElementById('email').value.trim(),
+    name:     `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`.trim(),
+    phone:    document.getElementById('phone').value.trim(),
+    plan:     document.getElementById('plan').value,
+    username: document.getElementById('portal-username').value.trim(),
+    password: document.getElementById('portal-password').value,
     config: {
-      home_club_name:            document.getElementById('home-club').value.trim(),
-      home_club_target_day:      document.getElementById('home-target-day').value,
-      home_club_days_in_advance: parseInt(document.getElementById('days-advance').value),
-      home_earliest_hour:        parseInt(document.getElementById('home-earliest').value),
-      home_latest_hour:          parseInt(document.getElementById('home-latest').value),
-      aa_enabled:                document.getElementById('aa-enabled').checked,
-      aa_earliest_hour:          parseInt(document.getElementById('aa-earliest').value),
-      aa_latest_hour:            parseInt(document.getElementById('aa-latest').value),
-      number_of_players:         parseInt(document.getElementById('num-players').value),
-      fallback_to_earliest:      true,
-    },
-    players: [
-      { slot_index: 1, first_name: document.getElementById('g1-first').value, last_name: document.getElementById('g1-last').value, phone: document.getElementById('g1-phone').value },
-    ].filter(p => p.first_name)
+      home_club_name: document.getElementById('home-club').value.trim(),
+      aa_enabled:     document.getElementById('aa-enabled').checked,
+      aa_clubs:       document.getElementById('aa-clubs')?.value.trim() || '',
+    }
   };
 
   try {
-    // POST to your Node server's /api/signup endpoint
     const res = await fetch('/api/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -534,20 +391,15 @@ async function submitSignup() {
     } else {
       const err = await res.json().catch(() => ({}));
       alert('Signup failed: ' + (err.message || res.statusText));
-      btn.textContent = '✅ Confirm & Activate Agent';
+      btn.textContent = '✅ Confirm & Get Started';
       btn.disabled = false;
     }
   } catch (e) {
     alert('Network error: ' + e.message);
-    btn.textContent = '✅ Confirm & Activate Agent';
+    btn.textContent = '✅ Confirm & Get Started';
     btn.disabled = false;
   }
 }
-
-// Update guest visibility when player count changes
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('num-players')?.addEventListener('change', updateGuestVisibility);
-});
 </script>
 </body>
 </html>

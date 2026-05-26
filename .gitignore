@@ -22,3 +22,15 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Debug / dev artifacts
+debug-*.html
+debug-*.json
+debug-ajax.js
+session.json
+agent-state.json
+history.js
+powerbi.js
+diagnose.js
+ga-club-ids.json
+availability.json

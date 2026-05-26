@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ClubCompanion — Never Miss a Tee Time Again</title>
+<meta name="description" content="ClubCompanion watches Invited Clubs for you. Real-time tee time availability across all your clubs, plus a text message agent that answers questions instantly." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1f3b2d;
+    --forest-deep: #14271d;
+    --forest-mid: #2d5a3f;
+    --gold: #c89b3c;
+    --gold-light: #e8c46a;
+    --cream: #f4efe6;
+    --cream-dark: #ede7db;
+    --ink: #1a1a1a;
+    --muted: #6b6357;
+    --border: rgba(31,59,45,0.12);
+    --white: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); line-height: 1.6; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(20,39,29,0.96); backdrop-filter: blur(12px);
+    padding: 0 40px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: 'Fraunces', serif; color: var(--gold); font-size: 1.25rem; letter-spacing: -0.01em; text-decoration: none; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta {
+    background: var(--gold); color: #fff; padding: 9px 20px;
+    border-radius: 6px; font-size: 14px; font-weight: 600;
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.9; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--forest-deep);
+    padding: 140px 40px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(200,155,60,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,155,60,0.15); border: 1px solid rgba(200,155,60,0.3);
+    color: var(--gold-light); font-size: 12px; font-weight: 600;
+    padding: 6px 16px; border-radius: 100px; margin-bottom: 28px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.15;
+    max-width: 780px;
+    margin: 0 auto 24px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero p {
+    font-size: 1.1rem; color: rgba(255,255,255,0.65);
+    max-width: 520px; margin: 0 auto 44px; line-height: 1.75;
+  }
+  .hero-actions { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .btn-hero {
+    background: var(--gold); color: #fff;
+    padding: 14px 32px; border-radius: 8px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-hero:hover { background: var(--gold-light); color: var(--ink); }
+  .btn-ghost-hero {
+    color: rgba(255,255,255,0.7); font-size: 14px;
+    text-decoration: none; display: flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .btn-ghost-hero:hover { color: #fff; }
+  .hero-sub {
+    margin-top: 60px; font-size: 12px;
+    color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .club-logos {
+    display: flex; align-items: center; justify-content: center;
+    gap: 32px; margin-top: 16px; flex-wrap: wrap;
+  }
+  .club-logo-item { color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 500; }
+
+  /* ── PHONE MOCKUP ── */
+  .mockup-section {
+    background: var(--cream); padding: 80px 40px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .section-label {
+    font-size: 12px; color: var(--gold); font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--forest-deep); text-align: center; max-width: 580px;
+    margin: 0 auto 16px; font-weight: 400; letter-spacing: -0.01em;
+  }
+  .section-subtitle {
+    font-size: 16px; color: var(--muted); text-align: center;
+    max-width: 480px; margin: 0 auto 56px; line-height: 1.7;
+  }
+
+  .sms-thread {
+    background: #fff; border-radius: 20px; padding: 24px;
+    max-width: 360px; width: 100%;
+    box-shadow: 0 4px 32px rgba(31,59,45,0.10);
+    border: 1px solid var(--border);
+  }
+  .sms-header {
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 16px; margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sms-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--forest); display: flex; align-items: center;
+    justify-content: center; font-size: 16px;
+  }
+  .sms-contact { font-size: 14px; font-weight: 600; }
+  .sms-contact span { font-size: 12px; color: var(--muted); font-weight: 400; display: block; }
+  .msg { margin-bottom: 12px; display: flex; flex-direction: column; }
+  .msg.incoming { align-items: flex-start; }
+  .msg.outgoing { align-items: flex-end; }
+  .bubble {
+    padding: 10px 14px; border-radius: 16px; font-size: 13.5px; line-height: 1.5;
+    max-width: 85%;
+  }
+  .msg.incoming .bubble { background: #f0f0f0; color: var(--ink); border-bottom-left-radius: 4px; }
+  .msg.outgoing .bubble { background: var(--forest); color: #fff; border-bottom-right-radius: 4px; }
+  .msg-time { font-size: 10px; color: #bbb; margin-top: 3px; padding: 0 4px; }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { padding: 80px 40px; background: #fff; }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 32px; max-width: 960px; margin: 0 auto;
+  }
+  .step-card { text-align: center; padding: 32px 24px; }
+  .step-num-badge {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(31,59,45,0.08); color: var(--forest);
+    font-family: 'Fraunces', serif; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .step-card h3 { font-size: 15px; font-weight: 600; color: var(--forest-deep); margin-bottom: 10px; }
+  .step-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+  /* ── FEATURES ── */
+  .features-section { padding: 80px 40px; background: var(--cream); }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px; max-width: 960px; margin: 0 auto;
+  }
+  .feature-card {
+    background: #fff; border-radius: 12px; padding: 28px;
+    border: 1px solid var(--border);
+  }
+  .feature-icon { font-size: 24px; margin-bottom: 14px; }
+  .feature-card h3 { font-size: 15px; font-weight: 600; color: var(--forest-deep); margin-bottom: 8px; }
+  .feature-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+  .feature-tag {
+    display: inline-block; margin-top: 12px;
+    background: #f0f7f0; color: var(--forest-mid); border-radius: 4px;
+    font-size: 11px; font-weight: 600; padding: 3px 8px; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .feature-tag.soon { background: #fdf5e6; color: #b87c10; }
+
+  /* ── PRICING ── */
+  .pricing-section { padding: 80px 40px; background: #fff; }
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px; max-width: 820px; margin: 0 auto;
+  }
+  .pricing-card {
+    border: 1.5px solid var(--border); border-radius: 12px; padding: 32px 28px;
+    position: relative; transition: border-color 0.2s;
+  }
+  .pricing-card.featured { border-color: var(--gold); }
+  .pricing-badge {
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: #fff; font-size: 11px; font-weight: 700;
+    padding: 4px 14px; border-radius: 100px; letter-spacing: 0.04em; white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .pricing-name { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 12px; }
+  .pricing-price { font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--forest-deep); line-height: 1; }
+  .pricing-price span { font-size: 14px; font-family: 'Inter', sans-serif; color: var(--muted); font-weight: 400; }
+  .pricing-desc { font-size: 13px; color: var(--muted); margin: 12px 0 20px; line-height: 1.6; }
+  .pricing-features { list-style: none; font-size: 13.5px; color: var(--ink); }
+  .pricing-features li { padding: 6px 0; display: flex; align-items: flex-start; gap: 8px; }
+  .pricing-features li::before { content: '✓'; color: var(--forest-mid); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .pricing-cta {
+    display: block; text-align: center; margin-top: 28px;
+    background: var(--forest); color: #fff;
+    padding: 12px 20px; border-radius: 8px;
+    text-decoration: none; font-size: 14px; font-weight: 600;
+    transition: background 0.2s;
+  }
+  .pricing-cta:hover { background: var(--forest-deep); }
+  .pricing-card.featured .pricing-cta { background: var(--gold); }
+  .pricing-card.featured .pricing-cta:hover { opacity: 0.9; }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: var(--forest-deep); padding: 80px 40px; text-align: center;
+  }
+  .cta-band h2 {
+    font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: #fff; max-width: 560px; margin: 0 auto 20px;
+    font-weight: 400; letter-spacing: -0.01em;
+  }
+  .cta-band p { color: rgba(255,255,255,0.55); font-size: 15px; margin-bottom: 36px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--forest-deep); border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { font-family: 'Fraunces', serif; color: var(--gold); font-size: 1.1rem; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.4); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-copy { color: rgba(255,255,255,0.25); font-size: 12px; width: 100%; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">⛳ ClubCompanion</a>
+  <div class="nav-links">
+    <a href="#how-it-works">How it works</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="/signup" class="nav-cta">Get started</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-badge">⛳ For Invited Clubs Members</div>
+  <h1>Never wonder if there's a<br><em>tee time available.</em></h1>
+  <p>ClubCompanion watches availability across all your Invited Clubs in real time and puts the answer right in your pocket — just text and ask.</p>
+  <div class="hero-actions">
+    <a href="/signup" class="btn-hero">Start your free trial →</a>
+    <a href="#how-it-works" class="btn-ghost-hero">See how it works ↓</a>
+  </div>
+  <p class="hero-sub">Works with all Invited Clubs member clubs</p>
+  <div class="club-logos">
+    <span class="club-logo-item">Atlanta National</span>
+    <span class="club-logo-item">Laurel Springs</span>
+    <span class="club-logo-item">Eagle Watch</span>
+    <span class="club-logo-item">+ 200 more clubs</span>
+  </div>
+</section>
+
+<!-- ── SMS DEMO ── -->
+<section class="mockup-section" id="sms-demo">
+  <div class="section-label">Text to ask</div>
+  <h2 class="section-title">Your clubs, always in your pocket</h2>
+  <p class="section-subtitle">Text a natural question and get a real answer in seconds. No app, no login, no scrolling.</p>
+
+  <div class="sms-thread">
+    <div class="sms-header">
+      <div class="sms-avatar">⛳</div>
+      <div class="sms-contact">ClubCompanion<span>Your tee time assistant</span></div>
+    </div>
+    <div class="msg incoming">
+      <div class="bubble">What times are available at Atlanta National this Saturday morning?</div>
+      <div class="msg-time">You</div>
+    </div>
+    <div class="msg outgoing">
+      <div class="bubble">Tee times for Sat, May 31:<br><br>⛳ Atlanta National:<br>&nbsp;&nbsp;7:12am(4) 7:24am(2) 7:48am(4)<br>&nbsp;&nbsp;8:00am(3) 8:36am(4)<br><br>Reply with a club name for more details.</div>
+      <div class="msg-time">ClubCompanion</div>
+    </div>
+    <div class="msg incoming">
+      <div class="bubble">Any times at Laurel Springs on Sunday?</div>
+      <div class="msg-time">You</div>
+    </div>
+    <div class="msg outgoing">
+      <div class="bubble">Tee times for Sun, Jun 1:<br><br>⛳ Laurel Springs:<br>&nbsp;&nbsp;8:06am(4) 8:30am(2) 9:12am(4)<br><br>Reply with a club name for more details.</div>
+      <div class="msg-time">ClubCompanion</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="how-section" id="how-it-works">
+  <div class="section-label" style="text-align:center;">Simple setup</div>
+  <h2 class="section-title" style="text-align:center;">Up and running in 5 minutes</h2>
+  <p class="section-subtitle">No technical setup. Just connect your Invited Clubs account and you're done.</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num-badge">1</div>
+      <h3>Sign up</h3>
+      <p>Create your ClubCompanion account and enter your Invited Clubs member credentials. Takes about 5 minutes.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">2</div>
+      <h3>We connect to your clubs</h3>
+      <p>ClubCompanion securely logs into the Invited Clubs portal and checks availability across your clubs every 15 minutes.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">3</div>
+      <h3>Text to ask anything</h3>
+      <p>Just text a natural question — "any times Saturday morning at Eagle Watch?" — and get a real answer back instantly.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num-badge">4</div>
+      <h3>Check your dashboard</h3>
+      <p>Log into your member dashboard to see a live view of availability across all your clubs, updated in real time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section class="features-section" id="features">
+  <div class="section-label" style="text-align:center;">What's included</div>
+  <h2 class="section-title">Everything you need to always know what's open</h2>
+  <p class="section-subtitle"></p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <h3>SMS Tee Time Agent</h3>
+      <p>Text any question about availability in plain English. Which clubs have morning times this weekend? How many spots at Laurel Springs Saturday? We've got the answer.</p>
+      <span class="feature-tag">Live now</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Availability Dashboard</h3>
+      <p>A live member dashboard showing open tee times across all your clubs in one place — no logging into the portal, no hunting around.</p>
+      <span class="feature-tag">Live now</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔄</div>
+      <h3>Real-Time Checks</h3>
+      <p>We check the Invited Clubs portal every 15 minutes so your data is always fresh. Availability changes fast — we keep up.</p>
+      <span class="feature-tag">Live now</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <h3>Auto-Booking Agent</h3>
+      <p>Set your preferences once — club, time window, players — and we book the moment a slot opens. Early-morning booking windows handled automatically.</p>
+      <span class="feature-tag soon">Coming soon</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <h3>Bank-Level Security</h3>
+      <p>Your portal credentials are encrypted with AES-256-GCM before storage. They're never logged, never shared, never stored in plain text.</p>
+      <span class="feature-tag">Live now</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <h3>Instant SMS Alerts</h3>
+      <p>Get a text the moment your preferred time slot becomes available. No app required — just your phone number.</p>
+      <span class="feature-tag soon">Coming soon</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section class="pricing-section" id="pricing">
+  <div class="section-label" style="text-align:center;">Pricing</div>
+  <h2 class="section-title" style="text-align:center;">Simple, flat monthly pricing</h2>
+  <p class="section-subtitle">No contracts. Cancel anytime. 14-day free trial included.</p>
+
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-name">Starter</div>
+      <div class="pricing-price">$49<span>/mo</span></div>
+      <div class="pricing-desc">Perfect for a single member at one home club.</div>
+      <ul class="pricing-features">
+        <li>1 home club monitored</li>
+        <li>SMS tee time agent</li>
+        <li>Availability dashboard</li>
+        <li>15-min availability checks</li>
+        <li>Up to 2 players</li>
+      </ul>
+      <a href="/signup?plan=starter" class="pricing-cta">Start free trial</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Most Popular</div>
+      <div class="pricing-name">Member</div>
+      <div class="pricing-price">$99<span>/mo</span></div>
+      <div class="pricing-desc">Home club + Access Advantage. The full experience.</div>
+      <ul class="pricing-features">
+        <li>Home + Access Advantage clubs</li>
+        <li>SMS tee time agent</li>
+        <li>Availability dashboard</li>
+        <li>15-min availability checks</li>
+        <li>Up to 4 players</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="/signup?plan=member" class="pricing-cta">Start free trial</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-name">Concierge</div>
+      <div class="pricing-price">$199<span>/mo</span></div>
+      <div class="pricing-desc">For serious golfers and multi-member households.</div>
+      <ul class="pricing-features">
+        <li>All Member features</li>
+        <li>Multiple Invited Clubs accounts</li>
+        <li>Travel club monitoring</li>
+        <li>Direct phone support</li>
+        <li>Early access to auto-booking</li>
+      </ul>
+      <a href="/signup?plan=concierge" class="pricing-cta">Start free trial</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA BAND ── -->
+<section class="cta-band">
+  <h2>Ready to stop checking the portal manually?</h2>
+  <p>Join the waitlist and get 30 days free when we launch.</p>
+  <a href="/signup" class="btn-hero">Create your account →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">⛳ ClubCompanion</div>
+  <div class="footer-links">
+    <a href="#how-it-works">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="/signup">Sign up</a>
+    <a href="mailto:support@clubcompanion.ai">support@clubcompanion.ai</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+  <div class="footer-copy">© 2026 ClubCompanion. Not affiliated with Invited Clubs or ClubCorp.</div>
+</footer>
+
+</body>
+</html>
