@@ -23,7 +23,7 @@ const ask = (q) => new Promise(res => rl.question(q, res));
 
 async function main() {
   console.log('\n╔══════════════════════════════════════╗');
-  console.log('║  Club Concierge — Onboard New User   ║');
+  console.log('║  ClubCompanion — Onboard New User   ║');
   console.log('╚══════════════════════════════════════╝\n');
 
   const email    = await ask('Email: ');

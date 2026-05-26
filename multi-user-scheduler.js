@@ -1,5 +1,5 @@
 /**
- * multi-user-scheduler.js — Production scheduler for all Club Concierge users
+ * multi-user-scheduler.js — Production scheduler for all ClubCompanion users
  *
  * This is the main entry point for the cloud server. It runs continuously,
  * waking up on a configurable interval to:
@@ -205,7 +205,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  log(`✅ Club Concierge scheduler started on port ${PORT}`);
+  log(`✅ ClubCompanion scheduler started on port ${PORT}`);
   log(`   Availability checks: every ${AVAILABILITY_INTERVAL_MIN} min`);
   log(`   Booking window:      every ${BOOKING_DAY_INTERVAL_MIN} min (Sun/Mon 7–8am)`);
   log(`   Max concurrent:      ${MAX_CONCURRENT_USERS} users`);

@@ -1,4 +1,4 @@
-# ⛳ Club Concierge Agent
+# ⛳ ClubCompanion Agent
 
 Automated tee time booking for Invited Clubs members. The agent watches the member portal 24/7, books your preferred Saturday (and optionally Sunday Access Advantage) tee times the moment they open — for every paying subscriber.
 
@@ -49,7 +49,7 @@ npx playwright install chromium
 ### 2. Create your Supabase project
 
 1. Go to supabase.com → New Project
-2. Name: club-concierge · Region: US East · Generate a strong password
+2. Name: clubcompanion · Region: US East · Generate a strong password
 3. Wait ~2 minutes for provisioning
 4. Go to SQL Editor → New Query → paste entire contents of db/schema.sql → Run
 5. Go to Settings → API → copy Project URL and service_role key
@@ -96,7 +96,7 @@ Visit:
 
 ```bash
 git init && git add . && git commit -m "Initial commit"
-git remote add origin https://github.com/YOUR_USERNAME/club-concierge-agent.git
+git remote add origin https://github.com/YOUR_USERNAME/clubcompanion-agent.git
 git push -u origin main
 ```
 
@@ -118,7 +118,7 @@ git push -u origin main
 
 ### 4. Point domain at Railway
 
-In Cloudflare DNS: add CNAME api.clubconcierge.com → your Railway URL
+In Cloudflare DNS: add CNAME api.clubcompanion.ai → your Railway URL
 
 ---
 
@@ -171,4 +171,4 @@ In Cloudflare DNS: add CNAME api.clubconcierge.com → your Railway URL
 
 ---
 
-Club Concierge · rdevulapalli97@gmail.com · clubconcierge.com
+ClubCompanion · rdevulapalli97@gmail.com · clubcompanion.ai

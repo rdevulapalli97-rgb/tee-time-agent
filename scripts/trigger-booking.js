@@ -37,7 +37,7 @@ async function main() {
     : nextUpcomingDay('Saturday');
 
   console.log('\n╔══════════════════════════════════════╗');
-  console.log('║  Club Concierge — Manual Booking Run  ║');
+  console.log('║  ClubCompanion — Manual Booking Run  ║');
   console.log('╚══════════════════════════════════════╝\n');
   console.log(`  Target date: ${targetDate}\n`);
 

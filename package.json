@@ -1,7 +1,7 @@
 {
-  "name": "club-concierge-agent",
+  "name": "clubcompanion-agent",
   "version": "2.0.0",
-  "description": "Club Concierge — multi-tenant tee time booking agent for Invited Clubs members",
+  "description": "ClubCompanion — multi-tenant tee time booking agent for Invited Clubs members",
   "main": "multi-user-scheduler.js",
   "private": true,
   "engines": {

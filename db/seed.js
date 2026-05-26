@@ -19,7 +19,7 @@ const { packCredentials, selfTest } = require('../lib/encrypt');
 
 async function seed() {
   console.log('\n╔══════════════════════════════════════╗');
-  console.log('║   Club Concierge — Database Seed     ║');
+  console.log('║   ClubCompanion — Database Seed     ║');
   console.log('╚══════════════════════════════════════╝\n');
 
   // Verify encryption is working before writing anything

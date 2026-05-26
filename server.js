@@ -1,5 +1,5 @@
 /**
- * server.js — Club Concierge API Server
+ * server.js — ClubCompanion API Server
  *
  * Handles:
  *   POST /api/signup          — receives signup form, encrypts creds, writes to Supabase
@@ -64,7 +64,7 @@ function checkAdminAuth(req, res) {
   const [u, p] = Buffer.from(b64, 'base64').toString().split(':');
   if (u === adminUser && p === adminPass) return true;
 
-  res.writeHead(401, { 'WWW-Authenticate': 'Basic realm="Club Concierge Admin"' });
+  res.writeHead(401, { 'WWW-Authenticate': 'Basic realm="ClubCompanion Admin"' });
   res.end('Unauthorized');
   return false;
 }
@@ -99,7 +99,7 @@ async function handleSignup(req, res) {
   // Check for duplicate email
   const { data: existing } = await db.getUserByEmail(email).catch(() => ({ data: null }));
   if (existing) {
-    return json(res, 409, { message: 'An account with this email already exists. Contact support@clubconcierge.com.' });
+    return json(res, 409, { message: 'An account with this email already exists. Contact support@clubcompanion.ai.' });
   }
 
   try {
@@ -133,7 +133,7 @@ async function handleSignup(req, res) {
   } catch (err) {
     console.error('[api] Signup error:', err.message);
     // Don't leak internal errors to client
-    return json(res, 500, { message: 'Signup failed. Please try again or email support@clubconcierge.com.' });
+    return json(res, 500, { message: 'Signup failed. Please try again or email support@clubcompanion.ai.' });
   }
 }
 
@@ -195,7 +195,7 @@ async function handleHealth(res) {
   const { data: users } = await db.getAllActiveUsers().catch(() => ({ data: [] }));
   json(res, 200, {
     status:       'ok',
-    service:      'club-concierge-api',
+    service:      'clubcompanion-api',
     active_users: (users || []).length,
     timestamp:    new Date().toISOString()
   });
@@ -261,7 +261,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n[server] Club Concierge API running on port ${PORT}`);
+  console.log(`\n[server] ClubCompanion API running on port ${PORT}`);
   console.log(`  POST /api/signup`);
   console.log(`  POST /api/stripe-webhook`);
   console.log(`  GET  /health`);

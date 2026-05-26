@@ -1,5 +1,5 @@
 -- ============================================================
---  Club Concierge — Supabase Schema
+--  ClubCompanion — Supabase Schema
 --  Run this in your Supabase project → SQL Editor → New Query
 -- ============================================================
 
@@ -8,7 +8,7 @@ create extension if not exists "pgcrypto";
 create extension if not exists "uuid-ossp";
 
 -- ─── USERS ───────────────────────────────────────────────────
--- One row per Club Concierge subscriber
+-- One row per ClubCompanion subscriber
 create table if not exists users (
   id            uuid primary key default uuid_generate_v4(),
   email         text unique not null,
@@ -24,7 +24,7 @@ create table if not exists users (
   updated_at    timestamptz not null default now()
 );
 
-comment on table users is 'Club Concierge subscribers — one row per paying member';
+comment on table users is 'ClubCompanion subscribers — one row per paying member';
 
 -- ─── CREDENTIALS ─────────────────────────────────────────────
 -- Encrypted portal login credentials, one row per portal per user

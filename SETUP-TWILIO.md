@@ -1,6 +1,6 @@
 # Twilio SMS Setup Guide
 
-This guide gets the Club Concierge SMS agent working in about 10 minutes.
+This guide gets the ClubCompanion SMS agent working in about 10 minutes.
 After setup, you can text your Twilio number things like:
 
 > "What tee times are available at Atlanta National this weekend?"
@@ -55,7 +55,7 @@ the SMS webhook doesn't need.)
 
 ## Step 5 — Point Twilio at your Railway URL
 
-1. In Railway, find your deployment URL (e.g. `https://club-concierge.up.railway.app`)
+1. In Railway, find your deployment URL (e.g. `https://clubcompanion.up.railway.app`)
 2. In Twilio Console, go to **Phone Numbers → Manage → Active numbers**
 3. Click your number
 4. Under **Messaging Configuration**, find **"A message comes in"**

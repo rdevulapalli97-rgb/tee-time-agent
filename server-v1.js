@@ -1,5 +1,5 @@
 /**
- * server-v1.js — Club Concierge MVP Server
+ * server-v1.js — ClubCompanion MVP Server
  *
  * Lightweight single-user server. No Supabase. No Stripe. Just:
  *   GET  /              → dashboard.html (tee time UI)
@@ -230,7 +230,7 @@ async function handleHealth(res) {
 
   json(res, 200, {
     status:       'ok',
-    service:      'club-concierge-v1',
+    service:      'clubcompanion-v1',
     hasData,
     dataAge,
     slotCount,
@@ -288,7 +288,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n[server] Club Concierge v1 running on port ${PORT}`);
+  console.log(`\n[server] ClubCompanion v1 running on port ${PORT}`);
   console.log(`  GET  /                → dashboard`);
   console.log(`  GET  /availability.json  → tee time data`);
   console.log(`  POST /sms             → Twilio SMS webhook`);
